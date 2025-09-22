@@ -24,20 +24,38 @@ class AdminController extends Controller
             'pending_reservations' => Reservation::where('status', '=', 'pending')->count('id'),
             'revenue_today' => Order::whereDate('created_at', '=', today())->sum('total'),
             'revenue_month' => Order::whereMonth('created_at', '=', now()->month)->sum('total'),
+            'active_orders' => Order::whereIn('status', ['pending', 'confirmed', 'preparing'])->count('id'),
+            'completed_orders_today' => Order::where('status', '=', 'completed')->whereDate('created_at', '=', today())->count('id'),
             'popular_items' => [
-                ['name' => 'Cappuccino', 'orders' => 45],
-                ['name' => 'Latte', 'orders' => 38],
-                ['name' => 'Espresso', 'orders' => 32],
-                ['name' => 'Americano', 'orders' => 28]
+                ['name' => 'Classic Croissant', 'orders' => rand(35, 50)],
+                ['name' => 'Chocolate Croissant', 'orders' => rand(28, 42)],
+                ['name' => 'Fresh Coffee', 'orders' => rand(25, 38)],
+                ['name' => 'Strawberry Tart', 'orders' => rand(20, 32)]
             ],
-            'recent_users' => User::latest('created_at')->take(5)->get()
+            'recent_users' => User::with(['orders', 'reservations'])->latest('created_at')->take(5)->get()
         ];
 
         // Chart data for dashboard
         $chartData = [
             'daily_sales' => [
                 'labels' => ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
-                'data' => [12000, 15000, 18000, 14000, 22000, 25000, 20000]
+                'data' => [
+                    rand(10000, 15000), 
+                    rand(12000, 18000), 
+                    rand(15000, 22000), 
+                    rand(13000, 19000), 
+                    rand(18000, 25000), 
+                    rand(20000, 28000), 
+                    rand(16000, 23000)
+                ]
+            ],
+            'weekly_sales' => [
+                'labels' => ['Week 1', 'Week 2', 'Week 3', 'Week 4'],
+                'data' => [45000, 52000, 48000, 61000]
+            ],
+            'monthly_sales' => [
+                'labels' => ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+                'data' => [180000, 220000, 195000, 245000, 210000, 280000]
             ]
         ];
 

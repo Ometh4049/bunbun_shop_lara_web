@@ -158,6 +158,28 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(fun
     Route::get('/analytics', [AdminController::class, 'analytics'])->name('analytics');
     Route::get('/settings', [AdminController::class, 'settings'])->name('settings');
 
+    // Real-time API endpoints for admin dashboard
+    Route::get('/api/user-stats', function () {
+        $stats = [
+            'total_users' => \App\Models\User::count(),
+            'active_users' => \App\Models\User::whereNotNull('email_verified_at')->count(),
+            'admin_users' => \App\Models\User::where('is_admin', true)->count(),
+            'recent_activity' => \App\Models\User::where('updated_at', '>', now()->subHours(24))->count(),
+            'new_users_today' => \App\Models\User::whereDate('created_at', today())->count(),
+        ];
+        
+        $activity = [
+            'recent_logins' => \App\Models\User::where('updated_at', '>', now()->subMinutes(5))->pluck('id'),
+            'new_registrations' => \App\Models\User::whereDate('created_at', today())->latest()->take(5)->get(),
+        ];
+        
+        return response()->json([
+            'success' => true,
+            'stats' => $stats,
+            'activity' => $activity,
+            'timestamp' => now()->toISOString()
+        ]);
+    })->name('api.user-stats');
     // Product management routes
     Route::resource('products', \App\Http\Controllers\ProductController::class);
     Route::patch('/products/{product}/toggle-status', [\App\Http\Controllers\ProductController::class, 'toggleStatus'])->name('products.toggle-status');

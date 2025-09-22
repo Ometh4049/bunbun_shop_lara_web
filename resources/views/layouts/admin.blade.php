@@ -42,6 +42,7 @@
 
         .sidebar {
             background: linear-gradient(135deg, var(--bakery-primary), var(--bakery-secondary));
+            box-shadow: 2px 0 10px rgba(0,0,0,0.1);
             min-height: 100vh;
             width: 280px;
             position: fixed;
@@ -51,19 +52,35 @@
             transition: all 0.3s ease;
         }
 
+        .sidebar::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="80" cy="30" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="40" cy="70" r="1" fill="rgba(255,255,255,0.1)"/></svg>') repeat;
+            opacity: 0.3;
+            pointer-events: none;
+        }
         .sidebar-brand {
             padding: 1.5rem;
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+            z-index: 2;
         }
 
         .sidebar-brand h4 {
             color: white;
             margin: 0;
             font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
         }
 
         .sidebar-nav {
             padding: 1rem 0;
+            position: relative;
+            z-index: 2;
         }
 
         .nav-link {
@@ -75,37 +92,50 @@
             text-decoration: none;
             display: flex;
             align-items: center;
+            backdrop-filter: blur(10px);
+            border: 1px solid transparent;
         }
 
         .nav-link:hover,
         .nav-link.active {
-            background: rgba(255, 255, 255, 0.1);
+            background: rgba(255, 255, 255, 0.15);
+            border-color: rgba(255, 255, 255, 0.2);
             color: white !important;
             transform: translateX(5px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
         }
 
         .nav-link i {
             width: 20px;
             margin-right: 0.75rem;
+            transition: all 0.3s ease;
+        }
+
+        .nav-link:hover i {
+            transform: scale(1.1);
         }
 
         .main-content {
             margin-left: 280px;
             min-height: 100vh;
             transition: all 0.3s ease;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
         }
 
         .top-navbar {
             background: white;
-            border-bottom: 1px solid #e9ecef;
+            border-bottom: 2px solid var(--bakery-primary);
             padding: 1rem 2rem;
             position: sticky;
             top: 0;
             z-index: 999;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            backdrop-filter: blur(10px);
         }
 
         .content-area {
             padding: 2rem;
+            position: relative;
         }
 
         .stat-icon {
@@ -117,6 +147,11 @@
             justify-content: center;
             color: white;
             font-size: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .stat-card:hover .stat-icon {
+            transform: scale(1.1) rotate(5deg);
         }
 
         .btn-bakery {
@@ -126,12 +161,40 @@
             font-weight: 600;
             border-radius: 10px;
             transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(212, 165, 116, 0.3);
         }
 
         .btn-bakery:hover {
             transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(212, 165, 116, 0.3);
+            box-shadow: 0 8px 20px rgba(212, 165, 116, 0.4);
             color: white;
+        }
+
+        .stat-card {
+            transition: all 0.3s ease;
+            border: 1px solid rgba(212, 165, 116, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stat-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(212, 165, 116, 0.1), transparent);
+            transition: all 0.6s;
+        }
+
+        .stat-card:hover::before {
+            left: 100%;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(212, 165, 116, 0.2) !important;
         }
 
         .text-bakery {
@@ -140,6 +203,34 @@
 
         .text-gray-800 {
             color: #2d3748 !important;
+        }
+
+        /* Real-time indicators */
+        .live-indicator {
+            position: relative;
+        }
+
+        .live-indicator::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            right: -15px;
+            width: 8px;
+            height: 8px;
+            background: #28a745;
+            border-radius: 50%;
+            animation: livePulse 2s infinite;
+        }
+
+        @keyframes livePulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(1.2); }
+        }
+
+        /* Enhanced notification styles */
+        .notification-toast {
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
         }
 
         /* Chart container fixes */
@@ -155,7 +246,7 @@
 
         /* Ensure charts are properly sized */
         .chart-container {
-            position: relative;
+            min-height: 350px;
             width: 100%;
             height: 300px;
         }
@@ -186,6 +277,14 @@
     <!-- Sidebar -->
     <nav class="sidebar">
         <div class="sidebar-brand">
+
+            .content-area {
+                padding: 1rem;
+            }
+
+            .top-navbar {
+                padding: 0.75rem 1rem;
+            }
             <h4><i class="bi bi-shop me-2"></i>Sweet Delights</h4>
             <small class="text-white-50">Admin Dashboard</small>
         </div>
