@@ -1,102 +1,116 @@
 <x-guest-layout>
-    <div class="container-fluid min-vh-100">
-        <div class="row min-vh-100">
-            <!-- Left Side - Coffee Hero Content -->
-            <div class="col-lg-6 d-none d-lg-block login-hero">
-                <div class="hero-content h-100 d-flex align-items-center justify-content-center">
-                    <div class="text-center text-white">
-                        <div class="hero-animation mb-4">
-                            <div class="coffee-cup-animation">
-                                <i class="bi bi-cup-hot-fill" style="font-size: 6rem;"></i>
-                                <div class="steam steam1"></div>
-                                <div class="steam steam2"></div>
-                                <div class="steam steam3"></div>
+    <div class="auth-container">
+        <div class="auth-background"></div>
+        
+        <div class="container-fluid min-vh-100">
+            <div class="row min-vh-100">
+                <!-- Left Side - Hero Content -->
+                <div class="col-lg-6 d-none d-lg-flex auth-hero">
+                    <div class="hero-content">
+                        <div class="hero-animation mb-5">
+                            <div class="floating-elements">
+                                <div class="floating-item item-1">
+                                    <i class="bi bi-cake2-fill"></i>
+                                </div>
+                                <div class="floating-item item-2">
+                                    <i class="bi bi-cup-hot-fill"></i>
+                                </div>
+                                <div class="floating-item item-3">
+                                    <i class="bi bi-heart-fill"></i>
+                                </div>
+                            </div>
+                            <div class="main-icon">
+                                <i class="bi bi-shop"></i>
                             </div>
                         </div>
-                        <h1 class="display-4 fw-bold mb-4">Welcome Back!</h1>
-                        <p class="lead mb-4">Your favorite coffee is waiting for you. Sign in to continue your coffee journey with us.</p>
-
-                        <!-- Customer Reviews -->
-                        <div class="review-section mt-5">
-                            <h5 class="mb-3">What our customers say:</h5>
-                            <div class="review-carousel">
-                                <div class="review-item active">
-                                    <div class="stars mb-2">
-                                        <i class="bi bi-star-fill text-warning"></i>
-                                        <i class="bi bi-star-fill text-warning"></i>
-                                        <i class="bi bi-star-fill text-warning"></i>
-                                        <i class="bi bi-star-fill text-warning"></i>
-                                        <i class="bi bi-star-fill text-warning"></i>
-                                    </div>
-                                    <p class="fst-italic">"Best pastries in town! The atmosphere is perfect."</p>
-                                    <small>- Nirodha.</small>
-                                </div>
+                        
+                        <h1 class="hero-title">Welcome Back to Sweet Delights</h1>
+                        <p class="hero-subtitle">Your favorite bakery awaits. Sign in to continue your sweet journey with us.</p>
+                        
+                        <div class="features-preview">
+                            <div class="feature-item">
+                                <i class="bi bi-star-fill"></i>
+                                <span>Loyalty Rewards</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="bi bi-calendar-check"></i>
+                                <span>Easy Reservations</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="bi bi-heart"></i>
+                                <span>Personalized Experience</span>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
 
-            <!-- Right Side - Login Form -->
-            <div class="col-lg-6 d-flex align-items-center justify-content-center py-5">
-                <div class="login-form-container">
-                    <div class="text-center mb-4">
-                        <div class="logo-container mb-3">
-                            <i class="bi bi-shop text-bakery pulse" style="font-size: 3rem;"></i>
+                <!-- Right Side - Login Form -->
+                <div class="col-lg-6 auth-form-section">
+                    <div class="auth-form-container">
+                        <div class="auth-header">
+                            <div class="auth-logo d-lg-none">
+                                <i class="bi bi-shop"></i>
+                                <span>Sweet Delights</span>
+                            </div>
+                            <h2 class="auth-title">Sign In</h2>
+                            <p class="auth-subtitle">Welcome back! Please sign in to your account</p>
                         </div>
-                        <h2 class="fw-bold text-bakery mb-2">Sign In</h2>
-                        <p class="text-muted">Welcome back to Sweet Delights Bakery</p>
-                    </div>
 
-                    <!-- Session Status -->
-                    @if (session('status'))
-                        <div class="alert alert-success alert-dismissible fade show" role="alert">
-                            <i class="bi bi-check-circle me-2"></i>
-                            {{ session('status') }}
-                            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-                        </div>
-                    @endif
+                        <!-- Session Status -->
+                        @if (session('status'))
+                            <div class="alert alert-success alert-modern" role="alert">
+                                <i class="bi bi-check-circle-fill me-2"></i>
+                                {{ session('status') }}
+                            </div>
+                        @endif
 
-                    <div class="card auth-card shadow-lg border-0">
-                        <div class="card-body p-4">
-                            <form method="POST" action="{{ route('login') }}" id="loginForm">
+                        <div class="auth-card">
+                            <form method="POST" action="{{ route('login') }}" id="loginForm" class="auth-form">
                                 @csrf
 
                                 <!-- Email Address -->
-                                <div class="mb-3">
-                                    <label for="email" class="form-label fw-semibold">
+                                <div class="form-group">
+                                    <label for="email" class="form-label">
                                         <i class="bi bi-envelope me-2"></i>Email Address
                                     </label>
-                                    <input id="email"
-                                           class="form-control form-control-lg @error('email') is-invalid @enderror"
-                                           type="email"
-                                           name="email"
-                                           value="{{ old('email') }}"
-                                           required
-                                           autofocus
-                                           autocomplete="username"
-                                           placeholder="Enter your email address">
-                                    @error('email')
-                                        <div class="invalid-feedback">
-                                            <i class="bi bi-exclamation-circle me-1"></i>{{ $message }}
+                                    <div class="input-wrapper">
+                                        <input id="email"
+                                               class="form-control @error('email') is-invalid @enderror"
+                                               type="email"
+                                               name="email"
+                                               value="{{ old('email') }}"
+                                               required
+                                               autofocus
+                                               autocomplete="username"
+                                               placeholder="Enter your email address">
+                                        <div class="input-icon">
+                                            <i class="bi bi-envelope"></i>
                                         </div>
-                                    @enderror
+                                        @error('email')
+                                            <div class="invalid-feedback">
+                                                <i class="bi bi-exclamation-circle me-1"></i>{{ $message }}
+                                            </div>
+                                        @enderror
+                                    </div>
                                 </div>
 
                                 <!-- Password -->
-                                <div class="mb-3">
-                                    <label for="password" class="form-label fw-semibold">
+                                <div class="form-group">
+                                    <label for="password" class="form-label">
                                         <i class="bi bi-lock me-2"></i>Password
                                     </label>
-                                    <div class="input-group">
+                                    <div class="input-wrapper">
                                         <input id="password"
-                                               class="form-control form-control-lg @error('password') is-invalid @enderror"
+                                               class="form-control @error('password') is-invalid @enderror"
                                                type="password"
                                                name="password"
                                                required
                                                autocomplete="current-password"
                                                placeholder="Enter your password">
-                                        <button class="btn btn-outline-secondary" type="button" id="togglePassword">
+                                        <div class="input-icon">
+                                            <i class="bi bi-lock"></i>
+                                        </div>
+                                        <button type="button" class="password-toggle" id="togglePassword">
                                             <i class="bi bi-eye" id="passwordIcon"></i>
                                         </button>
                                         @error('password')
@@ -108,66 +122,65 @@
                                 </div>
 
                                 <!-- Remember Me and Forgot Password -->
-                                <div class="d-flex justify-content-between align-items-center mb-4">
+                                <div class="form-options">
                                     <div class="form-check">
                                         <input id="remember_me" type="checkbox" class="form-check-input" name="remember">
                                         <label for="remember_me" class="form-check-label">
-                                            <i class="bi bi-heart me-1"></i>Remember me
+                                            Remember me
                                         </label>
                                     </div>
                                     @if (Route::has('password.request'))
-                                        <a class="text-bakery text-decoration-none fw-semibold" href="{{ route('password.request') }}">
-                                            <i class="bi bi-key me-1"></i>Forgot password?
+                                        <a class="forgot-password" href="{{ route('password.request') }}">
+                                            Forgot password?
                                         </a>
                                     @endif
                                 </div>
 
                                 <!-- Submit Button -->
-                                <div class="d-grid gap-2 mb-4">
-                                    <button type="submit" class="btn btn-bakery btn-lg" id="loginBtn">
+                                <button type="submit" class="btn-auth" id="loginBtn">
+                                    <span class="btn-content">
                                         <i class="bi bi-box-arrow-in-right me-2"></i>
-                                        <span class="btn-text">Sign In</span>
-                                        <span class="btn-loading d-none">
-                                            <span class="spinner-border spinner-border-sm me-2"></span>
-                                            Signing In...
-                                        </span>
-                                    </button>
+                                        Sign In
+                                    </span>
+                                    <span class="btn-loading">
+                                        <span class="spinner"></span>
+                                        Signing In...
+                                    </span>
+                                </button>
+
+                                <!-- Divider -->
+                                <div class="auth-divider">
+                                    <span>Or continue with</span>
                                 </div>
 
                                 <!-- Social Login -->
-                                <div class="text-center mb-3">
-                                    <div class="divider-with-text mb-3">
-                                        <span class="divider-text">Or continue with</span>
-                                    </div>
-                                    <div class="d-flex gap-2 justify-content-center">
-                                        <button type="button" class="btn btn-outline-danger flex-fill social-btn">
-                                            <i class="bi bi-google me-2"></i>Google
-                                        </button>
-                                        <button type="button" class="btn btn-outline-primary flex-fill social-btn">
-                                            <i class="bi bi-facebook me-2"></i>Facebook
-                                        </button>
-                                    </div>
+                                <div class="social-login">
+                                    <button type="button" class="social-btn google-btn">
+                                        <i class="bi bi-google"></i>
+                                        <span>Google</span>
+                                    </button>
+                                    <button type="button" class="social-btn facebook-btn">
+                                        <i class="bi bi-facebook"></i>
+                                        <span>Facebook</span>
+                                    </button>
                                 </div>
 
                                 <!-- Register Link -->
-                                <div class="text-center">
-                                    <p class="mb-0 text-muted">
-                                        Don't have an account?
-                                        <a href="{{ route('register') }}" class="text-bakery text-decoration-none fw-semibold">
-                                            <i class="bi bi-person-plus me-1"></i>Create one here
+                                <div class="auth-footer">
+                                    <p>Don't have an account? 
+                                        <a href="{{ route('register') }}" class="auth-link">
+                                            Create one here
                                         </a>
                                     </p>
                                 </div>
                             </form>
                         </div>
-                    </div>
 
-                    <!-- Security Info -->
-                    <div class="security-info text-center mt-4">
-                        <small class="text-muted">
-                            <i class="bi bi-shield-lock me-1"></i>
+                        <!-- Security Info -->
+                        <div class="security-info">
+                            <i class="bi bi-shield-lock me-2"></i>
                             Your information is secure and encrypted
-                        </small>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -176,50 +189,343 @@
 
     @push('styles')
     <style>
-        .login-form-container {
+        .auth-container {
+            position: relative;
+            min-height: 100vh;
+            overflow: hidden;
+        }
+
+        .auth-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, 
+                rgba(212, 165, 116, 0.1) 0%, 
+                rgba(244, 228, 193, 0.1) 50%, 
+                rgba(232, 180, 184, 0.1) 100%);
+            z-index: -1;
+        }
+
+        .auth-hero {
+            background: linear-gradient(135deg,
+                        rgba(212, 165, 116, 0.95),
+                        rgba(244, 228, 193, 0.9)),
+                        url('https://images.unsplash.com/photo-1517433670267-08bbd4be890f?w=1200&h=800&fit=crop') center/cover;
+            position: relative;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .auth-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.2);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            color: white;
+            padding: 3rem;
+            max-width: 500px;
+        }
+
+        .hero-animation {
+            position: relative;
+            margin-bottom: 3rem;
+        }
+
+        .floating-elements {
+            position: relative;
+            width: 200px;
+            height: 200px;
+            margin: 0 auto;
+        }
+
+        .floating-item {
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            color: white;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .item-1 {
+            top: 20px;
+            left: 20px;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .item-2 {
+            top: 20px;
+            right: 20px;
+            animation: float 3s ease-in-out infinite 1s;
+        }
+
+        .item-3 {
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: float 3s ease-in-out infinite 2s;
+        }
+
+        .main-icon {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(45deg, var(--bakery-primary), var(--bakery-secondary));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            color: white;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        .hero-title {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .hero-subtitle {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            line-height: 1.6;
+        }
+
+        .features-preview {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 1rem;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .feature-item:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateX(10px);
+        }
+
+        .feature-item i {
+            font-size: 1.5rem;
+            color: #FFD700;
+        }
+
+        .auth-form-section {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+        }
+
+        .auth-form-container {
             width: 100%;
             max-width: 450px;
         }
 
+        .auth-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .auth-logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-bottom: 2rem;
+            color: var(--bakery-primary);
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .auth-logo i {
+            font-size: 2rem;
+        }
+
+        .auth-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--bakery-primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .auth-subtitle {
+            color: #6c757d;
+            font-size: 1rem;
+            margin-bottom: 0;
+        }
+
         .auth-card {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            border-radius: 20px;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(20px);
+            border-radius: 25px;
+            padding: 2.5rem;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
         }
 
-        .form-control-lg {
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-label {
+            font-weight: 600;
+            color: var(--bakery-primary);
+            margin-bottom: 0.75rem;
+            font-size: 0.95rem;
+        }
+
+        .input-wrapper {
+            position: relative;
+        }
+
+        .form-control {
+            background: rgba(255, 255, 255, 0.8);
+            border: 2px solid rgba(212, 165, 116, 0.2);
             border-radius: 15px;
-            border: 2px solid #e9ecef;
-            padding: 0.875rem 1.25rem;
+            padding: 1rem 1rem 1rem 3rem;
+            font-size: 1rem;
             transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
         }
 
-        .form-control-lg:focus {
+        .form-control:focus {
+            background: rgba(255, 255, 255, 0.95);
             border-color: var(--bakery-primary);
             box-shadow: 0 0 0 0.2rem rgba(212, 165, 116, 0.25);
             transform: translateY(-2px);
         }
 
-        .btn-bakery {
+        .input-icon {
+            position: absolute;
+            left: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--bakery-primary);
+            font-size: 1.1rem;
+            opacity: 0.7;
+            transition: all 0.3s ease;
+        }
+
+        .form-control:focus + .input-icon {
+            opacity: 1;
+            color: var(--bakery-primary);
+        }
+
+        .password-toggle {
+            position: absolute;
+            right: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            color: var(--bakery-primary);
+            font-size: 1.1rem;
+            cursor: pointer;
+            opacity: 0.7;
+            transition: all 0.3s ease;
+        }
+
+        .password-toggle:hover {
+            opacity: 1;
+        }
+
+        .form-options {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+
+        .form-check {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .form-check-input {
+            width: 18px;
+            height: 18px;
+            border: 2px solid var(--bakery-primary);
+            border-radius: 4px;
+        }
+
+        .form-check-input:checked {
+            background-color: var(--bakery-primary);
+            border-color: var(--bakery-primary);
+        }
+
+        .form-check-label {
+            color: #6c757d;
+            font-size: 0.9rem;
+            cursor: pointer;
+        }
+
+        .forgot-password {
+            color: var(--bakery-primary);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+
+        .forgot-password:hover {
+            color: var(--bakery-secondary);
+            text-decoration: underline;
+        }
+
+        .btn-auth {
+            width: 100%;
             background: linear-gradient(45deg, var(--bakery-primary), var(--bakery-secondary));
             border: none;
-            color: white;
-            font-weight: 600;
             border-radius: 15px;
-            padding: 0.875rem 1.5rem;
+            padding: 1rem 2rem;
+            font-weight: 600;
+            font-size: 1.1rem;
+            color: white;
             transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
+            margin-bottom: 1.5rem;
         }
 
-        .btn-bakery:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(212, 165, 116, 0.3);
-            color: white;
-        }
-
-        .btn-bakery::before {
+        .btn-auth::before {
             content: '';
             position: absolute;
             top: 0;
@@ -227,185 +533,211 @@
             width: 100%;
             height: 100%;
             background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-            transition: all 0.5s;
+            transition: all 0.6s;
         }
 
-        .btn-bakery:hover::before {
+        .btn-auth:hover::before {
             left: 100%;
         }
 
-        .login-hero {
-            background: linear-gradient(135deg,
-                        rgba(212, 165, 116, 0.9),
-                        rgba(244, 228, 193, 0.8)),
-                        url('https://images.unsplash.com/photo-1517433670267-08bbd4be890f?w=1200&h=800&fit=crop') center/cover;
-            position: relative;
+        .btn-auth:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(212, 165, 116, 0.4);
         }
 
-        .login-hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0,0,0,0.3);
+        .btn-auth:active {
+            transform: translateY(-1px);
         }
 
-        .hero-content {
-            position: relative;
-            z-index: 2;
-            padding: 3rem;
+        .btn-content {
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
-        .coffee-cup-animation {
-            position: relative;
-            display: inline-block;
-            animation: glow 2s ease-in-out infinite alternate;
+        .btn-loading {
+            display: none;
+            align-items: center;
+            justify-content: center;
         }
 
-        .steam {
-            position: absolute;
-            width: 4px;
-            height: 25px;
-            background: linear-gradient(to top, transparent, rgba(255,255,255,0.8), transparent);
-            border-radius: 2px;
-            animation: steam 2s ease-in-out infinite;
+        .btn-auth.loading .btn-content {
+            display: none;
         }
 
-        .steam1 {
-            left: 20px;
-            top: -35px;
-            animation-delay: 0s;
+        .btn-auth.loading .btn-loading {
+            display: flex;
         }
 
-        .steam2 {
-            left: 30px;
-            top: -40px;
-            animation-delay: 0.5s;
+        .spinner {
+            width: 20px;
+            height: 20px;
+            border: 2px solid rgba(255,255,255,0.3);
+            border-top: 2px solid white;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin-right: 0.5rem;
         }
 
-        .steam3 {
-            left: 40px;
-            top: -35px;
-            animation-delay: 1s;
-        }
-
-        .review-section {
-            background: rgba(255,255,255,0.1);
-            backdrop-filter: blur(10px);
-            border-radius: 20px;
-            padding: 2rem;
-            border: 1px solid rgba(255,255,255,0.2);
-        }
-
-        .review-item {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: all 0.5s ease;
-        }
-
-        .review-item.active {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .pulse {
-            animation: pulse 2s ease-in-out infinite;
-        }
-
-        .quick-login {
-            background: linear-gradient(135deg, rgba(139, 69, 19, 0.1), rgba(210, 105, 30, 0.1));
-            border-radius: 15px;
-            padding: 1rem;
-            border: 1px solid rgba(139, 69, 19, 0.2);
-        }
-
-
-
-        .social-btn {
-            transition: all 0.3s ease;
-        }
-
-        .social-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        }
-
-        .divider-with-text {
+        .auth-divider {
             position: relative;
             text-align: center;
+            margin: 2rem 0;
         }
 
-        .divider-with-text::before {
+        .auth-divider::before {
             content: '';
             position: absolute;
             top: 50%;
             left: 0;
             right: 0;
             height: 1px;
-            background: #dee2e6;
+            background: linear-gradient(to right, transparent, rgba(212, 165, 116, 0.3), transparent);
         }
 
-        .divider-text {
-            background: white;
-            padding: 0 1rem;
+        .auth-divider span {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 0 1.5rem;
             color: #6c757d;
-            font-size: 0.875rem;
+            font-size: 0.9rem;
+            font-weight: 500;
         }
 
-        .text-bakery {
-            color: var(--bakery-primary) !important;
+        .social-login {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
         }
 
-        .btn-loading {
-            display: none;
+        .social-btn {
+            flex: 1;
+            background: rgba(255, 255, 255, 0.8);
+            border: 2px solid rgba(212, 165, 116, 0.2);
+            border-radius: 12px;
+            padding: 0.75rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
         }
 
-        .btn-bakery.loading .btn-text {
-            display: none;
+        .google-btn {
+            color: #db4437;
         }
 
-        .btn-bakery.loading .btn-loading {
-            display: inline-block;
+        .google-btn:hover {
+            background: #db4437;
+            color: white;
+            border-color: #db4437;
+            transform: translateY(-2px);
+        }
+
+        .facebook-btn {
+            color: #4267B2;
+        }
+
+        .facebook-btn:hover {
+            background: #4267B2;
+            color: white;
+            border-color: #4267B2;
+            transform: translateY(-2px);
+        }
+
+        .auth-footer {
+            text-align: center;
+            margin-bottom: 0;
+        }
+
+        .auth-footer p {
+            color: #6c757d;
+            margin-bottom: 0;
+        }
+
+        .auth-link {
+            color: var(--bakery-primary);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .auth-link:hover {
+            color: var(--bakery-secondary);
+            text-decoration: underline;
         }
 
         .security-info {
-            animation: fadeInUp 1s ease-out 0.5s both;
+            text-align: center;
+            margin-top: 2rem;
+            color: #6c757d;
+            font-size: 0.85rem;
+            background: rgba(255, 255, 255, 0.6);
+            padding: 1rem;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+        }
+
+        .alert-modern {
+            background: rgba(25, 135, 84, 0.1);
+            border: 1px solid rgba(25, 135, 84, 0.2);
+            border-radius: 15px;
+            padding: 1rem;
+            margin-bottom: 1.5rem;
+            backdrop-filter: blur(10px);
         }
 
         /* Animations */
-        @keyframes glow {
-            0% { text-shadow: 0 0 20px rgba(255,255,255,0.5); }
-            100% { text-shadow: 0 0 30px rgba(255,255,255,0.8), 0 0 40px rgba(139, 69, 19, 0.5); }
-        }
-
-        @keyframes steam {
-            0% { opacity: 0; transform: translateY(0) scaleX(1); }
-            50% { opacity: 1; transform: translateY(-15px) scaleX(1.2); }
-            100% { opacity: 0; transform: translateY(-30px) scaleX(0.8); }
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
         }
 
         @keyframes pulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.05); }
+            0%, 100% { transform: translate(-50%, -50%) scale(1); }
+            50% { transform: translate(-50%, -50%) scale(1.05); }
         }
 
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
         }
 
+        /* Responsive Design */
         @media (max-width: 991.98px) {
-            .login-form-container {
-                max-width: 100%;
-                padding: 1rem;
+            .auth-form-section {
+                background: linear-gradient(135deg, 
+                    rgba(255, 255, 255, 0.95), 
+                    rgba(248, 249, 250, 0.95));
+            }
+
+            .auth-card {
+                margin: 1rem;
+                padding: 2rem;
+            }
+
+            .hero-title {
+                font-size: 2rem;
+            }
+
+            .hero-content {
+                padding: 2rem;
+            }
+        }
+
+        @media (max-width: 575.98px) {
+            .auth-card {
+                padding: 1.5rem;
+                margin: 0.5rem;
+            }
+
+            .social-login {
+                flex-direction: column;
+            }
+
+            .hero-title {
+                font-size: 1.8rem;
             }
         }
     </style>
@@ -437,47 +769,6 @@
                 loginBtn.disabled = true;
             });
 
-            // Rotating reviews
-            const reviews = [
-                {
-                    text: "Best pastries in town! The atmosphere is perfect.",
-                    author: "Nirodha.",
-                    stars: 5
-                },
-                {
-                    text: "Amazing baking and quality. Highly recommended!",
-                    author: "Dinidu.",
-                    stars: 5
-                },
-                {
-                    text: "My daily dose of sweetness. Love this place!",
-                    author: "Chanul.",
-                    stars: 5
-                }
-            ];
-
-            let currentReview = 0;
-            const reviewElement = document.querySelector('.review-item');
-
-            function rotateReviews() {
-                if (!reviewElement) return;
-
-                reviewElement.classList.remove('active');
-
-                setTimeout(() => {
-                    currentReview = (currentReview + 1) % reviews.length;
-                    const review = reviews[currentReview];
-
-                    reviewElement.querySelector('p').textContent = `"${review.text}"`;
-                    reviewElement.querySelector('small').textContent = `- ${review.author}`;
-
-                    reviewElement.classList.add('active');
-                }, 500);
-            }
-
-            // Start review rotation
-            setInterval(rotateReviews, 4000);
-
             // Enhanced form validation
             const form = document.getElementById('loginForm');
             form.addEventListener('submit', function(event) {
@@ -488,11 +779,32 @@
                 form.classList.add('was-validated');
             });
 
-            // Social login handlers (placeholder)
+            // Social login handlers
             document.querySelectorAll('.social-btn').forEach(btn => {
                 btn.addEventListener('click', function() {
-                    const platform = this.textContent.trim();
-                    alert(`${platform} login integration coming soon!`);
+                    const platform = this.querySelector('span').textContent.trim();
+                    
+                    // Add loading state
+                    const originalContent = this.innerHTML;
+                    this.innerHTML = `<span class="spinner"></span> Connecting...`;
+                    this.disabled = true;
+                    
+                    setTimeout(() => {
+                        this.innerHTML = originalContent;
+                        this.disabled = false;
+                        alert(`${platform} login integration coming soon!`);
+                    }, 1500);
+                });
+            });
+
+            // Input focus effects
+            document.querySelectorAll('.form-control').forEach(input => {
+                input.addEventListener('focus', function() {
+                    this.parentElement.classList.add('focused');
+                });
+
+                input.addEventListener('blur', function() {
+                    this.parentElement.classList.remove('focused');
                 });
             });
         });
