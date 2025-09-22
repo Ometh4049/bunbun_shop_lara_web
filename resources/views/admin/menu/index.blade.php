@@ -5,68 +5,73 @@
 @section('content')
 <div class="container-fluid">
     <!-- Page Header -->
-    <div class="d-flex justify-content-between align-items-center mb-4">
+    <div class="page-header">
+        <div class="d-flex justify-content-between align-items-center">
         <div>
-            <h1 class="h3 mb-0 text-gray-800">Bakery Menu Management</h1>
-            <p class="mb-0 text-muted">Manage bakery items, categories, and pricing</p>
+                <h1 class="display-6 fw-bold mb-2">
+                    <i class="bi bi-journal-text me-3 text-bakery"></i>
+                    Bakery Menu Management
+                </h1>
+                <p class="lead text-muted mb-0">Manage bakery items, categories, and pricing</p>
         </div>
         <div>
             <button class="btn btn-bakery" data-bs-toggle="modal" data-bs-target="#addItemModal">
                 <i class="bi bi-plus-circle me-2"></i>Add New Item
             </button>
         </div>
+        </div>
     </div>
 
     <!-- Menu Stats -->
     <div class="row g-4 mb-4">
         <div class="col-md-3">
-            <div class="card border-0 shadow-sm">
+                <div class="stat-card">
                 <div class="card-body text-center">
                     <div class="stat-icon bg-primary mx-auto mb-3">
                         <i class="bi bi-basket"></i>
                     </div>
-                    <h4 class="mb-0" id="totalItemsCount">{{ $stats['total_items'] }}</h4>
-                    <small class="text-muted">Total Items</small>
+                        <h3 class="mb-0 fw-bold text-bakery" id="totalItemsCount">{{ $stats['total_items'] }}</h3>
+                        <p class="text-muted mb-0">Total Items</p>
                 </div>
             </div>
         </div>
         <div class="col-md-3">
-            <div class="card border-0 shadow-sm">
+                <div class="stat-card">
                 <div class="card-body text-center">
                     <div class="stat-icon bg-success mx-auto mb-3">
                         <i class="bi bi-check-circle"></i>
                     </div>
-                    <h4 class="mb-0" id="activeItemsCount">{{ $stats['active_items'] }}</h4>
-                    <small class="text-muted">Active Items</small>
+                        <h3 class="mb-0 fw-bold text-bakery" id="activeItemsCount">{{ $stats['active_items'] }}</h3>
+                        <p class="text-muted mb-0">Active Items</p>
                 </div>
             </div>
         </div>
         <div class="col-md-3">
-            <div class="card border-0 shadow-sm">
+                <div class="stat-card">
                 <div class="card-body text-center">
                     <div class="stat-icon bg-info mx-auto mb-3">
                         <i class="bi bi-grid-3x3-gap"></i>
                     </div>
-                    <h4 class="mb-0" id="categoriesCount">{{ $stats['total_categories'] }}</h4>
-                    <small class="text-muted">Categories</small>
+                        <h3 class="mb-0 fw-bold text-bakery" id="categoriesCount">{{ $stats['total_categories'] }}</h3>
+                        <p class="text-muted mb-0">Categories</p>
                 </div>
             </div>
         </div>
         <div class="col-md-3">
-            <div class="card border-0 shadow-sm">
+                <div class="stat-card">
                 <div class="card-body text-center">
                     <div class="stat-icon bg-warning mx-auto mb-3">
                         <i class="bi bi-currency-dollar"></i>
                     </div>
-                    <h4 class="mb-0" id="avgPriceDisplay">Rs. {{ number_format($stats['average_price'], 0) }}</h4>
-                    <small class="text-muted">Avg. Price</small>
+                        <h3 class="mb-0 fw-bold text-bakery" id="avgPriceDisplay">Rs. {{ number_format($stats['average_price'], 0) }}</h3>
+                        <p class="text-muted mb-0">Avg. Price</p>
                 </div>
             </div>
         </div>
     </div>
 
     <!-- Filters -->
-    <div class="card border-0 shadow-sm mb-4">
+        <div class="card mb-4">
         <div class="card-body">
             <div class="row g-3">
                 <div class="col-md-4">
@@ -88,7 +93,7 @@
                     </select>
                 </div>
                 <div class="col-md-2">
-                    <button class="btn btn-outline-secondary w-100" onclick="exportMenu()">
+                        <button class="btn btn-outline-bakery w-100" onclick="exportMenu()">
                         <i class="bi bi-download"></i> Export
                     </button>
                 </div>
@@ -100,9 +105,9 @@
     <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4" id="menuItemsGrid">
         @foreach($menuItems as $item)
         <div class="col menu-item-card" data-category="{{ $item->category }}" data-status="{{ $item->status }}" data-item-id="{{ $item->id }}">
-            <div class="card menu-item border-0 shadow-sm h-100">
+                <div class="card menu-item h-100">
                 <div class="position-relative">
-                    <img src="{{ $item->image }}" class="card-img-top" alt="{{ $item->name }}" style="height: 200px; object-fit: cover;">
+                        <img src="{{ $item->image }}" class="card-img-top menu-item-image" alt="{{ $item->name }}">
                     <div class="position-absolute top-0 end-0 m-3">
                         <span class="badge bg-{{ $item->status === 'active' ? 'success' : 'secondary' }}">
                             {{ ucfirst($item->status) }}
@@ -113,14 +118,14 @@
                     </div>
                 </div>
                 <div class="card-body">
-                    <h5 class="card-title text-bakery">{{ $item->name }}</h5>
+                        <h5 class="card-title text-bakery fw-bold">{{ $item->name }}</h5>
                     <p class="card-text text-muted">{{ Str::limit($item->description, 100) }}</p>
 
                     <div class="item-details mb-3">
                         <div class="row g-2">
                             <div class="col-6">
                                 <small class="text-muted">Price:</small>
-                                <div class="fw-bold text-bakery">Rs. {{ number_format($item->price, 2) }}</div>
+                                    <div class="fw-bold text-bakery">Rs. {{ number_format($item->price, 2) }}</div>
                             </div>
                             <div class="col-6">
                                 <small class="text-muted">Prep Time:</small>
@@ -150,7 +155,7 @@
                             <button class="btn btn-outline-info" onclick="viewDetails({{ $item->id }})" title="View Details">
                                 <i class="bi bi-info-circle"></i>
                             </button>
-                            <button class="btn btn-outline-primary" onclick="editItem({{ $item->id }})" title="Edit Item">
+                                <button class="btn btn-outline-bakery" onclick="editItem({{ $item->id }})" title="Edit Item">
                                 <i class="bi bi-pencil"></i>
                             </button>
                             <button class="btn btn-outline-{{ $item->status === 'active' ? 'warning' : 'success' }}"
@@ -170,13 +175,18 @@
     </div>
 
     @if($menuItems->isEmpty())
-    <div class="text-center py-5">
-        <i class="bi bi-basket text-muted" style="font-size: 4rem;"></i>
-        <h4 class="text-muted mt-3">No menu items found</h4>
-        <p class="text-muted">Start by adding your first menu item!</p>
-        <button class="btn btn-bakery" data-bs-toggle="modal" data-bs-target="#addItemModal">
-            <i class="bi bi-plus-circle me-2"></i>Add First Item
-        </button>
+        <div class="empty-state">
+            <div class="text-center py-5">
+                <div class="empty-icon mb-4">
+                    <i class="bi bi-basket text-muted"></i>
+                </div>
+                <h3 class="text-muted mb-3">No menu items found</h3>
+                <p class="text-muted mb-4">Start by adding your first bakery item!</p>
+                <button class="btn btn-bakery btn-lg" data-bs-toggle="modal" data-bs-target="#addItemModal">
+                    <i class="bi bi-plus-circle me-2"></i>Add First Item
+                </button>
+            </div>
+        </div>
     </div>
     @endif
 </div>

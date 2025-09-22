@@ -5,68 +5,73 @@
 @section('content')
 <div class="container-fluid">
     <!-- Page Header -->
-    <div class="d-flex justify-content-between align-items-center mb-4">
+    <div class="page-header">
+        <div class="d-flex justify-content-between align-items-center">
         <div>
-            <h1 class="h3 mb-0 text-gray-800">Reservations Management</h1>
-            <p class="mb-0 text-muted">Manage customer reservations and table bookings</p>
+                <h1 class="display-6 fw-bold mb-2">
+                    <i class="bi bi-calendar-check me-3 text-bakery"></i>
+                    Reservations Management
+                </h1>
+                <p class="lead text-muted mb-0">Manage customer reservations and table bookings</p>
         </div>
         <div>
-            <button class="btn btn-coffee" data-bs-toggle="modal" data-bs-target="#addReservationModal">
+                <button class="btn btn-bakery" data-bs-toggle="modal" data-bs-target="#addReservationModal">
                 <i class="bi bi-plus-circle me-2"></i>New Reservation
             </button>
+        </div>
         </div>
     </div>
 
     <!-- Reservation Stats -->
     <div class="row g-4 mb-4">
         <div class="col-md-3">
-            <div class="card border-0 shadow-sm">
+                <div class="stat-card">
                 <div class="card-body text-center">
                     <div class="stat-icon bg-info mx-auto mb-3">
                         <i class="bi bi-calendar-check"></i>
                     </div>
-                    <h4 class="mb-0" id="todayCount">{{ $stats['today_count'] }}</h4>
-                    <small class="text-muted">Today's Reservations</small>
+                        <h3 class="mb-0 fw-bold text-bakery" id="todayCount">{{ $stats['today_count'] }}</h3>
+                        <p class="text-muted mb-0">Today's Reservations</p>
                 </div>
             </div>
         </div>
         <div class="col-md-3">
-            <div class="card border-0 shadow-sm">
+                <div class="stat-card">
                 <div class="card-body text-center">
                     <div class="stat-icon bg-warning mx-auto mb-3">
                         <i class="bi bi-clock-history"></i>
                     </div>
-                    <h4 class="mb-0" id="pendingCount">{{ $stats['pending_count'] }}</h4>
-                    <small class="text-muted">Pending Approval</small>
+                        <h3 class="mb-0 fw-bold text-bakery" id="pendingCount">{{ $stats['pending_count'] }}</h3>
+                        <p class="text-muted mb-0">Pending Approval</p>
                 </div>
             </div>
         </div>
         <div class="col-md-3">
-            <div class="card border-0 shadow-sm">
+                <div class="stat-card">
                 <div class="card-body text-center">
                     <div class="stat-icon bg-success mx-auto mb-3">
                         <i class="bi bi-check-circle"></i>
                     </div>
-                    <h4 class="mb-0" id="confirmedCount">{{ $stats['confirmed_count'] }}</h4>
-                    <small class="text-muted">Confirmed</small>
+                        <h3 class="mb-0 fw-bold text-bakery" id="confirmedCount">{{ $stats['confirmed_count'] }}</h3>
+                        <p class="text-muted mb-0">Confirmed</p>
                 </div>
             </div>
         </div>
         <div class="col-md-3">
-            <div class="card border-0 shadow-sm">
+                <div class="stat-card">
                 <div class="card-body text-center">
                     <div class="stat-icon bg-primary mx-auto mb-3">
                         <i class="bi bi-people"></i>
                     </div>
-                    <h4 class="mb-0" id="totalGuests">{{ $stats['total_guests'] }}</h4>
-                    <small class="text-muted">Total Guests Today</small>
+                        <h3 class="mb-0 fw-bold text-bakery" id="totalGuests">{{ $stats['total_guests'] }}</h3>
+                        <p class="text-muted mb-0">Total Guests Today</p>
                 </div>
             </div>
         </div>
     </div>
 
     <!-- Filters -->
-    <div class="card border-0 shadow-sm mb-4">
+        <div class="card mb-4">
         <div class="card-body">
             <div class="row g-3">
                 <div class="col-md-3">
@@ -95,12 +100,12 @@
                     </select>
                 </div>
                 <div class="col-md-2">
-                    <button class="btn btn-outline-secondary w-100" onclick="refreshReservations()">
+                        <button class="btn btn-outline-bakery w-100" onclick="refreshReservations()">
                         <i class="bi bi-arrow-clockwise"></i> Refresh
                     </button>
                 </div>
                 <div class="col-md-1">
-                    <button class="btn btn-outline-secondary w-100" onclick="exportReservations()">
+                        <button class="btn btn-outline-bakery w-100" onclick="exportReservations()">
                         <i class="bi bi-download"></i>
                     </button>
                 </div>
@@ -109,10 +114,10 @@
     </div>
 
     <!-- Reservations Table -->
-    <div class="card border-0 shadow-sm">
-        <div class="card-header bg-white border-0">
+        <div class="card">
+            <div class="card-header">
             <div class="d-flex justify-content-between align-items-center">
-                <h5 class="mb-0">All Reservations</h5>
+                    <h5 class="mb-0 fw-bold">All Reservations</h5>
                 <div class="d-flex gap-2">
                     <span class="badge bg-info">{{ $reservations->total() }} Total</span>
                 </div>
@@ -120,8 +125,8 @@
         </div>
         <div class="card-body p-0">
             <div class="table-responsive">
-                <table class="table table-hover mb-0">
-                    <thead class="table-light">
+                    <table class="table mb-0">
+                        <thead>
                         <tr>
                             <th>Reservation ID</th>
                             <th>Customer</th>
@@ -136,14 +141,14 @@
                         @foreach($reservations as $reservation)
                         <tr data-reservation-id="{{ $reservation->id }}">
                             <td>
-                                <span class="fw-bold text-coffee">#{{ $reservation->reservation_id }}</span>
+                                    <span class="fw-bold text-bakery">#{{ $reservation->reservation_id }}</span>
                                 @if($reservation->occasion)
                                     <br><small class="text-muted">{{ ucfirst($reservation->occasion) }}</small>
                                 @endif
                             </td>
                             <td>
                                 <div>
-                                    <h6 class="mb-0">{{ $reservation->full_name }}</h6>
+                                        <h6 class="mb-0 fw-semibold">{{ $reservation->full_name }}</h6>
                                     <small class="text-muted">{{ $reservation->email }}</small>
                                     @if($reservation->phone)
                                         <br><small class="text-muted">{{ $reservation->phone }}</small>
@@ -151,15 +156,15 @@
                                 </div>
                             </td>
                             <td>
-                                <span>{{ $reservation->reservation_date->format('M d, Y') }}</span><br>
+                                    <span class="fw-medium">{{ $reservation->reservation_date->format('M d, Y') }}</span><br>
                                 <small class="text-muted">{{ $reservation->reservation_time instanceof \Carbon\Carbon ? $reservation->reservation_time->format('g:i A') : $reservation->reservation_time }}</small>
                             </td>
                             <td>
-                                <span class="badge bg-light text-dark">{{ $reservation->guests }} {{ $reservation->guests == 1 ? 'Guest' : 'Guests' }}</span>
+                                    <span class="badge bg-bakery text-white">{{ $reservation->guests }} {{ $reservation->guests == 1 ? 'Guest' : 'Guests' }}</span>
                             </td>
                             <td>
                                 @if($reservation->table_type)
-                                    <span class="badge bg-secondary">{{ ucfirst($reservation->table_type) }}</span>
+                                        <span class="badge bg-info">{{ ucfirst($reservation->table_type) }}</span>
                                 @else
                                     <span class="text-muted">No preference</span>
                                 @endif
@@ -191,7 +196,7 @@
                                         </button>
                                     @endif
                                     @if(in_array($reservation->status, ['pending', 'confirmed']))
-                                        <button class="btn btn-outline-primary" onclick="editReservation({{ $reservation->id }})">
+                                            <button class="btn btn-outline-bakery" onclick="editReservation({{ $reservation->id }})">
                                             <i class="bi bi-pencil"></i>
                                         </button>
                                     @endif
@@ -208,7 +213,7 @@
                 </table>
             </div>
         </div>
-        <div class="card-footer bg-white border-0">
+            <div class="card-footer bg-white">
             <div class="d-flex justify-content-between align-items-center">
                 <div class="text-muted">
                     Showing {{ $reservations->firstItem() }} to {{ $reservations->lastItem() }} of {{ $reservations->total() }} reservations

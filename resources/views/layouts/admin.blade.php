@@ -22,27 +22,32 @@
     <!-- Custom CSS -->
     <style>
         :root {
-            --bakery-primary: #D4A574;
-            --bakery-secondary: #F4E4C1;
-            --bakery-accent: #E8B4B8;
-            --bakery-warm: #F7E7CE;
-            --bakery-cream: #FFF8E7;
-            --bakery-brown: #8B6F47;
-            --bakery-pink: #F5D5D0;
+            --bakery-primary: #8B4513;
+            --bakery-secondary: #D2691E;
+            --bakery-accent: #CD853F;
+            --bakery-warm: #F4E4BC;
+            --bakery-cream: #FFF8DC;
+            --bakery-brown: #654321;
+            --bakery-pink: #DEB887;
+            --bakery-gradient: linear-gradient(135deg, #8B4513 0%, #D2691E 50%, #CD853F 100%);
+            --bakery-shadow: 0 8px 32px rgba(139, 69, 19, 0.15);
+            --bakery-shadow-hover: 0 12px 40px rgba(139, 69, 19, 0.25);
         }
 
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #f8f9fa;
+            background: linear-gradient(135deg, #FFF8DC 0%, #F4E4BC 100%);
+            min-height: 100vh;
         }
 
         h1, h2, h3, h4, h5, h6 {
             font-family: 'Playfair Display', serif;
+            color: var(--bakery-brown);
         }
 
         .sidebar {
-            background: linear-gradient(135deg, var(--bakery-primary), var(--bakery-secondary));
-            box-shadow: 2px 0 10px rgba(0,0,0,0.1);
+            background: var(--bakery-gradient);
+            box-shadow: 4px 0 20px rgba(139, 69, 19, 0.2);
             min-height: 100vh;
             width: 280px;
             position: fixed;
@@ -50,6 +55,7 @@
             left: 0;
             z-index: 1000;
             transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
         }
 
         .sidebar::before {
@@ -59,122 +65,200 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="80" cy="30" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="40" cy="70" r="1" fill="rgba(255,255,255,0.1)"/></svg>') repeat;
-            opacity: 0.3;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="1.5" fill="rgba(255,255,255,0.15)"/><circle cx="80" cy="30" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="40" cy="70" r="1.2" fill="rgba(255,255,255,0.12)"/><circle cx="60" cy="50" r="0.8" fill="rgba(255,255,255,0.08)"/></svg>') repeat;
+            opacity: 0.4;
             pointer-events: none;
         }
+
         .sidebar-brand {
-            padding: 1.5rem;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 2rem 1.5rem;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.2);
             position: relative;
             z-index: 2;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(15px);
         }
 
         .sidebar-brand h4 {
             color: white;
             margin: 0;
             font-weight: 700;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            font-size: 1.5rem;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.4);
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .sidebar-brand h4 i {
+            font-size: 2rem;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 0.5rem;
+            border-radius: 12px;
+            backdrop-filter: blur(10px);
+        }
+
+        .sidebar-brand small {
+            color: rgba(255, 255, 255, 0.8);
+            font-weight: 500;
+            margin-top: 0.5rem;
+            display: block;
         }
 
         .sidebar-nav {
-            padding: 1rem 0;
+            padding: 1.5rem 0;
             position: relative;
             z-index: 2;
         }
 
         .nav-link {
             color: rgba(255, 255, 255, 0.8) !important;
-            padding: 0.75rem 1.5rem;
-            margin: 0.25rem 1rem;
-            border-radius: 10px;
+            padding: 1rem 1.5rem;
+            margin: 0.5rem 1rem;
+            border-radius: 15px;
             transition: all 0.3s ease;
             text-decoration: none;
             display: flex;
             align-items: center;
-            backdrop-filter: blur(10px);
-            border: 1px solid transparent;
+            backdrop-filter: blur(15px);
+            border: 2px solid transparent;
+            font-weight: 500;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .nav-link::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+            transition: all 0.6s;
         }
 
         .nav-link:hover,
         .nav-link.active {
-            background: rgba(255, 255, 255, 0.15);
-            border-color: rgba(255, 255, 255, 0.2);
+            background: rgba(255, 255, 255, 0.2);
+            border-color: rgba(255, 255, 255, 0.3);
             color: white !important;
-            transform: translateX(5px);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            transform: translateX(8px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+        }
+
+        .nav-link:hover::before {
+            left: 100%;
         }
 
         .nav-link i {
-            width: 20px;
-            margin-right: 0.75rem;
+            width: 24px;
+            margin-right: 1rem;
             transition: all 0.3s ease;
+            font-size: 1.2rem;
         }
 
         .nav-link:hover i {
-            transform: scale(1.1);
+            transform: scale(1.2) rotate(5deg);
         }
 
         .main-content {
             margin-left: 280px;
             min-height: 100vh;
             transition: all 0.3s ease;
-            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            background: linear-gradient(135deg, #FFF8DC 0%, #F4E4BC 50%, #FFF8DC 100%);
+            position: relative;
+        }
+
+        .main-content::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 280px;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><circle cx="50" cy="50" r="2" fill="rgba(139,69,19,0.03)"/><circle cx="150" cy="80" r="1.5" fill="rgba(210,105,30,0.02)"/><circle cx="100" cy="150" r="1.8" fill="rgba(205,133,63,0.025)"/></svg>') repeat;
+            opacity: 0.6;
+            pointer-events: none;
+            z-index: -1;
         }
 
         .top-navbar {
-            background: white;
-            border-bottom: 2px solid var(--bakery-primary);
-            padding: 1rem 2rem;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 3px solid var(--bakery-primary);
+            padding: 1.25rem 2rem;
             position: sticky;
             top: 0;
             z-index: 999;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            backdrop-filter: blur(10px);
+            box-shadow: var(--bakery-shadow);
         }
 
         .content-area {
-            padding: 2rem;
+            padding: 2.5rem;
             position: relative;
         }
 
         .stat-icon {
-            width: 60px;
-            height: 60px;
+            width: 70px;
+            height: 70px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             color: white;
-            font-size: 1.5rem;
+            font-size: 1.75rem;
             transition: all 0.3s ease;
+            background: var(--bakery-gradient);
+            box-shadow: 0 4px 15px rgba(139, 69, 19, 0.3);
         }
 
         .stat-card:hover .stat-icon {
-            transform: scale(1.1) rotate(5deg);
+            transform: scale(1.15) rotate(10deg);
+            box-shadow: 0 6px 20px rgba(139, 69, 19, 0.4);
         }
 
         .btn-bakery {
-            background: linear-gradient(45deg, var(--bakery-primary), var(--bakery-secondary));
+            background: var(--bakery-gradient);
             border: none;
             color: white;
             font-weight: 600;
-            border-radius: 10px;
+            border-radius: 15px;
             transition: all 0.3s ease;
-            box-shadow: 0 4px 12px rgba(212, 165, 116, 0.3);
+            box-shadow: var(--bakery-shadow);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-bakery::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: all 0.6s;
+        }
+
+        .btn-bakery:hover::before {
+            left: 100%;
         }
 
         .btn-bakery:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(212, 165, 116, 0.4);
+            transform: translateY(-3px);
+            box-shadow: var(--bakery-shadow-hover);
             color: white;
         }
 
         .stat-card {
             transition: all 0.3s ease;
-            border: 1px solid rgba(212, 165, 116, 0.1);
+            border: 2px solid rgba(139, 69, 19, 0.1);
             position: relative;
             overflow: hidden;
+            background: white;
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
         }
 
         .stat-card::before {
@@ -184,7 +268,7 @@
             left: -100%;
             width: 100%;
             height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(212, 165, 116, 0.1), transparent);
+            background: linear-gradient(90deg, transparent, rgba(139, 69, 19, 0.08), transparent);
             transition: all 0.6s;
         }
 
@@ -193,8 +277,9 @@
         }
 
         .stat-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(212, 165, 116, 0.2) !important;
+            transform: translateY(-8px);
+            box-shadow: var(--bakery-shadow-hover) !important;
+            border-color: var(--bakery-primary);
         }
 
         .text-bakery {
@@ -202,7 +287,89 @@
         }
 
         .text-gray-800 {
-            color: #2d3748 !important;
+            color: var(--bakery-brown) !important;
+        }
+
+        .card {
+            border: none;
+            border-radius: 20px;
+            box-shadow: var(--bakery-shadow);
+            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.95);
+            transition: all 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--bakery-shadow-hover);
+        }
+
+        .card-header {
+            background: linear-gradient(45deg, rgba(139, 69, 19, 0.05), rgba(210, 105, 30, 0.05));
+            border-bottom: 2px solid rgba(139, 69, 19, 0.1);
+            border-radius: 20px 20px 0 0 !important;
+            padding: 1.5rem;
+        }
+
+        .table {
+            border-radius: 15px;
+            overflow: hidden;
+        }
+
+        .table th {
+            background: linear-gradient(45deg, rgba(139, 69, 19, 0.08), rgba(210, 105, 30, 0.08));
+            border: none;
+            color: var(--bakery-brown);
+            font-weight: 600;
+            padding: 1rem;
+        }
+
+        .table td {
+            border: none;
+            padding: 1rem;
+            border-bottom: 1px solid rgba(139, 69, 19, 0.05);
+        }
+
+        .table tbody tr:hover {
+            background: linear-gradient(45deg, rgba(139, 69, 19, 0.02), rgba(210, 105, 30, 0.02));
+        }
+
+        .btn-outline-bakery {
+            border: 2px solid var(--bakery-primary);
+            color: var(--bakery-primary);
+            background: transparent;
+            font-weight: 600;
+            border-radius: 15px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-outline-bakery:hover {
+            background: var(--bakery-primary);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(139, 69, 19, 0.3);
+        }
+
+        .badge {
+            border-radius: 10px;
+            padding: 0.5rem 1rem;
+            font-weight: 600;
+        }
+
+        .bg-bakery {
+            background: var(--bakery-gradient) !important;
+        }
+
+        .form-control, .form-select {
+            border: 2px solid rgba(139, 69, 19, 0.1);
+            border-radius: 12px;
+            transition: all 0.3s ease;
+        }
+
+        .form-control:focus, .form-select:focus {
+            border-color: var(--bakery-primary);
+            box-shadow: 0 0 0 0.2rem rgba(139, 69, 19, 0.25);
+            transform: translateY(-1px);
         }
 
         /* Real-time indicators */
@@ -231,12 +398,14 @@
         .notification-toast {
             backdrop-filter: blur(15px);
             border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 15px;
         }
 
         /* Chart container fixes */
         .card-body {
             position: relative;
             overflow: hidden;
+            padding: 2rem;
         }
 
         .card-body canvas {
@@ -249,6 +418,63 @@
             min-height: 350px;
             width: 100%;
             height: 300px;
+        }
+
+        /* Modern dropdown styles */
+        .dropdown-menu {
+            border: none;
+            border-radius: 15px;
+            box-shadow: var(--bakery-shadow);
+            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.95);
+        }
+
+        .dropdown-item {
+            border-radius: 10px;
+            margin: 0.25rem;
+            transition: all 0.3s ease;
+        }
+
+        .dropdown-item:hover {
+            background: linear-gradient(45deg, rgba(139, 69, 19, 0.1), rgba(210, 105, 30, 0.1));
+            color: var(--bakery-brown);
+            transform: translateX(5px);
+        }
+
+        /* Enhanced button styles */
+        .btn {
+            border-radius: 12px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+        }
+
+        .btn-group .btn {
+            border-radius: 8px;
+        }
+
+        /* Page header styles */
+        .page-header {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(15px);
+            border-radius: 20px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border: 2px solid rgba(139, 69, 19, 0.1);
+        }
+
+        .page-header h1 {
+            color: var(--bakery-brown);
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .page-header p {
+            color: #6c757d;
+            margin-bottom: 0;
         }
 
         @media (max-width: 768px) {
@@ -264,8 +490,20 @@
                 margin-left: 0;
             }
 
+            .main-content::before {
+                left: 0;
+            }
+
             .chart-container {
                 height: 250px;
+            }
+
+            .content-area {
+                padding: 1.5rem;
+            }
+
+            .top-navbar {
+                padding: 1rem;
             }
         }
     </style>
@@ -285,7 +523,10 @@
             .top-navbar {
                 padding: 0.75rem 1rem;
             }
-            <h4><i class="bi bi-shop me-2"></i>Sweet Delights</h4>
+            <h4>
+                <i class="bi bi-shop"></i>
+                Sweet Delights
+            </h4>
             <small class="text-white-50">Admin Dashboard</small>
         </div>
 
@@ -309,6 +550,13 @@
                    href="{{ route('admin.orders') }}">
                     <i class="bi bi-receipt"></i>
                     Orders
+                </a>
+            </li>
+            <li>
+                <a class="nav-link {{ request()->routeIs('admin.products*') ? 'active' : '' }}" 
+                   href="{{ route('admin.products.index') }}">
+                    <i class="bi bi-box-seam"></i>
+                    Products
                 </a>
             </li>
             <li>
@@ -355,9 +603,9 @@
             </li>
         </ul>
 
-        <div class="mt-auto p-3">
+        <div class="mt-auto p-4">
             <div class="d-grid">
-                <a href="{{ route('home') }}" class="btn btn-outline-light btn-sm">
+                <a href="{{ route('home') }}" class="btn btn-outline-light">
                     <i class="bi bi-house me-2"></i>Back to Website
                 </a>
             </div>
@@ -378,7 +626,7 @@
                 <div class="d-flex align-items-center gap-3">
                     <!-- Notifications -->
                     <div class="dropdown">
-                        <button class="btn btn-outline-secondary position-relative" data-bs-toggle="dropdown">
+                        <button class="btn btn-outline-bakery position-relative" data-bs-toggle="dropdown">
                             <i class="bi bi-bell"></i>
                             <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
                                 3
@@ -428,10 +676,6 @@
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
-    <!-- Pusher for real-time updates (optional) -->
-    <!-- Pusher for real-time updates (optional) -->
-    <!-- <script src="https://js.pusher.com/8.2.0/pusher.min.js"></script> -->
-
     <!-- Custom JavaScript -->
     <script>
         // Sidebar toggle for mobile
@@ -450,7 +694,7 @@
                 min-width: 350px;
                 border-radius: 15px;
                 animation: slideInRight 0.5s ease;
-                box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+                box-shadow: var(--bakery-shadow);
             `;
 
             const iconMap = {

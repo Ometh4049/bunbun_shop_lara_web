@@ -5,14 +5,18 @@
 @section('content')
 <div class="container-fluid">
     <!-- Page Header -->
-    <div class="d-flex justify-content-between align-items-center mb-4">
+    <div class="page-header">
+        <div class="d-flex justify-content-between align-items-center">
         <div>
-            <h1 class="h3 mb-0 text-gray-800">Analytics Dashboard</h1>
-            <p class="mb-0 text-muted">Comprehensive insights into your café's performance</p>
+                <h1 class="display-6 fw-bold mb-2">
+                    <i class="bi bi-graph-up me-3 text-bakery"></i>
+                    Analytics Dashboard
+                </h1>
+                <p class="lead text-muted mb-0">Comprehensive insights into your bakery's performance</p>
         </div>
         <div>
             <div class="btn-group">
-                <button class="btn btn-outline-secondary dropdown-toggle" data-bs-toggle="dropdown">
+                    <button class="btn btn-outline-bakery dropdown-toggle" data-bs-toggle="dropdown">
                     <i class="bi bi-calendar3 me-2"></i>Last 30 Days
                 </button>
                 <ul class="dropdown-menu">
@@ -22,24 +26,25 @@
                     <li><a class="dropdown-item" href="#">Last Year</a></li>
                 </ul>
             </div>
-            <button class="btn btn-coffee ms-2">
+                <button class="btn btn-bakery ms-2">
                 <i class="bi bi-download me-2"></i>Export Report
             </button>
+        </div>
         </div>
     </div>
 
     <!-- Overview Cards -->
     <div class="row g-4 mb-4">
         <div class="col-xl-3 col-md-6">
-            <div class="card border-0 shadow-sm h-100">
+                <div class="stat-card h-100">
                 <div class="card-body">
                     <div class="d-flex align-items-center">
                         <div class="stat-icon bg-success">
                             <i class="bi bi-currency-dollar"></i>
                         </div>
                         <div class="ms-3">
-                            <div class="text-muted small">Total Revenue</div>
-                            <div class="h4 mb-0">Rs. {{ number_format($analyticsData['overview']['total_revenue'], 2) }}</div>
+                                <div class="text-muted small fw-semibold">Total Revenue</div>
+                                <div class="h3 mb-0 fw-bold text-bakery">Rs. {{ number_format($analyticsData['overview']['total_revenue'], 2) }}</div>
                             <div class="text-success small">
                                 <i class="bi bi-arrow-up"></i> +{{ $analyticsData['overview']['revenue_growth'] }}%
                             </div>
@@ -50,15 +55,15 @@
         </div>
 
         <div class="col-xl-3 col-md-6">
-            <div class="card border-0 shadow-sm h-100">
+                <div class="stat-card h-100">
                 <div class="card-body">
                     <div class="d-flex align-items-center">
                         <div class="stat-icon bg-primary">
                             <i class="bi bi-receipt"></i>
                         </div>
                         <div class="ms-3">
-                            <div class="text-muted small">Total Orders</div>
-                            <div class="h4 mb-0">{{ number_format($analyticsData['overview']['total_orders']) }}</div>
+                                <div class="text-muted small fw-semibold">Total Orders</div>
+                                <div class="h3 mb-0 fw-bold text-bakery">{{ number_format($analyticsData['overview']['total_orders']) }}</div>
                             <div class="text-success small">
                                 <i class="bi bi-arrow-up"></i> +{{ $analyticsData['overview']['order_growth'] }}%
                             </div>
@@ -69,15 +74,15 @@
         </div>
 
         <div class="col-xl-3 col-md-6">
-            <div class="card border-0 shadow-sm h-100">
+                <div class="stat-card h-100">
                 <div class="card-body">
                     <div class="d-flex align-items-center">
                         <div class="stat-icon bg-info">
                             <i class="bi bi-people"></i>
                         </div>
                         <div class="ms-3">
-                            <div class="text-muted small">Total Customers</div>
-                            <div class="h4 mb-0">{{ number_format($analyticsData['overview']['total_customers']) }}</div>
+                                <div class="text-muted small fw-semibold">Total Customers</div>
+                                <div class="h3 mb-0 fw-bold text-bakery">{{ number_format($analyticsData['overview']['total_customers']) }}</div>
                             <div class="text-success small">
                                 <i class="bi bi-arrow-up"></i> +{{ $analyticsData['overview']['customer_growth'] }}%
                             </div>
@@ -88,15 +93,15 @@
         </div>
 
         <div class="col-xl-3 col-md-6">
-            <div class="card border-0 shadow-sm h-100">
+                <div class="stat-card h-100">
                 <div class="card-body">
                     <div class="d-flex align-items-center">
                         <div class="stat-icon bg-warning">
                             <i class="bi bi-graph-up"></i>
                         </div>
                         <div class="ms-3">
-                            <div class="text-muted small">Avg. Order Value</div>
-                            <div class="h4 mb-0">Rs. {{ number_format($analyticsData['overview']['avg_order_value'], 2) }}</div>
+                                <div class="text-muted small fw-semibold">Avg. Order Value</div>
+                                <div class="h3 mb-0 fw-bold text-bakery">Rs. {{ number_format($analyticsData['overview']['avg_order_value'], 2) }}</div>
                             <div class="text-success small">
                                 <i class="bi bi-arrow-up"></i> +5.2%
                             </div>
@@ -111,13 +116,13 @@
     <div class="row g-4 mb-4">
         <!-- Sales Chart -->
         <div class="col-xl-8">
-            <div class="card border-0 shadow-sm">
-                <div class="card-header bg-white border-0">
+                <div class="card">
+                    <div class="card-header">
                     <div class="d-flex justify-content-between align-items-center">
-                        <h5 class="mb-0">Revenue Trends</h5>
+                            <h5 class="mb-0 fw-bold">Revenue Trends</h5>
                         <div class="btn-group btn-group-sm">
-                            <button class="btn btn-outline-secondary active" onclick="showDailySales()">Daily</button>
-                            <button class="btn btn-outline-secondary" onclick="showMonthlySales()">Monthly</button>
+                                <button class="btn btn-outline-bakery active" onclick="showDailySales()">Daily</button>
+                                <button class="btn btn-outline-bakery" onclick="showMonthlySales()">Monthly</button>
                         </div>
                     </div>
                 </div>
@@ -129,9 +134,9 @@
 
         <!-- Top Products -->
         <div class="col-xl-4">
-            <div class="card border-0 shadow-sm">
-                <div class="card-header bg-white border-0">
-                    <h5 class="mb-0">Top Selling Products</h5>
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="mb-0 fw-bold">Top Selling Products</h5>
                 </div>
                 <div class="card-body">
                     @foreach($analyticsData['top_products'] as $index => $product)
@@ -139,12 +144,12 @@
                         <div class="d-flex align-items-center">
                             <div class="rank-badge">{{ $index + 1 }}</div>
                             <div class="ms-3">
-                                <h6 class="mb-0">{{ $product['name'] }}</h6>
+                                    <h6 class="mb-0 fw-semibold">{{ $product['name'] }}</h6>
                                 <small class="text-muted">{{ $product['sales'] }} orders</small>
                             </div>
                         </div>
                         <div class="text-end">
-                            <div class="fw-bold">Rs. {{ number_format($product['revenue']) }}</div>
+                                <div class="fw-bold text-bakery">Rs. {{ number_format($product['revenue']) }}</div>
                         </div>
                     </div>
                     @endforeach
@@ -157,21 +162,21 @@
     <div class="row g-4 mb-4">
         <!-- Customer Analytics -->
         <div class="col-xl-6">
-            <div class="card border-0 shadow-sm">
-                <div class="card-header bg-white border-0">
-                    <h5 class="mb-0">Customer Analytics</h5>
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="mb-0 fw-bold">Customer Analytics</h5>
                 </div>
                 <div class="card-body">
                     <div class="row g-3 mb-4">
                         <div class="col-6">
                             <div class="text-center">
-                                <h4 class="text-coffee">{{ $analyticsData['customer_analytics']['customer_retention'] }}%</h4>
+                                    <h4 class="text-bakery fw-bold">{{ $analyticsData['customer_analytics']['customer_retention'] }}%</h4>
                                 <small class="text-muted">Customer Retention</small>
                             </div>
                         </div>
                         <div class="col-6">
                             <div class="text-center">
-                                <h4 class="text-coffee">{{ $analyticsData['customer_analytics']['avg_visits_per_customer'] }}</h4>
+                                    <h4 class="text-bakery fw-bold">{{ $analyticsData['customer_analytics']['avg_visits_per_customer'] }}</h4>
                                 <small class="text-muted">Avg. Visits/Customer</small>
                             </div>
                         </div>
@@ -183,9 +188,9 @@
 
         <!-- Peak Hours -->
         <div class="col-xl-6">
-            <div class="card border-0 shadow-sm">
-                <div class="card-header bg-white border-0">
-                    <h5 class="mb-0">Peak Hours Analysis</h5>
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="mb-0 fw-bold">Peak Hours Analysis</h5>
                 </div>
                 <div class="card-body">
                     <canvas id="peakHoursChart" style="height: 250px; width: 100%;"></canvas>
@@ -198,9 +203,9 @@
     <div class="row g-4">
         <!-- Payment Methods -->
         <div class="col-xl-4">
-            <div class="card border-0 shadow-sm">
-                <div class="card-header bg-white border-0">
-                    <h5 class="mb-0">Payment Methods</h5>
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="mb-0 fw-bold">Payment Methods</h5>
                 </div>
                 <div class="card-body">
                     <canvas id="paymentChart" style="height: 300px; width: 100%;"></canvas>
@@ -210,9 +215,9 @@
 
         <!-- Key Insights -->
         <div class="col-xl-8">
-            <div class="card border-0 shadow-sm">
-                <div class="card-header bg-white border-0">
-                    <h5 class="mb-0">Key Insights & Recommendations</h5>
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="mb-0 fw-bold">Key Insights & Recommendations</h5>
                 </div>
                 <div class="card-body">
                     <div class="row g-4">
@@ -222,7 +227,7 @@
                                     <i class="bi bi-trending-up"></i>
                                 </div>
                                 <div class="insight-content">
-                                    <h6>Revenue Growth</h6>
+                                        <h6 class="fw-bold">Revenue Growth</h6>
                                     <p class="small text-muted mb-2">Your revenue has increased by 12.5% compared to last month. Cappuccino and specialty drinks are driving this growth.</p>
                                     <span class="badge bg-success">Positive Trend</span>
                                 </div>
@@ -235,7 +240,7 @@
                                     <i class="bi bi-clock"></i>
                                 </div>
                                 <div class="insight-content">
-                                    <h6>Peak Hours</h6>
+                                        <h6 class="fw-bold">Peak Hours</h6>
                                     <p class="small text-muted mb-2">8-9 AM and 2-3 PM are your busiest hours. Consider staffing adjustments during these times.</p>
                                     <span class="badge bg-info">Optimization Opportunity</span>
                                 </div>
@@ -248,7 +253,7 @@
                                     <i class="bi bi-people"></i>
                                 </div>
                                 <div class="insight-content">
-                                    <h6>Customer Retention</h6>
+                                        <h6 class="fw-bold">Customer Retention</h6>
                                     <p class="small text-muted mb-2">78.5% retention rate is good, but there's room for improvement through loyalty programs.</p>
                                     <span class="badge bg-warning">Action Needed</span>
                                 </div>
@@ -261,7 +266,7 @@
                                     <i class="bi bi-cup-hot"></i>
                                 </div>
                                 <div class="insight-content">
-                                    <h6>Product Performance</h6>
+                                        <h6 class="fw-bold">Product Performance</h6>
                                     <p class="small text-muted mb-2">Cold drinks are gaining popularity. Consider expanding the iced coffee menu for summer.</p>
                                     <span class="badge bg-primary">Growth Opportunity</span>
                                 </div>
@@ -318,7 +323,7 @@
 .rank-badge {
     width: 30px;
     height: 30px;
-    background: linear-gradient(45deg, var(--coffee-primary), var(--coffee-secondary));
+        background: var(--bakery-gradient);
     color: white;
     border-radius: 50%;
     display: flex;
@@ -332,22 +337,28 @@
     display: flex;
     align-items: flex-start;
     gap: 1rem;
-    padding: 1.5rem;
-    background: linear-gradient(45deg, rgba(139, 69, 19, 0.02), rgba(210, 105, 30, 0.02));
-    border-radius: 15px;
-    border: 1px solid rgba(139, 69, 19, 0.1);
+        padding: 2rem;
+        background: linear-gradient(45deg, rgba(139, 69, 19, 0.05), rgba(210, 105, 30, 0.05));
+        border-radius: 20px;
+        border: 2px solid rgba(139, 69, 19, 0.1);
     height: 100%;
+        transition: all 0.3s ease;
+    }
+
+    .insight-card:hover {
+        transform: translateY(-5px);
+        box-shadow: var(--bakery-shadow);
 }
 
 .insight-icon {
-    width: 50px;
-    height: 50px;
-    border-radius: 12px;
+        width: 60px;
+        height: 60px;
+        border-radius: 15px;
     display: flex;
     align-items: center;
     justify-content: center;
     color: white;
-    font-size: 1.25rem;
+        font-size: 1.5rem;
     flex-shrink: 0;
 }
 
@@ -356,7 +367,7 @@
 }
 
 .insight-content h6 {
-    color: var(--coffee-primary);
+        color: var(--bakery-brown);
     margin-bottom: 0.5rem;
 }
 </style>
@@ -375,8 +386,8 @@ document.addEventListener('DOMContentLoaded', function() {
             datasets: [{
                 label: 'Daily Revenue (Rs.)',
                 data: {!! json_encode($analyticsData['sales_by_period']['daily']['data']) !!},
-                borderColor: '#8B4513',
-                backgroundColor: 'rgba(139, 69, 19, 0.1)',
+                    borderColor: '#8B4513',
+                    backgroundColor: 'rgba(139, 69, 19, 0.1)',
                 borderWidth: 3,
                 fill: true,
                 tension: 0.4,

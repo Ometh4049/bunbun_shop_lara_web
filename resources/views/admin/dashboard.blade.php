@@ -5,20 +5,25 @@
 @section('content')
 <div class="container-fluid">
     <!-- Page Header -->
-    <div class="d-flex justify-content-between align-items-center mb-4">
+    <div class="page-header">
+        <div class="d-flex justify-content-between align-items-center">
         <div>
-            <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
-            <p class="mb-0 text-muted">Real-time insights into Sweet Delights operations</p>
+                <h1 class="display-6 fw-bold mb-2">
+                    <i class="bi bi-speedometer2 me-3 text-bakery"></i>
+                    Sweet Delights Dashboard
+                </h1>
+                <p class="lead text-muted mb-0">Real-time insights into your bakery operations</p>
         </div>
         <div>
             <div class="d-flex gap-2">
-                <button class="btn btn-outline-secondary btn-sm" onclick="refreshDashboard()">
+                    <button class="btn btn-outline-bakery" onclick="refreshDashboard()">
                     <i class="bi bi-arrow-clockwise me-1"></i>Refresh
                 </button>
-                <span class="badge bg-success fs-6" id="systemStatus">
-                <i class="bi bi-circle-fill me-1" style="font-size: 0.5rem;"></i>
+                    <span class="badge bg-success fs-6 live-indicator" id="systemStatus">
+                        <i class="bi bi-circle-fill me-1" style="font-size: 0.5rem;"></i>
                     Live Data
-            </span>
+                    </span>
+                </div>
             </div>
         </div>
     </div>
@@ -26,12 +31,12 @@
     <!-- Real-time Activity Feed -->
     <div class="row mb-4">
         <div class="col-12">
-            <div class="card border-0 shadow-sm">
-                <div class="card-header bg-white border-0">
+                <div class="card">
+                    <div class="card-header">
                     <div class="d-flex justify-content-between align-items-center">
-                        <h6 class="mb-0">
+                            <h5 class="mb-0 fw-bold">
                             <i class="bi bi-activity me-2 text-info"></i>Live Activity Feed
-                        </h6>
+                            </h5>
                         <small class="text-muted">Last updated: <span id="lastUpdated">{{ now()->format('g:i A') }}</span></small>
                     </div>
                 </div>
@@ -43,18 +48,19 @@
             </div>
         </div>
     </div>
+
     <!-- Statistics Cards -->
     <div class="row g-4 mb-4">
         <div class="col-xl-3 col-md-6">
-            <div class="card stat-card border-0 shadow-sm h-100">
+                <div class="stat-card h-100">
                 <div class="card-body">
                     <div class="d-flex align-items-center">
                         <div class="stat-icon bg-primary">
                             <i class="bi bi-people-fill"></i>
                         </div>
                         <div class="ms-3">
-                            <div class="text-muted small">Total Users</div>
-                            <div class="h4 mb-0" data-stat="total_users">{{ number_format($stats['total_users']) }}</div>
+                                <div class="text-muted small fw-semibold">Total Users</div>
+                                <div class="h3 mb-0 fw-bold text-bakery" data-stat="total_users">{{ number_format($stats['total_users']) }}</div>
                             <div class="text-success small">
                                 <i class="bi bi-arrow-up"></i> +<span data-stat="new_users_today">{{ $stats['new_users_today'] }}</span> today
                             </div>
@@ -65,15 +71,15 @@
         </div>
 
         <div class="col-xl-3 col-md-6">
-            <div class="card stat-card border-0 shadow-sm h-100">
+                <div class="stat-card h-100">
                 <div class="card-body">
                     <div class="d-flex align-items-center">
                         <div class="stat-icon bg-success">
                             <i class="bi bi-calendar-check-fill"></i>
                         </div>
                         <div class="ms-3">
-                            <div class="text-muted small">Reservations</div>
-                            <div class="h4 mb-0" data-stat="total_reservations">{{ number_format($stats['total_reservations']) }}</div>
+                                <div class="text-muted small fw-semibold">Reservations</div>
+                                <div class="h3 mb-0 fw-bold text-bakery" data-stat="total_reservations">{{ number_format($stats['total_reservations']) }}</div>
                             <div class="text-warning small">
                                 <i class="bi bi-clock"></i> <span data-stat="pending_reservations">{{ $stats['pending_reservations'] }}</span> pending
                             </div>
@@ -84,15 +90,15 @@
         </div>
 
         <div class="col-xl-3 col-md-6">
-            <div class="card stat-card border-0 shadow-sm h-100">
+                <div class="stat-card h-100">
                 <div class="card-body">
                     <div class="d-flex align-items-center">
                         <div class="stat-icon bg-info">
                             <i class="bi bi-currency-dollar"></i>
                         </div>
                         <div class="ms-3">
-                            <div class="text-muted small">Today's Revenue</div>
-                            <div class="h4 mb-0" data-stat="revenue_today">Rs. {{ number_format($stats['revenue_today'], 2) }}</div>
+                                <div class="text-muted small fw-semibold">Today's Revenue</div>
+                                <div class="h3 mb-0 fw-bold text-bakery" data-stat="revenue_today">Rs. {{ number_format($stats['revenue_today'], 2) }}</div>
                             <div class="text-success small">
                                 <i class="bi bi-trending-up"></i> <span id="revenueGrowth">+12.5%</span>
                             </div>
@@ -103,15 +109,15 @@
         </div>
 
         <div class="col-xl-3 col-md-6">
-            <div class="card stat-card border-0 shadow-sm h-100">
+                <div class="stat-card h-100">
                 <div class="card-body">
                     <div class="d-flex align-items-center">
                         <div class="stat-icon bg-warning">
                             <i class="bi bi-graph-up"></i>
                         </div>
                         <div class="ms-3">
-                            <div class="text-muted small">Monthly Revenue</div>
-                            <div class="h4 mb-0" data-stat="revenue_month">Rs. {{ number_format($stats['revenue_month'], 2) }}</div>
+                                <div class="text-muted small fw-semibold">Monthly Revenue</div>
+                                <div class="h3 mb-0 fw-bold text-bakery" data-stat="revenue_month">Rs. {{ number_format($stats['revenue_month'], 2) }}</div>
                             <div class="text-success small">
                                 <i class="bi bi-arrow-up"></i> <span id="monthlyGrowth">+8.2%</span>
                             </div>
@@ -125,14 +131,14 @@
     <!-- Real-time Metrics Row -->
     <div class="row g-4 mb-4">
         <div class="col-lg-8">
-            <div class="card border-0 shadow-sm">
-                <div class="card-header bg-white border-0">
+                <div class="card">
+                    <div class="card-header">
                     <div class="d-flex justify-content-between align-items-center">
-                        <h5 class="mb-0">Live Performance Metrics</h5>
+                            <h5 class="mb-0 fw-bold">Live Performance Metrics</h5>
                         <div class="btn-group btn-group-sm">
-                            <button class="btn btn-outline-secondary active" onclick="setMetricsPeriod('today')">Today</button>
-                            <button class="btn btn-outline-secondary" onclick="setMetricsPeriod('week')">Week</button>
-                            <button class="btn btn-outline-secondary" onclick="setMetricsPeriod('month')">Month</button>
+                                <button class="btn btn-outline-bakery active" onclick="setMetricsPeriod('today')">Today</button>
+                                <button class="btn btn-outline-bakery" onclick="setMetricsPeriod('week')">Week</button>
+                                <button class="btn btn-outline-bakery" onclick="setMetricsPeriod('month')">Month</button>
                         </div>
                     </div>
                 </div>
@@ -192,9 +198,9 @@
         </div>
         
         <div class="col-lg-4">
-            <div class="card border-0 shadow-sm">
-                <div class="card-header bg-white border-0">
-                    <h5 class="mb-0">System Health</h5>
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="mb-0 fw-bold">System Health</h5>
                 </div>
                 <div class="card-body">
                     <div class="health-metrics">
@@ -203,7 +209,7 @@
                                 <span>Server Response</span>
                                 <span class="badge bg-success">Excellent</span>
                             </div>
-                            <div class="progress mt-2" style="height: 6px;">
+                                <div class="progress mt-2" style="height: 8px; border-radius: 10px;">
                                 <div class="progress-bar bg-success" style="width: 95%"></div>
                             </div>
                         </div>
@@ -212,7 +218,7 @@
                                 <span>Database Performance</span>
                                 <span class="badge bg-success">Good</span>
                             </div>
-                            <div class="progress mt-2" style="height: 6px;">
+                                <div class="progress mt-2" style="height: 8px; border-radius: 10px;">
                                 <div class="progress-bar bg-success" style="width: 88%"></div>
                             </div>
                         </div>
@@ -221,7 +227,7 @@
                                 <span>Memory Usage</span>
                                 <span class="badge bg-warning">Moderate</span>
                             </div>
-                            <div class="progress mt-2" style="height: 6px;">
+                                <div class="progress mt-2" style="height: 8px; border-radius: 10px;">
                                 <div class="progress-bar bg-warning" style="width: 72%"></div>
                             </div>
                         </div>
@@ -230,7 +236,7 @@
                                 <span>Storage Space</span>
                                 <span class="badge bg-info">Available</span>
                             </div>
-                            <div class="progress mt-2" style="height: 6px;">
+                                <div class="progress mt-2" style="height: 8px; border-radius: 10px;">
                                 <div class="progress-bar bg-info" style="width: 45%"></div>
                             </div>
                         </div>
@@ -239,54 +245,55 @@
             </div>
         </div>
     </div>
+
     <!-- Charts Row -->
     <div class="row g-4 mb-4">
         <div class="col-xl-8">
-            <div class="card border-0 shadow-sm">
-                <div class="card-header bg-white border-0 pb-0">
+                <div class="card">
+                    <div class="card-header">
                     <div class="d-flex justify-content-between align-items-center">
                         <div>
-                            <h5 class="card-title mb-0">Real-time Sales Overview</h5>
-                            <p class="text-muted small mb-0">Live revenue trends and performance</p>
+                                <h5 class="card-title mb-1 fw-bold">Real-time Sales Overview</h5>
+                                <p class="text-muted small mb-0">Live revenue trends and performance</p>
                         </div>
                         <div class="chart-controls">
                             <div class="btn-group btn-group-sm">
-                                <button class="btn btn-outline-secondary active" onclick="updateChart('daily')">Daily</button>
-                                <button class="btn btn-outline-secondary" onclick="updateChart('weekly')">Weekly</button>
-                                <button class="btn btn-outline-secondary" onclick="updateChart('monthly')">Monthly</button>
+                                    <button class="btn btn-outline-bakery active" onclick="updateChart('daily')">Daily</button>
+                                    <button class="btn btn-outline-bakery" onclick="updateChart('weekly')">Weekly</button>
+                                    <button class="btn btn-outline-bakery" onclick="updateChart('monthly')">Monthly</button>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="card-body">
+                    <div class="card-body pt-0">
                     <canvas id="salesChart" height="120"></canvas>
                 </div>
             </div>
         </div>
 
         <div class="col-xl-4">
-            <div class="card border-0 shadow-sm">
-                <div class="card-header bg-white border-0 pb-0">
+                <div class="card">
+                    <div class="card-header">
                     <div class="d-flex justify-content-between align-items-center">
                         <div>
-                            <h5 class="card-title mb-0">Live Popular Items</h5>
-                            <p class="text-muted small mb-0">Real-time ordering trends</p>
+                                <h5 class="card-title mb-1 fw-bold">Live Popular Items</h5>
+                                <p class="text-muted small mb-0">Real-time ordering trends</p>
                         </div>
                         <span class="badge bg-info">Live</span>
                     </div>
                 </div>
-                <div class="card-body">
+                    <div class="card-body pt-0">
                     <div id="popularItemsList">
                         @foreach($stats['popular_items'] as $index => $item)
                         <div class="d-flex justify-content-between align-items-center mb-3 popular-item" data-item-index="{{ $index }}">
-                        <div>
-                            <h6 class="mb-0">{{ $item['name'] }}</h6>
+                            <div>
+                                <h6 class="mb-0 fw-semibold">{{ $item['name'] }}</h6>
                                 <small class="text-muted"><span class="order-count">{{ $item['orders'] }}</span> orders</small>
+                            </div>
+                            <div class="progress" style="width: 100px; height: 10px; border-radius: 10px;">
+                                <div class="progress-bar progress-bar-item" style="width: {{ ($item['orders'] / 50) * 100 }}%; background: var(--bakery-gradient); border-radius: 10px;"></div>
+                            </div>
                         </div>
-                            <div class="progress" style="width: 100px; height: 8px;">
-                                <div class="progress-bar bg-bakery progress-bar-item" style="width: {{ ($item['orders'] / 50) * 100 }}%"></div>
-                        </div>
-                    </div>
                         @endforeach
                     </div>
                 </div>
@@ -297,22 +304,22 @@
     <!-- Recent Activity Row -->
     <div class="row g-4">
         <div class="col-xl-6">
-            <div class="card border-0 shadow-sm">
-                <div class="card-header bg-white border-0 pb-0">
+                <div class="card">
+                    <div class="card-header">
                     <div class="d-flex justify-content-between align-items-center">
                         <div>
-                            <h5 class="card-title mb-0">Recent Users</h5>
-                            <p class="text-muted small mb-0">Latest registrations and activity</p>
+                                <h5 class="card-title mb-1 fw-bold">Recent Users</h5>
+                                <p class="text-muted small mb-0">Latest registrations and activity</p>
                         </div>
-                        <button class="btn btn-outline-primary btn-sm" onclick="refreshRecentUsers()">
+                            <button class="btn btn-outline-bakery btn-sm" onclick="refreshRecentUsers()">
                             <i class="bi bi-arrow-clockwise"></i>
                         </button>
                     </div>
                 </div>
-                <div class="card-body">
+                    <div class="card-body pt-0">
                     <div class="table-responsive">
-                        <table class="table table-hover" id="recentUsersTable">
-                            <thead class="table-light">
+                            <table class="table" id="recentUsersTable">
+                                <thead>
                                 <tr>
                                     <th>User</th>
                                     <th>Email</th>
@@ -336,7 +343,7 @@
                                                     </div>
                                                 @endif
                                             </div>
-                                            <span class="fw-medium">{{ $user->name }}</span>
+                                                <span class="fw-semibold">{{ $user->name }}</span>
                                         </div>
                                     </td>
                                     <td class="text-muted">{{ $user->email }}</td>
@@ -367,25 +374,25 @@
         </div>
 
         <div class="col-xl-6">
-            <div class="card border-0 shadow-sm">
-                <div class="card-header bg-white border-0 pb-0">
+                <div class="card">
+                    <div class="card-header">
                     <div class="d-flex justify-content-between align-items-center">
                         <div>
-                            <h5 class="card-title mb-0">Quick Actions & Alerts</h5>
-                            <p class="text-muted small mb-0">Priority tasks and system alerts</p>
+                                <h5 class="card-title mb-1 fw-bold">Quick Actions & Alerts</h5>
+                                <p class="text-muted small mb-0">Priority tasks and system alerts</p>
                         </div>
                         <span class="badge bg-danger" id="alertsCount">3</span>
                     </div>
                 </div>
-                <div class="card-body">
+                    <div class="card-body pt-0">
                     <!-- Priority Alerts -->
                     <div class="alerts-section mb-4">
-                        <div class="alert alert-warning alert-dismissible fade show">
+                            <div class="alert alert-warning alert-dismissible fade show modern-alert">
                             <i class="bi bi-exclamation-triangle me-2"></i>
                             <strong>{{ $stats['pending_reservations'] }} pending reservations</strong> require approval
                             <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
                         </div>
-                        <div class="alert alert-info alert-dismissible fade show">
+                            <div class="alert alert-info alert-dismissible fade show modern-alert">
                             <i class="bi bi-info-circle me-2"></i>
                             <strong>System backup</strong> completed successfully at {{ now()->subHours(2)->format('g:i A') }}
                             <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
@@ -395,32 +402,33 @@
                     <!-- Quick Action Buttons -->
                     <div class="row g-3">
                         <div class="col-6">
-                            <a href="{{ route('admin.reservations') }}" class="btn btn-outline-primary w-100 py-3">
-                                <i class="bi bi-calendar-plus d-block mb-2" style="font-size: 1.5rem;"></i>
-                                <span class="small">Reservations</span>
+                                <a href="{{ route('admin.reservations') }}" class="btn btn-outline-bakery w-100 py-3 quick-action-btn">
+                                    <i class="bi bi-calendar-plus d-block mb-2" style="font-size: 2rem;"></i>
+                                    <span class="fw-semibold">Reservations</span>
                                 @if($stats['pending_reservations'] > 0)
                                     <span class="badge bg-warning">{{ $stats['pending_reservations'] }}</span>
                                 @endif
                             </a>
                         </div>
                         <div class="col-6">
-                            <a href="{{ route('admin.orders') }}" class="btn btn-outline-success w-100 py-3">
-                                <i class="bi bi-receipt d-block mb-2" style="font-size: 1.5rem;"></i>
-                                <span class="small">Orders</span>
+                                <a href="{{ route('admin.orders') }}" class="btn btn-outline-bakery w-100 py-3 quick-action-btn">
+                                    <i class="bi bi-receipt d-block mb-2" style="font-size: 2rem;"></i>
+                                    <span class="fw-semibold">Orders</span>
                                 <span class="badge bg-info">Live</span>
                             </a>
                         </div>
                         <div class="col-6">
-                            <a href="{{ route('admin.users') }}" class="btn btn-outline-info w-100 py-3">
-                                <i class="bi bi-people d-block mb-2" style="font-size: 1.5rem;"></i>
-                                <span class="small">Users</span>
+                                <a href="{{ route('admin.products.index') }}" class="btn btn-outline-bakery w-100 py-3 quick-action-btn">
+                                    <i class="bi bi-box-seam d-block mb-2" style="font-size: 2rem;"></i>
+                                    <span class="fw-semibold">Products</span>
+                                    <span class="badge bg-primary">New</span>
+                                </a>
+                            </div>
+                            <div class="col-6">
+                                <a href="{{ route('admin.users') }}" class="btn btn-outline-bakery w-100 py-3 quick-action-btn">
+                                    <i class="bi bi-people d-block mb-2" style="font-size: 2rem;"></i>
+                                    <span class="fw-semibold">Users</span>
                                 <span class="badge bg-primary">{{ $stats['new_users_today'] }}</span>
-                            </a>
-                        </div>
-                        <div class="col-6">
-                            <a href="{{ route('admin.settings') }}" class="btn btn-outline-warning w-100 py-3">
-                                <i class="bi bi-gear d-block mb-2" style="font-size: 1.5rem;"></i>
-                                <span class="small">Settings</span>
                             </a>
                         </div>
                     </div>
@@ -654,12 +662,12 @@ function initializeDashboardCharts() {
             datasets: [{
                 label: 'Daily Sales (Rs.)',
                 data: {!! json_encode($chartData['daily_sales']['data']) !!},
-                borderColor: 'var(--bakery-primary)',
-                backgroundColor: 'rgba(212, 165, 116, 0.1)',
+                    borderColor: '#8B4513',
+                    backgroundColor: 'rgba(139, 69, 19, 0.1)',
                 borderWidth: 3,
                 fill: true,
                 tension: 0.4,
-                pointBackgroundColor: 'var(--bakery-primary)',
+                    pointBackgroundColor: '#8B4513',
                 pointBorderColor: '#fff',
                 pointBorderWidth: 2,
                 pointRadius: 5
@@ -675,10 +683,10 @@ function initializeDashboardCharts() {
             plugins: {
                 legend: { display: false },
                 tooltip: {
-                    backgroundColor: 'rgba(212, 165, 116, 0.9)',
+                        backgroundColor: 'rgba(139, 69, 19, 0.9)',
                     titleColor: '#fff',
                     bodyColor: '#fff',
-                    borderColor: 'var(--bakery-primary)',
+                        borderColor: '#8B4513',
                     borderWidth: 1,
                     cornerRadius: 8
                 }
@@ -689,7 +697,7 @@ function initializeDashboardCharts() {
                 },
                 y: {
                     beginAtZero: true,
-                    grid: { color: 'rgba(212, 165, 116, 0.1)' },
+                        grid: { color: 'rgba(139, 69, 19, 0.1)' },
                     ticks: {
                         callback: function(value) {
                             return 'Rs. ' + value.toLocaleString();
@@ -765,7 +773,7 @@ function showNotification(message, type = 'info') {
         min-width: 350px;
         border-radius: 15px;
         animation: slideInRight 0.5s ease;
-        box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            box-shadow: var(--bakery-shadow);
     `;
     
     const iconMap = {
@@ -781,8 +789,10 @@ function showNotification(message, type = 'info') {
             <span class="flex-grow-1">${message}</span>
             <button type="button" class="btn-close ms-2" onclick="this.parentElement.parentElement.remove()"></button>
         </div>
-    document.body.appendChild(notification);
     `;
+    
+    document.body.appendChild(notification);
+    
     setTimeout(() => {
         if (notification.parentElement) {
             notification.style.animation = 'slideOutRight 0.5s ease';
@@ -823,26 +833,28 @@ style.textContent = `
         display: flex;
         align-items: center;
         gap: 1rem;
-        padding: 0.75rem;
-        border-radius: 8px;
+            padding: 1rem;
+            border-radius: 15px;
         margin-bottom: 0.5rem;
         transition: all 0.3s ease;
-        border: 1px solid rgba(212, 165, 116, 0.1);
+            border: 2px solid rgba(139, 69, 19, 0.1);
+            background: rgba(255, 255, 255, 0.5);
     }
     
     .activity-item:hover {
-        background: linear-gradient(45deg, rgba(212, 165, 116, 0.05), rgba(244, 228, 193, 0.05));
+            background: linear-gradient(45deg, rgba(139, 69, 19, 0.05), rgba(210, 105, 30, 0.05));
+            transform: translateX(5px);
     }
     
     .activity-icon {
-        width: 35px;
-        height: 35px;
+            width: 40px;
+            height: 40px;
         border-radius: 50%;
         display: flex;
         align-items: center;
         justify-content: center;
         color: white;
-        font-size: 0.9rem;
+            font-size: 1rem;
         flex-shrink: 0;
     }
     
@@ -851,7 +863,8 @@ style.textContent = `
     }
     
     .activity-text {
-        font-size: 0.9rem;
+            font-size: 0.95rem;
+            font-weight: 500;
         color: #495057;
         margin-bottom: 0.25rem;
     }
@@ -865,45 +878,50 @@ style.textContent = `
         display: flex;
         align-items: center;
         gap: 1rem;
-        padding: 1rem;
-        background: linear-gradient(45deg, rgba(212, 165, 116, 0.05), rgba(244, 228, 193, 0.05));
-        border-radius: 12px;
-        border: 1px solid rgba(212, 165, 116, 0.1);
+            padding: 1.5rem;
+            background: linear-gradient(45deg, rgba(139, 69, 19, 0.05), rgba(210, 105, 30, 0.05));
+            border-radius: 15px;
+            border: 2px solid rgba(139, 69, 19, 0.1);
         transition: all 0.3s ease;
     }
     
     .metric-item:hover {
-        transform: translateY(-3px);
-        box-shadow: 0 5px 15px rgba(212, 165, 116, 0.2);
+            transform: translateY(-5px);
+            box-shadow: var(--bakery-shadow);
     }
     
     .metric-icon {
-        width: 50px;
-        height: 50px;
+            width: 60px;
+            height: 60px;
         border-radius: 50%;
         display: flex;
         align-items: center;
         justify-content: center;
         color: white;
-        font-size: 1.25rem;
+            font-size: 1.5rem;
         flex-shrink: 0;
     }
     
     .metric-details h4 {
-        font-size: 1.5rem;
+            font-size: 1.75rem;
         font-weight: 700;
-        color: var(--bakery-primary);
+            color: var(--bakery-brown);
         margin-bottom: 0.25rem;
     }
     
     .metric-details p {
-        font-size: 0.9rem;
+            font-size: 1rem;
+            font-weight: 500;
         color: #6c757d;
         margin-bottom: 0.25rem;
     }
     
     .health-item {
         margin-bottom: 1.5rem;
+            padding: 1rem;
+            background: linear-gradient(45deg, rgba(139, 69, 19, 0.02), rgba(210, 105, 30, 0.02));
+            border-radius: 12px;
+            border: 1px solid rgba(139, 69, 19, 0.05);
     }
     
     .health-item:last-child {
@@ -911,37 +929,66 @@ style.textContent = `
     }
     
     .user-avatar-sm {
-        width: 35px;
-        height: 35px;
-        background: linear-gradient(45deg, var(--bakery-primary), var(--bakery-secondary));
+            width: 40px;
+            height: 40px;
+            background: var(--bakery-gradient);
         border-radius: 50%;
         display: flex;
         align-items: center;
         justify-content: center;
         position: relative;
-        border: 2px solid rgba(255, 255, 255, 0.8);
+            border: 2px solid rgba(139, 69, 19, 0.1);
     }
     
     .admin-badge-sm {
         position: absolute;
         bottom: -2px;
         right: -2px;
-        width: 15px;
-        height: 15px;
+            width: 16px;
+            height: 16px;
         background: #dc3545;
         border-radius: 50%;
         display: flex;
         align-items: center;
         justify-content: center;
         color: white;
-        font-size: 0.6rem;
+            font-size: 0.65rem;
         border: 2px solid white;
     }
     
-    .alerts-section .alert {
-        border-radius: 10px;
+        .modern-alert {
+            border-radius: 15px;
         border: none;
         margin-bottom: 0.5rem;
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .quick-action-btn {
+            transition: all 0.3s ease;
+            border-radius: 15px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .quick-action-btn:hover {
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: var(--bakery-shadow);
+        }
+
+        .quick-action-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(139, 69, 19, 0.1), transparent);
+            transition: all 0.6s;
+        }
+
+        .quick-action-btn:hover::before {
+            left: 100%;
     }
 `;
 document.head.appendChild(style);

@@ -5,80 +5,85 @@
 @section('content')
 <div class="container-fluid">
     <!-- Page Header -->
-    <div class="d-flex justify-content-between align-items-center mb-4">
+    <div class="page-header">
+        <div class="d-flex justify-content-between align-items-center">
         <div>
-            <h1 class="h3 mb-0 text-gray-800">Orders</h1>
-            <p class="mb-0 text-muted">Manage customer orders and track sales</p>
+                <h1 class="display-6 fw-bold mb-2">
+                    <i class="bi bi-receipt me-3 text-bakery"></i>
+                    Orders Management
+                </h1>
+                <p class="lead text-muted mb-0">Manage customer orders and track sales</p>
         </div>
         <div>
             <button class="btn btn-coffee">
                 <i class="bi bi-plus-circle me-2"></i>New Order
             </button>
         </div>
+        </div>
     </div>
 
     <!-- Order Stats -->
     <div class="row g-4 mb-4">
         <div class="col-md-3">
-            <div class="card border-0 shadow-sm">
+                <div class="stat-card">
                 <div class="card-body text-center">
                     <div class="stat-icon bg-info mx-auto mb-3">
                         <i class="bi bi-receipt"></i>
                     </div>
-                    <h4 class="mb-0">47</h4>
-                    <small class="text-muted">Today's Orders</small>
+                        <h3 class="mb-0 fw-bold text-bakery">47</h3>
+                        <p class="text-muted mb-0">Today's Orders</p>
                 </div>
             </div>
         </div>
         <div class="col-md-3">
-            <div class="card border-0 shadow-sm">
+                <div class="stat-card">
                 <div class="card-body text-center">
                     <div class="stat-icon bg-warning mx-auto mb-3">
                         <i class="bi bi-clock-history"></i>
                     </div>
-                    <h4 class="mb-0">12</h4>
-                    <small class="text-muted">Preparing</small>
+                        <h3 class="mb-0 fw-bold text-bakery">12</h3>
+                        <p class="text-muted mb-0">Preparing</p>
                 </div>
             </div>
         </div>
         <div class="col-md-3">
-            <div class="card border-0 shadow-sm">
+                <div class="stat-card">
                 <div class="card-body text-center">
                     <div class="stat-icon bg-success mx-auto mb-3">
                         <i class="bi bi-check-circle"></i>
                     </div>
-                    <h4 class="mb-0">35</h4>
-                    <small class="text-muted">Completed</small>
+                        <h3 class="mb-0 fw-bold text-bakery">35</h3>
+                        <p class="text-muted mb-0">Completed</p>
                 </div>
             </div>
         </div>
         <div class="col-md-3">
-            <div class="card border-0 shadow-sm">
+                <div class="stat-card">
                 <div class="card-body text-center">
                     <div class="stat-icon bg-primary mx-auto mb-3">
                         <i class="bi bi-currency-dollar"></i>
                     </div>
-                    <h4 class="mb-0">Rs. 45,200</h4>
-                    <small class="text-muted">Today's Revenue</small>
+                        <h3 class="mb-0 fw-bold text-bakery">Rs. 45,200</h3>
+                        <p class="text-muted mb-0">Today's Revenue</p>
                 </div>
             </div>
         </div>
     </div>
 
     <!-- Orders Table -->
-    <div class="card border-0 shadow-sm">
-        <div class="card-header bg-white border-0">
+        <div class="card">
+            <div class="card-header">
             <div class="d-flex justify-content-between align-items-center">
-                <h5 class="mb-0">Recent Orders</h5>
+                    <h5 class="mb-0 fw-bold">Recent Orders</h5>
                 <div class="d-flex gap-2">
-                    <select class="form-select form-select-sm" style="width: auto;">
+                        <select class="form-select" style="width: auto;">
                         <option>All Status</option>
                         <option>Pending</option>
                         <option>Preparing</option>
                         <option>Ready</option>
                         <option>Completed</option>
                     </select>
-                    <button class="btn btn-outline-secondary btn-sm">
+                        <button class="btn btn-outline-bakery btn-sm">
                         <i class="bi bi-arrow-clockwise"></i> Refresh
                     </button>
                 </div>
@@ -86,8 +91,8 @@
         </div>
         <div class="card-body p-0">
             <div class="table-responsive">
-                <table class="table table-hover mb-0">
-                    <thead class="table-light">
+                    <table class="table mb-0">
+                        <thead>
                         <tr>
                             <th>Order ID</th>
                             <th>Customer</th>
@@ -102,19 +107,19 @@
                         @foreach($orders as $order)
                         <tr>
                             <td>
-                                <span class="fw-bold text-coffee">#{{ $order->id }}</span>
+                                    <span class="fw-bold text-bakery">#{{ $order->order_id ?? 'ORD' . str_pad($order->id, 6, '0', STR_PAD_LEFT) }}</span>
                             </td>
                             <td>
                                 <div>
-                                    <h6 class="mb-0">{{ $order->customer_name }}</h6>
-                                    <small class="text-muted">Walk-in Customer</small>
+                                        <h6 class="mb-0 fw-semibold">{{ $order->customer_name }}</h6>
+                                        <small class="text-muted">{{ $order->user ? 'Registered Customer' : 'Walk-in Customer' }}</small>
                                 </div>
                             </td>
                             <td>
-                                <span class="text-muted">{{ is_array($order->items) ? count($order->items) . ' items' : $order->items }}</span>
+                                    <span class="fw-medium">{{ is_array($order->items) ? count($order->items) . ' items' : $order->items }}</span>
                             </td>
                             <td>
-                                <span class="fw-bold">Rs. {{ number_format($order->total, 2) }}</span>
+                                    <span class="fw-bold text-bakery">Rs. {{ number_format($order->total, 2) }}</span>
                             </td>
                             <td>
                                 @if($order->status == 'completed')
@@ -128,34 +133,32 @@
                                 @endif
                             </td>
                             <td>
-                                <small class="text-muted">{{ $order->created_at->diffForHumans() }}</small>
+                                    <span>{{ $order->created_at->format('M d, Y') }}</span><br>
+                                    <small class="text-muted">{{ $order->created_at->format('g:i A') }}</small>
                             </td>
                             <td>
                                 <div class="btn-group btn-group-sm">
                                     @if($order->status == 'preparing')
-                                        <button class="btn btn-success btn-sm" onclick="markReady('{{ $order->id }}')">
+                                            <button class="btn btn-success" onclick="markReady('{{ $order->order_id ?? $order->id }}')">
                                             <i class="bi bi-check"></i> Ready
                                         </button>
                                     @elseif($order->status == 'ready')
-                                        <button class="btn btn-primary btn-sm" onclick="markCompleted('{{ $order->id }}')">
+                                            <button class="btn btn-primary" onclick="markCompleted('{{ $order->order_id ?? $order->id }}')">
                                             <i class="bi bi-check-all"></i> Complete
                                         </button>
                                     @elseif($order->status == 'pending')
-                                        <button class="btn btn-warning btn-sm" onclick="confirmOrder('{{ $order->id }}')">
+                                            <button class="btn btn-warning" onclick="confirmOrder('{{ $order->order_id ?? $order->id }}')">
                                             <i class="bi bi-check"></i>
                                         </button>
-                                        <button class="btn btn-danger btn-sm" onclick="cancelOrder('{{ $order->id }}')">
-                                            <i class="bi bi-check-all"></i>
+                                            <button class="btn btn-danger" onclick="cancelOrder('{{ $order->order_id ?? $order->id }}')">
+                                                <i class="bi bi-x"></i>
                                         </button>
                                     @endif
-                                    <button class="btn btn-outline-secondary btn-sm" onclick="viewOrder('{{ $order->id }}')">
-                                            <i class="bi bi-check"></i>
+                                        <button class="btn btn-outline-secondary" onclick="viewOrder('{{ $order->order_id ?? $order->id }}')">
+                                            <i class="bi bi-eye"></i>
                                     </button>
-                                    <button class="btn btn-outline-primary btn-sm" onclick="printReceipt('{{ $order->id }}')">
-                                        <i class="bi bi-pencil"></i>
-                                    </button>
-                                    <button class="btn btn-outline-danger btn-sm" onclick="deleteOrder('{{ $order->id }}')">
-                                        <i class="bi bi-trash"></i>
+                                        <button class="btn btn-outline-primary" onclick="printReceipt('{{ $order->order_id ?? $order->id }}')">
+                                            <i class="bi bi-printer"></i>
                                     </button>
                                 </div>
                             </td>
@@ -172,16 +175,20 @@
 <div class="modal fade" id="orderModal" tabindex="-1">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title">Order Details</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                <div class="modal-header bg-info text-white">
+                    <h5 class="modal-title">
+                        <i class="bi bi-receipt me-2"></i>Order Details
+                    </h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
             </div>
             <div class="modal-body" id="orderModalBody">
                 <!-- Order details will be loaded here -->
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-coffee">Print Receipt</button>
+                    <button type="button" class="btn btn-bakery">
+                        <i class="bi bi-printer me-2"></i>Print Receipt
+                    </button>
             </div>
         </div>
     </div>
@@ -232,7 +239,7 @@ function updateOrderStatus(orderId, status) {
     .then(response => response.json())
     .then(data => {
         if (data.success) {
-            showNotification(`Order status updated to ${status}!`, 'success');
+                showNotification(`Order status updated to ${status}! 📋`, 'success');
             
             // Update the status badge in the table
             const row = button.closest('tr');
@@ -274,23 +281,24 @@ function updateActionButtons(row, status) {
     const actionsCell = row.querySelector('.btn-group');
     let buttonsHtml = '';
     
-    const orderId = row.querySelector('.fw-bold').textContent.replace('#', '');
+        const orderIdElement = row.querySelector('.fw-bold');
+        const orderId = orderIdElement.textContent.replace('#', '');
     
     if (status === 'confirmed') {
         buttonsHtml = `
-            <button class="btn btn-warning btn-sm" onclick="updateOrderStatus('${orderId}', 'preparing')">
+                <button class="btn btn-warning" onclick="updateOrderStatus('${orderId}', 'preparing')">
                 <i class="bi bi-clock"></i> Start Preparing
             </button>
         `;
     } else if (status === 'preparing') {
         buttonsHtml = `
-            <button class="btn btn-success btn-sm" onclick="markReady('${orderId}')">
+                <button class="btn btn-success" onclick="markReady('${orderId}')">
                 <i class="bi bi-check"></i> Ready
             </button>
         `;
     } else if (status === 'ready') {
         buttonsHtml = `
-            <button class="btn btn-primary btn-sm" onclick="markCompleted('${orderId}')">
+                <button class="btn btn-primary" onclick="markCompleted('${orderId}')">
                 <i class="bi bi-check-all"></i> Complete
             </button>
         `;
@@ -298,10 +306,10 @@ function updateActionButtons(row, status) {
     
     // Always add view and print buttons
     buttonsHtml += `
-        <button class="btn btn-outline-secondary btn-sm" onclick="viewOrder('${orderId}')">
+            <button class="btn btn-outline-secondary" onclick="viewOrder('${orderId}')">
             <i class="bi bi-eye"></i>
         </button>
-        <button class="btn btn-outline-primary btn-sm" onclick="printReceipt('${orderId}')">
+            <button class="btn btn-outline-primary" onclick="printReceipt('${orderId}')">
             <i class="bi bi-printer"></i>
         </button>
     `;
@@ -319,7 +327,7 @@ function showNotification(message, type = 'info') {
         min-width: 350px;
         border-radius: 15px;
         animation: slideInRight 0.5s ease;
-        box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            box-shadow: var(--bakery-shadow);
     `;
     notification.innerHTML = `
         <div class="d-flex align-items-center">
@@ -337,45 +345,82 @@ function showNotification(message, type = 'info') {
             setTimeout(() => notification.remove(), 500);
         }
     }, 5000);
-    }
 }
 
 function viewOrder(orderId) {
     const modalBody = document.getElementById('orderModalBody');
-    modalBody.innerHTML = `
-        <div class="row">
-            <div class="col-md-6">
-                <h6>Order Information</h6>
-                <table class="table table-sm">
-                    <tr><td><strong>Order ID:</strong></td><td>#${orderId}</td></tr>
-                    <tr><td><strong>Customer:</strong></td><td>Alice Johnson</td></tr>
-                    <tr><td><strong>Order Time:</strong></td><td>2:30 PM</td></tr>
-                    <tr><td><strong>Status:</strong></td><td><span class="badge bg-success">Completed</span></td></tr>
-                </table>
+        modalBody.innerHTML = `
+            <div class="order-detail-section">
+                <div class="row">
+                    <div class="col-md-6">
+                        <h6 class="text-bakery fw-bold mb-3">
+                            <i class="bi bi-info-circle me-2"></i>Order Information
+                        </h6>
+                        <div class="detail-table">
+                            <div class="detail-row">
+                                <span class="detail-label">Order ID:</span>
+                                <span class="detail-value">#${orderId}</span>
+                            </div>
+                            <div class="detail-row">
+                                <span class="detail-label">Customer:</span>
+                                <span class="detail-value">Sample Customer</span>
+                            </div>
+                            <div class="detail-row">
+                                <span class="detail-label">Order Time:</span>
+                                <span class="detail-value">2:30 PM</span>
+                            </div>
+                            <div class="detail-row">
+                                <span class="detail-label">Status:</span>
+                                <span class="detail-value">
+                                    <span class="badge bg-success">Completed</span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <h6 class="text-bakery fw-bold mb-3">
+                            <i class="bi bi-basket me-2"></i>Order Items
+                        </h6>
+                        <div class="order-items">
+                            <div class="order-item">
+                                <div class="d-flex justify-content-between">
+                                    <span>Cappuccino x2</span>
+                                    <span class="fw-bold">Rs. 960.00</span>
+                                </div>
+                            </div>
+                            <div class="order-item">
+                                <div class="d-flex justify-content-between">
+                                    <span>Croissant x1</span>
+                                    <span class="fw-bold">Rs. 280.00</span>
+                                </div>
+                            </div>
+                            <div class="order-total">
+                                <div class="d-flex justify-content-between">
+                                    <span class="fw-bold">Total:</span>
+                                    <span class="fw-bold text-bakery">Rs. 1,240.00</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mt-4">
+                    <h6 class="text-bakery fw-bold mb-3">
+                        <i class="bi bi-chat-square-text me-2"></i>Special Instructions
+                    </h6>
+                    <div class="special-instructions">
+                        <p class="text-muted">Extra hot cappuccino, no sugar.</p>
+                    </div>
+                </div>
             </div>
-            <div class="col-md-6">
-                <h6>Order Items</h6>
-                <table class="table table-sm">
-                    <tr><td>Cappuccino</td><td>x2</td><td>Rs. 960.00</td></tr>
-                    <tr><td>Croissant</td><td>x1</td><td>Rs. 280.00</td></tr>
-                    <tr><td colspan="2"><strong>Total:</strong></td><td><strong>Rs. 1,240.00</strong></td></tr>
-                </table>
-            </div>
-        </div>
-        <div class="row mt-3">
-            <div class="col-12">
-                <h6>Special Instructions</h6>
-                <p class="text-muted">Extra hot cappuccino, no sugar.</p>
-            </div>
-        </div>
-    `;
+        `;
     
     const modal = new bootstrap.Modal(document.getElementById('orderModal'));
     modal.show();
 }
 
 function printReceipt(orderId) {
-    showNotification('Receipt printing functionality coming soon!', 'info');
+        showNotification('Receipt printing functionality coming soon! 🖨️', 'info');
 }
 
 function deleteOrder(orderId) {
@@ -392,7 +437,7 @@ function deleteOrder(orderId) {
     .then(response => response.json())
     .then(data => {
         if (data.success) {
-            showNotification('Order deleted successfully!', 'success');
+                showNotification('Order deleted successfully! 🗑️', 'success');
             // Remove the row from table
             const row = document.querySelector(`tr[data-order-id="${orderId}"]`);
             if (row) {
@@ -426,18 +471,6 @@ function refreshOrdersTable() {
             console.error('Failed to refresh orders:', error);
         });
 }
-
-// Real-time updates using WebSockets (if available)
-// Real-time updates using WebSockets (if available)
-// Uncomment when Pusher/Echo is configured
-// if (typeof Echo !== 'undefined') {
-//     Echo.channel('orders')
-//         .listen('OrderUpdated', (e) => {
-//             console.log('Order updated:', e);
-//             updateOrderInTable(e);
-//             showNotification(`Order ${e.order_id} status updated to ${e.status}`, 'info');
-//         });
-// }
 
 function updateOrderInTable(orderData) {
     const row = document.querySelector(`tr[data-order-id="${orderData.id}"]`);
@@ -475,22 +508,22 @@ function updateOrderActionButtons(row, status, orderId) {
     
     if (status === 'pending') {
         buttonsHtml += `
-            <button class="btn btn-success btn-sm" onclick="confirmOrder('${orderId}')">
+                <button class="btn btn-success" onclick="confirmOrder('${orderId}')">
                 <i class="bi bi-check"></i>
             </button>
-            <button class="btn btn-danger btn-sm" onclick="cancelOrder('${orderId}')">
+                <button class="btn btn-danger" onclick="cancelOrder('${orderId}')">
                 <i class="bi bi-x"></i>
             </button>
         `;
     } else if (status === 'preparing') {
         buttonsHtml += `
-            <button class="btn btn-success btn-sm" onclick="markReady('${orderId}')">
+                <button class="btn btn-success" onclick="markReady('${orderId}')">
                 <i class="bi bi-check"></i>
             </button>
         `;
     } else if (status === 'ready') {
         buttonsHtml += `
-            <button class="btn btn-primary btn-sm" onclick="markCompleted('${orderId}')">
+                <button class="btn btn-primary" onclick="markCompleted('${orderId}')">
                 <i class="bi bi-check-all"></i>
             </button>
         `;
@@ -498,19 +531,17 @@ function updateOrderActionButtons(row, status, orderId) {
     
     // Always add view, edit, and delete buttons
     buttonsHtml += `
-        <button class="btn btn-outline-secondary btn-sm" onclick="viewOrder('${orderId}')">
+            <button class="btn btn-outline-secondary" onclick="viewOrder('${orderId}')">
             <i class="bi bi-eye"></i>
         </button>
-        <button class="btn btn-outline-primary btn-sm" onclick="printReceipt('${orderId}')">
-            <i class="bi bi-pencil"></i>
-        </button>
-        <button class="btn btn-outline-danger btn-sm" onclick="deleteOrder('${orderId}')">
-            <i class="bi bi-trash"></i>
+            <button class="btn btn-outline-primary" onclick="printReceipt('${orderId}')">
+                <i class="bi bi-printer"></i>
         </button>
     `;
     
     actionsCell.innerHTML = buttonsHtml;
 }
+
 // CSS animations
 const style = document.createElement('style');
 style.textContent = `
@@ -526,6 +557,71 @@ style.textContent = `
     
     .notification-toast {
         backdrop-filter: blur(10px);
+    }
+    
+    .order-detail-section {
+        background: linear-gradient(45deg, rgba(139, 69, 19, 0.05), rgba(210, 105, 30, 0.05));
+        border-radius: 15px;
+        padding: 2rem;
+        border: 2px solid rgba(139, 69, 19, 0.1);
+    }
+    
+    .detail-table {
+        background: white;
+        border-radius: 12px;
+        padding: 1.5rem;
+        border: 1px solid rgba(139, 69, 19, 0.1);
+    }
+    
+    .detail-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0.75rem 0;
+        border-bottom: 1px solid rgba(139, 69, 19, 0.05);
+    }
+    
+    .detail-row:last-child {
+        border-bottom: none;
+    }
+    
+    .detail-label {
+        font-weight: 600;
+        color: #6c757d;
+    }
+    
+    .detail-value {
+        font-weight: 600;
+        color: var(--bakery-brown);
+    }
+    
+    .order-items {
+        background: white;
+        border-radius: 12px;
+        padding: 1.5rem;
+        border: 1px solid rgba(139, 69, 19, 0.1);
+    }
+    
+    .order-item {
+        padding: 0.75rem 0;
+        border-bottom: 1px solid rgba(139, 69, 19, 0.05);
+    }
+    
+    .order-item:last-child {
+        border-bottom: none;
+    }
+    
+    .order-total {
+        margin-top: 1rem;
+        padding-top: 1rem;
+        border-top: 2px solid var(--bakery-primary);
+    }
+    
+    .special-instructions {
+        background: white;
+        border-radius: 12px;
+        padding: 1.5rem;
+        border: 1px solid rgba(139, 69, 19, 0.1);
     }
 `;
 document.head.appendChild(style);

@@ -5,16 +5,21 @@
 @section('content')
 <div class="container-fluid">
     <!-- Page Header -->
-    <div class="d-flex justify-content-between align-items-center mb-4">
+    <div class="page-header">
+        <div class="d-flex justify-content-between align-items-center">
         <div>
-            <h1 class="h3 mb-0 text-gray-800">Profile Change Requests</h1>
-            <p class="mb-0 text-muted">Review and approve customer profile change requests</p>
+                <h1 class="display-6 fw-bold mb-2">
+                    <i class="bi bi-person-gear me-3 text-bakery"></i>
+                    Profile Change Requests
+                </h1>
+                <p class="lead text-muted mb-0">Review and approve customer profile change requests</p>
         </div>
         <div>
             <span class="badge bg-warning fs-6" id="pendingCount">
                 <i class="bi bi-clock me-1"></i>
                 {{ $requests->where('status', 'pending')->count() }} Pending
             </span>
+        </div>
         </div>
     </div>
 
