@@ -6,10 +6,10 @@
                 <div class="register-form-container">
                     <div class="text-center mb-4">
                         <div class="logo-container mb-3">
-                            <i class="bi bi-cup-hot-fill text-coffee" style="font-size: 3rem;"></i>
+                            <i class="bi bi-shop text-bakery" style="font-size: 3rem;"></i>
                         </div>
-                        <h2 class="fw-bold text-coffee mb-2">Join Café Elixire</h2>
-                        <p class="text-muted">Create your account and start your coffee journey</p>
+                        <h2 class="fw-bold text-bakery mb-2">Join Sweet Delights</h2>
+                        <p class="text-muted">Create your account and start your bakery journey</p>
                     </div>
 
                     <div class="card auth-card shadow-lg border-0">
@@ -118,9 +118,9 @@
                                         <input class="form-check-input" type="checkbox" id="agreeTerms" required>
                                         <label class="form-check-label" for="agreeTerms">
                                             I agree to the
-                                            <a href="#" class="text-coffee text-decoration-none fw-semibold">Terms of Service</a>
+                                            <a href="#" class="text-bakery text-decoration-none fw-semibold">Terms of Service</a>
                                             and
-                                            <a href="#" class="text-coffee text-decoration-none fw-semibold">Privacy Policy</a>
+                                            <a href="#" class="text-bakery text-decoration-none fw-semibold">Privacy Policy</a>
                                         </label>
                                     </div>
                                 </div>
@@ -131,14 +131,14 @@
                                         <input class="form-check-input" type="checkbox" id="newsletter" name="newsletter" checked>
                                         <label class="form-check-label" for="newsletter">
                                             <i class="bi bi-envelope-heart me-1"></i>
-                                            Subscribe to our newsletter for coffee tips and exclusive offers
+                                            Subscribe to our newsletter for baking tips and exclusive offers
                                         </label>
                                     </div>
                                 </div>
 
                                 <!-- Submit Button -->
                                 <div class="d-grid gap-2 mb-4">
-                                    <button type="submit" class="btn btn-coffee btn-lg" id="registerBtn">
+                                    <button type="submit" class="btn btn-bakery btn-lg" id="registerBtn">
                                         <i class="bi bi-person-plus me-2"></i>
                                         <span class="btn-text">Create Account</span>
                                         <span class="btn-loading d-none">
@@ -167,7 +167,7 @@
                                 <div class="text-center">
                                     <p class="mb-0 text-muted">
                                         Already have an account?
-                                        <a href="{{ route('login') }}" class="text-coffee text-decoration-none fw-semibold">
+                                        <a href="{{ route('login') }}" class="text-bakery text-decoration-none fw-semibold">
                                             Sign in here
                                         </a>
                                     </p>
@@ -183,10 +183,10 @@
                 <div class="hero-content h-100 d-flex align-items-center justify-content-center">
                     <div class="text-center text-white">
                         <div class="hero-animation mb-4">
-                            <i class="bi bi-cup-hot floating" style="font-size: 5rem;"></i>
+                            <i class="bi bi-cake2 floating" style="font-size: 5rem;"></i>
                         </div>
-                        <h1 class="display-4 fw-bold mb-4">Welcome to Our Coffee Family</h1>
-                        <p class="lead mb-4">Join thousands of coffee lovers who have made Café Elixir their daily ritual</p>
+                        <h1 class="display-4 fw-bold mb-4">Welcome to Our Bakery Family</h1>
+                        <p class="lead mb-4">Join thousands of pastry lovers who have made Sweet Delights their daily ritual</p>
 
                         <!-- Features -->
                         <div class="row g-3 mt-4">
@@ -194,7 +194,7 @@
                                 <div class="feature-item">
                                     <i class="bi bi-gift-fill mb-2" style="font-size: 2rem;"></i>
                                     <h6>Welcome Bonus</h6>
-                                    <small>Free coffee on your first order</small>
+                                    <small>Free pastry on your first order</small>
                                 </div>
                             </div>
                             <div class="col-6">
@@ -247,12 +247,12 @@
         }
 
         .form-control-lg:focus {
-            border-color: var(--coffee-primary);
-            box-shadow: 0 0 0 0.2rem rgba(139, 69, 19, 0.25);
+            border-color: var(--bakery-primary);
+            box-shadow: 0 0 0 0.2rem rgba(212, 165, 116, 0.25);
         }
 
-        .btn-coffee {
-            background: linear-gradient(45deg, var(--coffee-primary), var(--coffee-secondary));
+        .btn-bakery {
+            background: linear-gradient(45deg, var(--bakery-primary), var(--bakery-secondary));
             border: none;
             color: white;
             font-weight: 600;
@@ -263,21 +263,21 @@
             overflow: hidden;
         }
 
-        .btn-coffee:hover {
+        .btn-bakery:hover {
             transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(139, 69, 19, 0.3);
+            box-shadow: 0 8px 25px rgba(212, 165, 116, 0.3);
             color: white;
         }
 
-        .btn-coffee:active {
+        .btn-bakery:active {
             transform: translateY(0);
         }
 
         .register-hero {
             background: linear-gradient(135deg,
-                        rgba(139, 69, 19, 0.9),
-                        rgba(210, 105, 30, 0.8)),
-                        url('https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=1200&h=800&fit=crop') center/cover;
+                        rgba(212, 165, 116, 0.9),
+                        rgba(244, 228, 193, 0.8)),
+                        url('https://images.unsplash.com/photo-1517433670267-08bbd4be890f?w=1200&h=800&fit=crop') center/cover;
             position: relative;
         }
 
@@ -342,19 +342,19 @@
             font-size: 0.875rem;
         }
 
-        .text-coffee {
-            color: var(--coffee-primary) !important;
+        .text-bakery {
+            color: var(--bakery-primary) !important;
         }
 
         .btn-loading {
             display: none;
         }
 
-        .btn-coffee.loading .btn-text {
+        .btn-bakery.loading .btn-text {
             display: none;
         }
 
-        .btn-coffee.loading .btn-loading {
+        .btn-bakery.loading .btn-loading {
             display: inline-block;
         }
 

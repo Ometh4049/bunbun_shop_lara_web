@@ -5,14 +5,14 @@
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title text-coffee">
-                    <i class="bi bi-cup-hot me-2"></i>The Art of Perfect Espresso
+                <h5 class="modal-title text-bakery">
+                    <i class="bi bi-cake2 me-2"></i>The Art of Perfect Croissants
                 </h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
             </div>
             <div class="modal-body">
-                <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=800&h=400&fit=crop"
-                     class="img-fluid rounded mb-4" alt="Perfect Espresso">
+                <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?w=800&h=400&fit=crop"
+                     class="img-fluid rounded mb-4" alt="Perfect Croissants">
 
                 <div class="article-meta mb-4">
                     <div class="d-flex align-items-center justify-content-between">
@@ -21,34 +21,34 @@
                                  class="rounded-circle me-3" width="50" height="50" alt="Author">
                             <div>
                                 <h6 class="mb-0">Avindu Oshan</h6>
-                                <small class="text-muted">Head Barista • December 15, 2024</small>
+                                <small class="text-muted">Head Baker • December 15, 2024</small>
                             </div>
                         </div>
-                        <span class="badge bg-info">Brewing Guide</span>
+                        <span class="badge bg-info">Baking Guide</span>
                     </div>
                 </div>
 
                 <div class="article-content">
-                    <p class="lead">Espresso is the foundation of countless coffee drinks, yet mastering it requires understanding the delicate balance of grind, dose, time, and pressure.</p>
+                    <p class="lead">Croissants are the foundation of French pastry, yet mastering them requires understanding the delicate balance of dough, butter, temperature, and timing.</p>
 
-                    <h6 class="text-coffee mt-4 mb-3">The Perfect Grind</h6>
-                    <p>Start with a fine, consistent grind. The particles should feel like powdered sugar between your fingers. Too coarse, and the water will flow too quickly, resulting in sour, under-extracted espresso. Too fine, and you'll get a bitter, over-extracted shot.</p>
+                    <h6 class="text-bakery mt-4 mb-3">The Perfect Dough</h6>
+                    <p>Start with a smooth, elastic dough. The texture should be soft and pliable. Too dry, and the butter will break through during lamination. Too wet, and the layers won't form properly.</p>
 
-                    <h6 class="text-coffee mt-4 mb-3">Dosing and Distribution</h6>
-                    <p>Use 18-20 grams of coffee for a double shot. Distribute the grounds evenly in the portafilter before tamping. This ensures uniform water flow and extraction.</p>
+                    <h6 class="text-bakery mt-4 mb-3">Butter Temperature</h6>
+                    <p>Use cold but pliable butter for lamination. The butter should be the same consistency as the dough. This ensures even distribution and perfect layers.</p>
 
-                    <h6 class="text-coffee mt-4 mb-3">The Golden Ratio</h6>
-                    <p>Aim for a 1:2 ratio - 18g of coffee should yield 36g of espresso in 25-30 seconds. This creates the perfect balance of flavor compounds.</p>
+                    <h6 class="text-bakery mt-4 mb-3">The Lamination Process</h6>
+                    <p>Fold the dough in thirds, then roll and fold again. Repeat this process 3 times with chilling between each fold. This creates the signature flaky layers.</p>
 
                     <div class="alert alert-info mt-4">
                         <i class="bi bi-lightbulb me-2"></i>
-                        <strong>Pro Tip:</strong> Fresh beans are crucial. Use coffee roasted within 2-3 weeks for optimal flavor extraction.
+                        <strong>Pro Tip:</strong> Temperature control is crucial. Keep everything cold during the process for the best results.
                     </div>
                 </div>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-coffee like-btn">
+                <button type="button" class="btn btn-bakery like-btn">
                     <i class="bi bi-heart me-2"></i>Like Article
                 </button>
             </div>
@@ -61,14 +61,14 @@
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title text-coffee">
-                    <i class="bi bi-cup me-2"></i>Mastering the French Press
+                <h5 class="modal-title text-bakery">
+                    <i class="bi bi-cake2 me-2"></i>Mastering Croissant Lamination
                 </h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
             </div>
             <div class="modal-body">
-                <img src="https://images.unsplash.com/photo-1447933601403-0c6688de566e?w=800&h=400&fit=crop"
-                     class="img-fluid rounded mb-4" alt="French Press">
+                <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?w=800&h=400&fit=crop"
+                     class="img-fluid rounded mb-4" alt="Croissant Making">
 
                 <div class="article-meta mb-4">
                     <div class="d-flex align-items-center justify-content-between">
@@ -77,44 +77,44 @@
                                  class="rounded-circle me-3" width="50" height="50" alt="Author">
                             <div>
                                 <h6 class="mb-0">Nimal Perera</h6>
-                                <small class="text-muted">Senior Barista • December 10, 2024</small>
+                                <small class="text-muted">Senior Baker • December 10, 2024</small>
                             </div>
                         </div>
-                        <span class="badge bg-info">Brewing Guide</span>
+                        <span class="badge bg-info">Baking Guide</span>
                     </div>
                 </div>
 
                 <div class="article-content">
-                    <p class="lead">The French press, also known as cafetière, is one of the most forgiving and rewarding methods to brew coffee at home.</p>
+                    <p class="lead">Croissant lamination is one of the most challenging yet rewarding techniques in pastry making.</p>
 
-                    <h6 class="text-coffee mt-4 mb-3">What You'll Need</h6>
+                    <h6 class="text-bakery mt-4 mb-3">What You'll Need</h6>
                     <ul>
-                        <li>French press (350ml capacity recommended)</li>
-                        <li>Coarse ground coffee (30g for 500ml water)</li>
-                        <li>Hot water (95°C)</li>
+                        <li>Basic dough (flour, water, yeast, salt)</li>
+                        <li>Cold butter block (250g for 500g flour)</li>
+                        <li>Rolling pin</li>
                         <li>Timer</li>
-                        <li>Stirring spoon</li>
+                        <li>Clean work surface</li>
                     </ul>
 
-                    <h6 class="text-coffee mt-4 mb-3">Step-by-Step Process</h6>
+                    <h6 class="text-bakery mt-4 mb-3">Step-by-Step Process</h6>
                     <ol>
-                        <li><strong>Preheat:</strong> Rinse the French press with hot water</li>
-                        <li><strong>Add coffee:</strong> Add coarse ground coffee to the bottom</li>
-                        <li><strong>Bloom:</strong> Pour a small amount of water, stir, wait 30 seconds</li>
-                        <li><strong>Fill:</strong> Add remaining water, stir once more</li>
-                        <li><strong>Steep:</strong> Place lid on, wait 4 minutes</li>
-                        <li><strong>Plunge:</strong> Press down slowly and serve immediately</li>
+                        <li><strong>Prepare:</strong> Make basic dough and chill for 1 hour</li>
+                        <li><strong>Butter block:</strong> Pound butter into flat rectangle</li>
+                        <li><strong>Encase:</strong> Wrap butter in dough completely</li>
+                        <li><strong>Roll:</strong> Roll out into rectangle, fold in thirds</li>
+                        <li><strong>Chill:</strong> Refrigerate for 30 minutes between folds</li>
+                        <li><strong>Repeat:</strong> Fold and chill 2 more times for perfect layers</li>
                     </ol>
 
                     <div class="alert alert-success mt-4">
                         <i class="bi bi-check-circle me-2"></i>
-                        <strong>Result:</strong> Rich, full-bodied coffee with all the natural oils and flavors intact.
+                        <strong>Result:</strong> Flaky, buttery croissants with distinct layers and perfect texture.
                     </div>
                 </div>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-coffee share-btn">
+                <button type="button" class="btn btn-bakery share-btn">
                     <i class="bi bi-share me-2"></i>Share Article
                 </button>
             </div>
@@ -127,14 +127,14 @@
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title text-coffee">
-                    <i class="bi bi-globe-asia-australia me-2"></i>Ceylon Coffee: A Rich Heritage
+                <h5 class="modal-title text-bakery">
+                    <i class="bi bi-globe-asia-australia me-2"></i>Sri Lankan Baking: A Rich Heritage
                 </h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
             </div>
             <div class="modal-body">
-                <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=800&h=400&fit=crop"
-                     class="img-fluid rounded mb-4" alt="Ceylon Coffee">
+                <img src="https://images.unsplash.com/photo-1517433670267-08bbd4be890f?w=800&h=400&fit=crop"
+                     class="img-fluid rounded mb-4" alt="Sri Lankan Baking">
 
                 <div class="article-meta mb-4">
                     <div class="d-flex align-items-center justify-content-between">
@@ -143,35 +143,35 @@
                                  class="rounded-circle me-3" width="50" height="50" alt="Author">
                             <div>
                                 <h6 class="mb-0">Sasha Fernando</h6>
-                                <small class="text-muted">Coffee Historian • December 8, 2024</small>
+                                <small class="text-muted">Culinary Historian • December 8, 2024</small>
                             </div>
                         </div>
-                        <span class="badge bg-success">Coffee Culture</span>
+                        <span class="badge bg-success">Bakery Culture</span>
                     </div>
                 </div>
 
                 <div class="article-content">
-                    <p class="lead">Sri Lanka's coffee history is a tale of triumph, devastation, and resilience that shaped the island's agricultural landscape forever.</p>
+                    <p class="lead">Sri Lanka's baking history is a tale of cultural fusion, colonial influences, and local innovation that shaped the island's culinary landscape forever.</p>
 
-                    <h6 class="text-coffee mt-4 mb-3">The Golden Era (1860s-1870s)</h6>
-                    <p>Ceylon coffee was once considered among the world's finest. The British colonial administration developed extensive coffee plantations in the central highlands, making coffee the island's primary export crop.</p>
+                    <h6 class="text-bakery mt-4 mb-3">Colonial Influences</h6>
+                    <p>British and Dutch colonial periods introduced European baking techniques to Sri Lanka. Local bakers adapted these methods, creating unique fusion pastries that combined Western techniques with local flavors.</p>
 
-                    <h6 class="text-coffee mt-4 mb-3">The Great Devastation</h6>
-                    <p>In the 1870s, a devastating fungal disease called coffee leaf rust (Hemileia vastatrix) swept through the plantations, destroying the industry almost overnight. This catastrophe led to the transition to tea cultivation.</p>
+                    <h6 class="text-bakery mt-4 mb-3">Local Adaptations</h6>
+                    <p>Sri Lankan bakers began incorporating local ingredients like coconut, jaggery, and tropical fruits into traditional European recipes, creating distinctive pastries that reflect our island's rich flavors.</p>
 
-                    <h6 class="text-coffee mt-4 mb-3">Modern Revival</h6>
-                    <p>Today, Sri Lankan coffee is making a comeback. Small-scale farmers in regions like Kandy, Badulla, and Ratnapura are producing specialty coffee beans that are gaining international recognition.</p>
+                    <h6 class="text-bakery mt-4 mb-3">Modern Innovation</h6>
+                    <p>Today, Sri Lankan bakeries blend traditional techniques with modern innovation. Artisan bakers are creating contemporary pastries that honor our heritage while embracing global trends.</p>
 
                     <blockquote class="blockquote text-center mt-4">
-                        <p class="mb-0">"Ceylon coffee represents the resilience of our people and the richness of our soil."</p>
-                        <footer class="blockquote-footer mt-2">Dr. Rohana Wijekoon, <cite title="Ceylon Coffee Research Institute">Ceylon Coffee Research Institute</cite></footer>
+                        <p class="mb-0">"Sri Lankan baking represents the creativity of our people and the richness of our culinary heritage."</p>
+                        <footer class="blockquote-footer mt-2">Dr. Rohana Wijekoon, <cite title="Sri Lankan Culinary Institute">Sri Lankan Culinary Institute</cite></footer>
                     </blockquote>
                 </div>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <a href="{{ route('menu') }}" class="btn btn-coffee" data-bs-dismiss="modal">
-                    <i class="bi bi-cup-hot me-2"></i>Try Our Ceylon Coffee
+                <a href="{{ route('menu') }}" class="btn btn-bakery" data-bs-dismiss="modal">
+                    <i class="bi bi-basket me-2"></i>Try Our Traditional Pastries
                 </a>
             </div>
         </div>

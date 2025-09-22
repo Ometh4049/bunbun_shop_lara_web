@@ -2,7 +2,7 @@
 <div class="modal fade" id="paymentModal" tabindex="-1">
     <div class="modal-dialog modal-xl">
         <div class="modal-content">
-            <div class="modal-header bg-coffee text-white">
+            <div class="modal-header bg-bakery text-white">
                 <h5 class="modal-title">
                     <i class="bi bi-credit-card me-2"></i>Complete Your Payment
                 </h5>
@@ -103,7 +103,7 @@
 
                             <!-- Submit Button -->
                             <div class="d-grid mt-4">
-                                <button type="submit" class="btn btn-coffee btn-lg">
+                                <button type="submit" class="btn btn-bakery btn-lg">
                                     <i class="bi bi-lock me-2"></i>
                                     <span class="btn-text">Complete Payment</span>
                                     <span class="btn-loading d-none">
@@ -145,10 +145,10 @@
 }
 
 .order-summary {
-    background: linear-gradient(45deg, rgba(139, 69, 19, 0.05), rgba(210, 105, 30, 0.05));
+    background: linear-gradient(45deg, rgba(212, 165, 116, 0.05), rgba(244, 228, 193, 0.05));
     border-radius: 15px;
     padding: 2rem;
-    border: 1px solid rgba(139, 69, 19, 0.1);
+    border: 1px solid rgba(212, 165, 116, 0.1);
     height: fit-content;
 }
 
@@ -157,7 +157,7 @@
     align-items: center;
     gap: 1rem;
     padding: 1rem 0;
-    border-bottom: 1px solid rgba(139, 69, 19, 0.1);
+    border-bottom: 1px solid rgba(212, 165, 116, 0.1);
 }
 
 .summary-item:last-child {
@@ -177,20 +177,20 @@
 
 .summary-item-details h6 {
     margin-bottom: 0.25rem;
-    color: var(--coffee-primary);
+    color: var(--bakery-primary);
 }
 
 .summary-item-price {
     font-weight: 600;
-    color: var(--coffee-primary);
+    color: var(--bakery-primary);
 }
 
-.bg-coffee {
-    background: linear-gradient(45deg, var(--coffee-primary), var(--coffee-secondary)) !important;
+.bg-bakery {
+    background: linear-gradient(45deg, var(--bakery-primary), var(--bakery-secondary)) !important;
 }
 
-.btn-coffee {
-    background: linear-gradient(45deg, var(--coffee-primary), var(--coffee-secondary));
+.btn-bakery {
+    background: linear-gradient(45deg, var(--bakery-primary), var(--bakery-secondary));
     border: none;
     color: white;
     font-weight: 600;
@@ -198,17 +198,17 @@
     transition: all 0.3s ease;
 }
 
-.btn-coffee:hover {
+.btn-bakery:hover {
     transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(139, 69, 19, 0.3);
+    box-shadow: 0 5px 15px rgba(212, 165, 116, 0.3);
     color: white;
 }
 
-.btn-coffee.loading .btn-text {
+.btn-bakery.loading .btn-text {
     display: none;
 }
 
-.btn-coffee.loading .btn-loading {
+.btn-bakery.loading .btn-loading {
     display: inline-block !important;
 }
 
@@ -225,13 +225,13 @@
     background: white;
     border-radius: 15px;
     padding: 2rem;
-    border: 1px solid rgba(139, 69, 19, 0.1);
+    border: 1px solid rgba(212, 165, 116, 0.1);
 }
 
 .form-control:focus,
 .form-select:focus {
-    border-color: var(--coffee-primary);
-    box-shadow: 0 0 0 0.2rem rgba(139, 69, 19, 0.25);
+    border-color: var(--bakery-primary);
+    box-shadow: 0 0 0 0.2rem rgba(212, 165, 116, 0.25);
 }
 
 .card-types img,
@@ -608,8 +608,8 @@ async function submitOrder(orderData) {
             if (typeof window.cart !== 'undefined') {
                 window.cart.clearCart();
                 console.log('Cart cleared via cart object');
-            } else if (localStorage.getItem('cafeElixirCart')) {
-                localStorage.removeItem('cafeElixirCart');
+            } else if (localStorage.getItem('sweetDelightsCart')) {
+                localStorage.removeItem('sweetDelightsCart');
                 console.log('Cart cleared via localStorage');
 
                 // Update cart counters
@@ -688,13 +688,14 @@ document.addEventListener('DOMContentLoaded', function() {
             submitButton.disabled = true;
 
             // Handle payment processing
-                    // Refresh dashboard stats without full page reload
-                    if (typeof refreshDashboardStats === 'function') {
-                        refreshDashboardStats();
-                    } else {
-                        window.location.reload();
-                    }
-                window.cafeElixirPaymentSystem.handlePaymentSubmission(e.target);
+            if (window.sweetDelightsPaymentSystem) {
+                // Refresh dashboard stats without full page reload
+                if (typeof refreshDashboardStats === 'function') {
+                    refreshDashboardStats();
+                } else {
+                    window.location.reload();
+                }
+                window.sweetDelightsPaymentSystem.handlePaymentSubmission(e.target);
             } else {
                 console.error('Payment system not initialized');
                 showNotification('Payment system is loading. Please try again in a moment.', 'warning');

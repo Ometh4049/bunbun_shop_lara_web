@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
-@section('title', 'Contact Us - Café Elixir')
-@section('description', 'Get in touch with Café Elixir. Visit us, call us, or send us a message. We\'re here to help with all your coffee needs.')
+@section('title', 'Contact Us - Sweet Delights Bakery')
+@section('description', 'Get in touch with Sweet Delights Bakery. Visit us, call us, or send us a message. We\'re here to help with all your bakery needs.')
 
 @section('content')
 <!-- Contact Hero Section -->
@@ -10,9 +10,9 @@
         <div class="row align-items-center min-vh-75">
             <div class="col-lg-6" data-aos="fade-up">
                 <h1 class="display-3 fw-bold text-white mb-4">Get in Touch</h1>
-                <p class="lead text-white mb-4">We'd love to hear from you! Whether you have questions, feedback, or just want to say hello, we're here to help make your coffee experience exceptional.</p>
+                <p class="lead text-white mb-4">We'd love to hear from you! Whether you have questions, feedback, or just want to say hello, we're here to help make your bakery experience exceptional.</p>
                 <div class="d-flex gap-3">
-                    <a href="#contact-form" class="btn btn-coffee btn-lg">
+                    <a href="#contact-form" class="btn btn-bakery btn-lg">
                         <i class="bi bi-envelope me-2"></i>Send Message
                     </a>
                     <a href="#contact-info" class="btn btn-outline-light btn-lg">
@@ -26,7 +26,7 @@
                         <div class="col-6">
                             <div class="stat-card">
                                 <div class="stat-icon">
-                                    <i class="bi bi-clock-fill"></i>
+                                    <i class="bi bi-sunrise-fill"></i>
                                 </div>
                                 <h4>6AM - 10PM</h4>
                                 <p>Daily Hours</p>
@@ -35,7 +35,7 @@
                         <div class="col-6">
                             <div class="stat-card">
                                 <div class="stat-icon">
-                                    <i class="bi bi-telephone-fill"></i>
+                                    <i class="bi bi-headset"></i>
                                 </div>
                                 <h4>24/7</h4>
                                 <p>Phone Support</p>
@@ -52,8 +52,8 @@
                         </div>
                         <div class="col-6">
                             <div class="stat-card">
-                                <div class="stat-icon">
-                                    <i class="bi bi-geo-alt-fill"></i>
+                            <a href="tel:+94771869132" class="btn btn-outline-bakery btn-sm">
+                                    <i class="bi bi-shop"></i>
                                 </div>
                                 <h4>Maharagama</h4>
                                 <p>Prime Location</p>
@@ -227,7 +227,7 @@
                             <!-- Submit Button -->
                             <div class="col-12 mt-4">
                                 <div class="d-grid">
-                                    <button type="submit" class="btn btn-coffee btn-lg">
+                                  <button type="submit" class="btn btn-bakery btn-lg">
                                         <i class="bi bi-send me-2"></i>
                                         <span class="btn-text">Send Message</span>
                                         <span class="btn-loading d-none">
@@ -281,11 +281,12 @@
                         <strong>Phone:</strong> +94 77 186 9132<br>
                         <strong>WhatsApp:</strong> +94 77 186 9132
                     </p>
-                    <div class="d-flex gap-2">
-                        <a href="tel:+94771869132" class="btn btn-outline-coffee btn-sm">
-                            <i class="bi bi-telephone me-1"></i>Call
+                            <i class="bi bi-shop"></i>
+                            <strong>General:</strong> info@sweetdelights.lk<br>
+                            <strong>Reservations:</strong> reservations@sweetdelights.lk<br>
+                            <strong>Events:</strong> events@sweetdelights.lk
                         </a>
-                        <a href="https://wa.me/94771869132" target="_blank" class="btn btn-outline-success btn-sm">
+                        <a href="mailto:info@sweetdelights.lk" class="btn btn-outline-bakery btn-sm">
                             <i class="bi bi-whatsapp me-1"></i>WhatsApp
                         </a>
                     </div>
@@ -360,7 +361,7 @@
 </section>
 
 <!-- Social Media Section -->
-<section class="py-5 bg-coffee text-white">
+<section class="py-5 bg-bakery text-white">
     <div class="container">
         <div class="row text-center">
             <div class="col-12" data-aos="fade-up">
@@ -392,7 +393,7 @@
 
                 <p class="mb-0">
                     <i class="bi bi-hash me-1"></i>
-                    <strong>#CafeElixir #CoffeeLovers #SriLankaCoffee</strong>
+                    <strong>#SweetDelights #PastryLovers #SriLankaBakery</strong>
                 </p>
             </div>
         </div>
@@ -403,9 +404,9 @@
 <style>
     .contact-hero {
         background: linear-gradient(135deg,
-                    rgba(139, 69, 19, 0.9),
-                    rgba(210, 105, 30, 0.8)),
-                    url('https://images.unsplash.com/photo-1521017432531-fbd92d768814?w=1920&h=1080&fit=crop') center/cover;
+                    rgba(212, 165, 116, 0.9),
+                    rgba(244, 228, 193, 0.8)),
+                    url('https://images.unsplash.com/photo-1517433670267-08bbd4be890f?w=1920&h=1080&fit=crop') center/cover;
         min-height: 100vh;
         display: flex;
         align-items: center;
@@ -457,7 +458,7 @@
     .stat-icon {
         width: 50px;
         height: 50px;
-        background: linear-gradient(45deg, var(--coffee-primary), var(--coffee-secondary));
+        background: linear-gradient(45deg, var(--bakery-primary), var(--bakery-secondary));
         border-radius: 50%;
         display: flex;
         align-items: center;
@@ -469,7 +470,7 @@
 
     .stat-card h4 {
         color: var(--coffee-primary);
-        font-weight: 700;
+        box-shadow: 0 10px 25px rgba(212, 165, 116, 0.2);
         margin-bottom: 0.5rem;
     }
 
@@ -484,7 +485,7 @@
         border-radius: 25px;
         padding: 3rem;
         box-shadow: 0 15px 35px rgba(0,0,0,0.1);
-        border: 1px solid rgba(139, 69, 19, 0.1);
+        border: 1px solid rgba(212, 165, 116, 0.1);
     }
 
     .contact-info-card {
@@ -500,13 +501,13 @@
 
     .contact-info-card:hover {
         transform: translateY(-5px);
-        box-shadow: 0 15px 35px rgba(139, 69, 19, 0.15);
+        box-shadow: 0 15px 35px rgba(212, 165, 116, 0.15);
     }
 
     .contact-icon {
         width: 80px;
         height: 80px;
-        background: linear-gradient(45deg, var(--coffee-primary), var(--coffee-secondary));
+        background: linear-gradient(45deg, var(--bakery-primary), var(--bakery-secondary));
         border-radius: 50%;
         display: flex;
         align-items: center;
@@ -517,16 +518,16 @@
     }
 
     .contact-info-card h5 {
-        color: var(--coffee-primary);
+        color: var(--bakery-primary);
         font-weight: 600;
         margin-bottom: 1rem;
     }
 
     .hours-table {
-        background: linear-gradient(45deg, rgba(139, 69, 19, 0.05), rgba(210, 105, 30, 0.05));
+        background: linear-gradient(45deg, rgba(212, 165, 116, 0.05), rgba(244, 228, 193, 0.05));
         border-radius: 15px;
         padding: 2rem;
-        border: 1px solid rgba(139, 69, 19, 0.1);
+        border: 1px solid rgba(212, 165, 116, 0.1);
     }
 
     .hour-row {
@@ -534,7 +535,7 @@
         justify-content: space-between;
         align-items: center;
         padding: 1rem 0;
-        border-bottom: 1px solid rgba(139, 69, 19, 0.1);
+        border-bottom: 1px solid rgba(212, 165, 116, 0.1);
     }
 
     .hour-row:last-child {
@@ -543,7 +544,7 @@
 
     .day {
         font-weight: 600;
-        color: var(--coffee-primary);
+        color: var(--bakery-primary);
     }
 
     .time {
@@ -613,12 +614,12 @@
     }
 
     .social-link span {
-        font-size: 0.875rem;
-        font-weight: 500;
+        color: var(--bakery-primary);
+        color: var(--bakery-secondary);
     }
 
-    .bg-coffee {
-        background: linear-gradient(135deg, var(--coffee-primary), var(--coffee-secondary)) !important;
+    .bg-bakery {
+        background: linear-gradient(135deg, var(--bakery-primary), var(--bakery-secondary)) !important;
     }
 
     @keyframes pulse {

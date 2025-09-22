@@ -1,11 +1,11 @@
-# Café Elixir - Complete Coffee Shop Management System
+# Sweet Delights Bakery - Complete Bakery Management System
 
-A comprehensive coffee shop management system built with Laravel 11, featuring customer ordering, reservations, loyalty programs, and admin management.
+A comprehensive bakery management system built with Laravel 11, featuring customer ordering, reservations, loyalty programs, and admin management.
 
 ## Features
 
 ### Customer Features
-- **Menu Browsing**: View categorized menu with detailed item information
+- **Menu Browsing**: View categorized bakery menu with detailed item information
 - **Online Ordering**: Place orders with real-time cart management
 - **Table Reservations**: Book tables with date/time selection
 - **User Dashboard**: Track orders, reservations, and loyalty points
@@ -16,13 +16,13 @@ A comprehensive coffee shop management system built with Laravel 11, featuring c
 - **Dashboard Analytics**: Sales reports, user statistics, revenue tracking
 - **Order Management**: View, update, and track all orders
 - **Reservation Management**: Manage table bookings and availability
-- **Menu Management**: Add, edit, and manage menu items
+- **Menu Management**: Add, edit, and manage bakery items
 - **User Management**: View and manage customer accounts
 - **Contact Management**: Handle customer inquiries
 
 ### Technical Features
 - **Authentication System**: Secure login/registration with role-based access
-- **Database Design**: Optimized schema for coffee shop operations
+- **Database Design**: Optimized schema for bakery operations
 - **API Endpoints**: RESTful API for mobile app integration
 - **Responsive Design**: Mobile-first Bootstrap 5 interface
 - **Real-time Updates**: Dynamic content updates without page refresh
@@ -38,7 +38,7 @@ A comprehensive coffee shop management system built with Laravel 11, featuring c
 ### Step 1: Clone and Install Dependencies
 ```bash
 git clone <repository-url>
-cd cafe-elixir
+cd sweet-delights-bakery
 composer install
 npm install
 ```
@@ -74,7 +74,7 @@ Visit `http://localhost:8000` to access the application.
 ## Default Login Credentials
 
 ### Admin Account
-- **Email**: admin@cafeelixir.lk
+- **Email**: admin@sweetdelights.lk
 - **Password**: admin123
 
 ### Test Customer Account
@@ -85,7 +85,7 @@ Visit `http://localhost:8000` to access the application.
 
 ### Core Tables
 - **users**: Customer and admin accounts with role-based access
-- **menu_items**: Coffee menu with categories, pricing, and nutritional info
+- **menu_items**: Bakery menu with categories, pricing, and nutritional info
 - **orders**: Customer orders with items, pricing, and status tracking
 - **reservations**: Table bookings with customer details and preferences
 - **loyalty_points**: Point earning/redemption system
@@ -171,10 +171,10 @@ composer install --optimize-autoloader --no-dev
 ## Support
 
 For technical support or business inquiries:
-- **Email**: info@cafeelixir.lk
+- **Email**: info@sweetdelights.lk
 - **Phone**: +94 77 186 9132
 - **Address**: No.1, Mahamegawaththa Road, Maharagama
 
 ## License
 
-This project is proprietary software developed for Café Elixir.
+This project is proprietary software developed for Sweet Delights Bakery.

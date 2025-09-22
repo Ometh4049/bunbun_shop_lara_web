@@ -2,7 +2,7 @@
 <div class="modal fade" id="loyaltyModal" tabindex="-1">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
-            <div class="modal-header bg-coffee text-white">
+            <div class="modal-header bg-bakery text-white">
                 <h5 class="modal-title">
                     <i class="bi bi-award me-2"></i>Loyalty Program Details
                 </h5>
@@ -60,29 +60,29 @@
                 </div>
 
                 <div class="points-earning">
-                    <h6 class="text-coffee mb-3">How to Earn Points</h6>
+                    <h6 class="text-bakery mb-3">How to Earn Points</h6>
                     <div class="row g-3">
                         <div class="col-md-6">
                             <div class="earning-method">
-                                <i class="bi bi-cup-hot text-coffee me-2"></i>
+                                <i class="bi bi-basket text-bakery me-2"></i>
                                 <span>1 point per Rs. 10 spent</span>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="earning-method">
-                                <i class="bi bi-calendar-check text-coffee me-2"></i>
+                                <i class="bi bi-calendar-check text-bakery me-2"></i>
                                 <span>50 bonus points per reservation</span>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="earning-method">
-                                <i class="bi bi-share text-coffee me-2"></i>
+                                <i class="bi bi-share text-bakery me-2"></i>
                                 <span>25 points for social media shares</span>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="earning-method">
-                                <i class="bi bi-star text-coffee me-2"></i>
+                                <i class="bi bi-star text-bakery me-2"></i>
                                 <span>100 points for reviews</span>
                             </div>
                         </div>
@@ -90,9 +90,9 @@
                 </div>
 
                 <div class="mt-4">
-                    <h6 class="text-coffee mb-3">Your Progress</h6>
+                    <h6 class="text-bakery mb-3">Your Progress</h6>
                     <div class="progress mb-2" style="height: 10px;">
-                        <div class="progress-bar bg-coffee" style="width: 83%"></div>
+                        <div class="progress-bar bg-bakery" style="width: 83%"></div>
                     </div>
                     <div class="d-flex justify-content-between">
                         <small class="text-muted">1,250 points</small>
@@ -102,7 +102,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-coffee">
+                <button type="button" class="btn btn-bakery">
                     <i class="bi bi-gift me-2"></i>Redeem Points
                 </button>
             </div>
@@ -140,18 +140,18 @@
                         <input type="date" class="form-control" id="profileBirthday">
                     </div>
                     <div class="mb-3">
-                        <label for="profilePreferences" class="form-label">Coffee Preferences</label>
+                        <label for="profilePreferences" class="form-label">Bakery Preferences</label>
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" id="prefStrong">
-                            <label class="form-check-label" for="prefStrong">Strong coffee</label>
+                            <input class="form-check-input" type="checkbox" id="prefSweet">
+                            <label class="form-check-label" for="prefSweet">Sweet pastries</label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" id="prefDecaf">
-                            <label class="form-check-label" for="prefDecaf">Decaf options</label>
+                            <input class="form-check-input" type="checkbox" id="prefGluten">
+                            <label class="form-check-label" for="prefGluten">Gluten-free options</label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" id="prefSoy">
-                            <label class="form-check-label" for="prefSoy">Soy milk alternatives</label>
+                            <input class="form-check-input" type="checkbox" id="prefVegan">
+                            <label class="form-check-label" for="prefVegan">Vegan alternatives</label>
                         </div>
                     </div>
                     <div class="form-check">
@@ -164,7 +164,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                <button type="button" class="btn btn-coffee" onclick="updateProfile()">
+                <button type="button" class="btn btn-bakery" onclick="updateProfile()">
                     <i class="bi bi-check-lg me-2"></i>Save Changes
                 </button>
             </div>

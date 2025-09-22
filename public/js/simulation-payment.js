@@ -1,5 +1,5 @@
-// Enhanced Payment System for Café Elixir with Proper Cart Management
-class CafeElixirPaymentSystem {
+// Enhanced Payment System for Sweet Delights Bakery with Proper Cart Management
+class SweetDelightsPaymentSystem {
     constructor() {
         this.apiBase = '/api/payment';
         this.supportedMethods = [];
@@ -13,7 +13,7 @@ class CafeElixirPaymentSystem {
             await this.loadSupportedMethods();
             this.bindEvents();
             this.isInitialized = true;
-            console.log('Café Elixir Payment System initialized successfully');
+            console.log('Sweet Delights Payment System initialized successfully');
         } catch (error) {
             console.error('Failed to initialize payment system:', error);
             this.isInitialized = false;
@@ -523,8 +523,8 @@ class CafeElixirPaymentSystem {
                 if (typeof window.cart !== 'undefined') {
                     window.cart.clearCart();
                     console.log('Cart cleared via cart object after successful order');
-                } else if (localStorage.getItem('cafeElixirCart')) {
-                    localStorage.removeItem('cafeElixirCart');
+                } else if (localStorage.getItem('sweetDelightsCart')) {
+                    localStorage.removeItem('sweetDelightsCart');
                     console.log('Cart cleared via localStorage after successful order');
 
                     // Update cart counters directly
@@ -992,16 +992,16 @@ document.addEventListener('DOMContentLoaded', function() {
     window.orderSuccessful = false;
     window.checkoutInProgress = false;
 
-    window.cafeElixirPaymentSystem = new CafeElixirPaymentSystem();
+    window.sweetDelightsPaymentSystem = new SweetDelightsPaymentSystem();
 
     // Add input formatting event listeners
     document.addEventListener('input', function(e) {
         if (e.target.name === 'card_number') {
-            window.cafeElixirPaymentSystem.formatCardNumber(e.target);
+            window.sweetDelightsPaymentSystem.formatCardNumber(e.target);
         } else if (e.target.name === 'card_expiry') {
-            window.cafeElixirPaymentSystem.formatExpiryDate(e.target);
+            window.sweetDelightsPaymentSystem.formatExpiryDate(e.target);
         } else if (e.target.name === 'mobile_number') {
-            window.cafeElixirPaymentSystem.formatPhoneNumber(e.target);
+            window.sweetDelightsPaymentSystem.formatPhoneNumber(e.target);
         }
     });
 
@@ -1072,8 +1072,8 @@ style.textContent = `
 
     .payment-form .form-control:focus,
     .payment-form .form-select:focus {
-        border-color: var(--coffee-primary);
-        box-shadow: 0 0 0 0.2rem rgba(139, 69, 19, 0.25);
+        border-color: var(--bakery-primary);
+        box-shadow: 0 0 0 0.2rem rgba(212, 165, 116, 0.25);
     }
 `;
 document.head.appendChild(style);

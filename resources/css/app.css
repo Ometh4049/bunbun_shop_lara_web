@@ -2,6 +2,17 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Bakery Color Scheme */
+:root {
+    --bakery-primary: #D4A574;
+    --bakery-secondary: #F4E4C1;
+    --bakery-accent: #E8B4B8;
+    --bakery-warm: #F7E7CE;
+    --bakery-cream: #FFF8E7;
+    --bakery-brown: #8B6F47;
+    --bakery-pink: #F5D5D0;
+}
+
 /* Notification animations */
 @keyframes slideInRight {
     from {
@@ -62,7 +73,7 @@
     position: absolute;
     top: -8px;
     right: -8px;
-    background: #dc3545;
+    background: var(--bakery-accent);
     color: white;
     border-radius: 50%;
     width: 20px;
@@ -74,8 +85,8 @@
     font-weight: bold;
 }
 
-.bg-coffee {
-    background: linear-gradient(45deg, #8B4513, #D2691E) !important;
+.bg-bakery {
+    background: linear-gradient(45deg, var(--bakery-primary), var(--bakery-secondary)) !important;
 }
 
 /* Payment System Styles */
@@ -107,8 +118,8 @@
 
 .payment-form .form-control:focus,
 .payment-form .form-select:focus {
-    border-color: var(--coffee-primary);
-    box-shadow: 0 0 0 0.2rem rgba(139, 69, 19, 0.25);
+    border-color: var(--bakery-primary);
+    box-shadow: 0 0 0 0.2rem rgba(212, 165, 116, 0.25);
 }
 
 /* Coming Soon Features Styles */
@@ -146,16 +157,16 @@
 }
 
 .points-earned {
-    background: linear-gradient(45deg, rgba(255, 193, 7, 0.1), rgba(255, 193, 7, 0.2));
+    background: linear-gradient(45deg, rgba(212, 165, 116, 0.1), rgba(244, 228, 193, 0.2));
     border-radius: 15px;
     padding: 1rem;
-    border: 2px solid #ffc107;
+    border: 2px solid var(--bakery-primary);
     animation: pointsGlow 2s ease infinite;
 }
 
 .points-badge {
     font-size: 1.2rem;
-    color: #856404;
+    color: var(--bakery-brown);
 }
 
 @keyframes celebrationBounce {
@@ -191,11 +202,11 @@
 
     0%,
     100% {
-        box-shadow: 0 0 10px rgba(255, 193, 7, 0.3);
+        box-shadow: 0 0 10px rgba(212, 165, 116, 0.3);
     }
 
     50% {
-        box-shadow: 0 0 20px rgba(255, 193, 7, 0.6);
+        box-shadow: 0 0 20px rgba(212, 165, 116, 0.6);
     }
 }
 

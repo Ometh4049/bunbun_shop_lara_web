@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
-@section('title', 'Menu - Café Elixir')
-@section('description', 'Explore our carefully crafted coffee menu at Café Elixir. Premium coffee blends, artisanal drinks, and delicious treats.')
+@section('title', 'Menu - Sweet Delights Bakery')
+@section('description', 'Explore our carefully crafted bakery menu at Sweet Delights. Artisanal pastries, fresh bread, and delicious treats.')
 
 @section('content')
 <!-- Hero Section -->
@@ -9,10 +9,10 @@
     <div class="container">
         <div class="row align-items-center min-vh-75">
             <div class="col-lg-6" data-aos="fade-up">
-                <h1 class="display-3 fw-bold text-white mb-4">Our Coffee Menu</h1>
-                <p class="lead text-white mb-4">Discover the perfect blend of tradition and innovation in every cup. From classic espressos to signature creations, each drink is crafted with passion and precision.</p>
+                <h1 class="display-3 fw-bold text-white mb-4">Our Bakery Menu</h1>
+                <p class="lead text-white mb-4">Discover the perfect blend of tradition and innovation in every bite. From classic croissants to signature creations, each pastry is crafted with passion and precision.</p>
                 <div class="d-flex gap-3">
-                    <a href="#menu-categories" class="btn btn-coffee btn-lg">
+                    <a href="#menu-categories" class="btn btn-bakery btn-lg">
                         <i class="bi bi-arrow-down me-2"></i>Explore Menu
                     </a>
                     <a href="{{ route('reservation') }}" class="btn btn-outline-light btn-lg">
@@ -22,8 +22,8 @@
             </div>
             <div class="col-lg-6" data-aos="fade-left" data-aos-delay="200">
                 <div class="hero-image-container">
-                    <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=600&h=700&fit=crop"
-                         alt="Café Elixir Coffee"
+                    <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?w=600&h=700&fit=crop"
+                         alt="Sweet Delights Pastries"
                          class="img-fluid rounded-3 shadow-lg floating">
                 </div>
             </div>
@@ -45,23 +45,23 @@
         <div class="row justify-content-center mb-5" data-aos="fade-up" data-aos-delay="100">
             <div class="col-lg-8">
                 <div class="category-filters d-flex flex-wrap justify-content-center gap-2">
-                    <button class="btn btn-coffee active" data-category="all">
+                    <button class="btn btn-bakery active" data-category="all">
                         <i class="bi bi-grid me-2"></i>All Items
                     </button>
                     @foreach($categories as $category)
                         @php
                             $categoryMap = [
-                                'Hot Coffee' => ['hot-coffee', 'bi-cup-hot'],
-                                'Cold Coffee' => ['cold-coffee', 'bi-snow'],
-                                'Specialty' => ['specialty', 'bi-star'],
-                                'Tea & Others' => ['tea', 'bi-cup'],
-                                'Food & Snacks' => ['food', 'bi-cookie']
+                                'Fresh Bread' => ['fresh-bread', 'bi-basket'],
+                                'Pastries' => ['pastries', 'bi-cake2'],
+                                'Cakes & Desserts' => ['cakes', 'bi-cake'],
+                                'Beverages' => ['beverages', 'bi-cup-hot'],
+                                'Breakfast Items' => ['breakfast', 'bi-sunrise']
                             ];
                             $categoryData = $categoryMap[$category] ?? ['other', 'bi-circle'];
                             $categoryClass = $categoryData[0];
                             $categoryIcon = $categoryData[1];
                         @endphp
-                        <button class="btn btn-outline-coffee" data-category="{{ $categoryClass }}">
+                        <button class="btn btn-outline-bakery" data-category="{{ $categoryClass }}">
                             <i class="bi {{ $categoryIcon }} me-2"></i>{{ $category }}
                         </button>
                     @endforeach
@@ -131,11 +131,11 @@
                                 <h5 class="card-title text-coffee">{{ $item->name }}</h5>
                                 <p class="card-text text-muted">{{ $item->description }}</p>
                                 <div class="price-section mb-3">
-                                    <span class="h5 text-coffee mb-0">Rs. {{ number_format($item->price, 2) }}</span>
+                                    <span class="h5 text-bakery mb-0">Rs. {{ number_format($item->price, 2) }}</span>
                                 </div>
                                 <div class="d-flex justify-content-between align-items-center">
                                     @auth
-                                        <button class="btn btn-coffee btn-sm add-to-cart"
+                                        <button class="btn btn-bakery btn-sm add-to-cart"
                                                 data-id="{{ $item->id }}"
                                                 data-name="{{ $item->name }}"
                                                 data-price="{{ $item->price }}"
@@ -143,18 +143,18 @@
                                             <i class="bi bi-cart-plus me-1"></i>Add to Cart
                                         </button>
                                     @else
-                                        <a href="{{ route('login') }}" class="btn btn-outline-coffee btn-sm">
+                                        <a href="{{ route('login') }}" class="btn btn-outline-bakery btn-sm">
                                             <i class="bi bi-box-arrow-in-right me-1"></i>Login to Order
                                         </a>
                                     @endauth
                                     @auth
-                                        <button class="btn btn-outline-coffee btn-sm ms-2"
+                                        <button class="btn btn-outline-bakery btn-sm ms-2"
                                                 onclick="quickPay({{ $item->id }}, '{{ $item->name }}', {{ $item->price }}, '{{ $item->image }}')"
                                                 data-payment-trigger>
                                             <i class="bi bi-credit-card me-1"></i>Quick Pay
                                         </button>
                                     @else
-                                        <a href="{{ route('login') }}" class="btn btn-outline-coffee btn-sm ms-2">
+                                        <a href="{{ route('login') }}" class="btn btn-outline-bakery btn-sm ms-2">
                                             <i class="bi bi-credit-card me-1"></i>Quick Pay
                                         </a>
                                     @endauth
@@ -178,8 +178,8 @@
     <div class="container">
         <div class="row text-center mb-5" data-aos="fade-up">
             <div class="col-12">
-                <h2 class="display-5 fw-bold text-coffee mb-3">Today's Special Offers</h2>
-                <p class="lead text-muted">Don't miss these amazing deals at Café Elixir</p>
+                <h2 class="display-5 fw-bold text-bakery mb-3">Today's Special Offers</h2>
+                <p class="lead text-muted">Don't miss these amazing deals at Sweet Delights</p>
             </div>
         </div>
 
@@ -188,12 +188,12 @@
                 <div class="card offer-card border-0 shadow">
                     <div class="card-body text-center">
                         <div class="offer-icon mb-3">
-                            <i class="bi bi-clock-history text-coffee" style="font-size: 3rem;"></i>
+                            <i class="bi bi-clock-history text-bakery" style="font-size: 3rem;"></i>
                         </div>
-                        <h4 class="card-title">Happy Hour</h4>
-                        <p class="card-text">Get 20% off all hot coffee drinks from 2 PM to 5 PM</p>
+                        <h4 class="card-title">Afternoon Treats</h4>
+                        <p class="card-text">Get 20% off all pastries from 2 PM to 5 PM</p>
                         <div class="offer-time">
-                            <span class="badge bg-coffee">2:00 PM - 5:00 PM</span>
+                            <span class="badge bg-bakery">2:00 PM - 5:00 PM</span>
                         </div>
                     </div>
                 </div>
@@ -203,10 +203,10 @@
                 <div class="card offer-card border-0 shadow">
                     <div class="card-body text-center">
                         <div class="offer-icon mb-3">
-                            <i class="bi bi-gift text-coffee" style="font-size: 3rem;"></i>
+                            <i class="bi bi-gift text-bakery" style="font-size: 3rem;"></i>
                         </div>
                         <h4 class="card-title">Combo Deal</h4>
-                        <p class="card-text">Any coffee + croissant for just Rs. 650 (Save Rs. 150)</p>
+                        <p class="card-text">Any beverage + pastry for just Rs. 650 (Save Rs. 150)</p>
                         <div class="offer-time">
                             <span class="badge bg-success">All Day</span>
                         </div>
@@ -218,10 +218,10 @@
                 <div class="card offer-card border-0 shadow">
                     <div class="card-body text-center">
                         <div class="offer-icon mb-3">
-                            <i class="bi bi-heart text-coffee" style="font-size: 3rem;"></i>
+                            <i class="bi bi-heart text-bakery" style="font-size: 3rem;"></i>
                         </div>
                         <h4 class="card-title">Loyalty Card</h4>
-                        <p class="card-text">Buy 10 drinks, get the 11th absolutely free!</p>
+                        <p class="card-text">Buy 10 pastries, get the 11th absolutely free!</p>
                         <div class="offer-time">
                             <span class="badge bg-info">Sign Up Today</span>
                         </div>
@@ -236,9 +236,9 @@
 <style>
     .menu-hero {
         background: linear-gradient(135deg,
-                    rgba(139, 69, 19, 0.9),
-                    rgba(210, 105, 30, 0.8)),
-                    url('https://images.unsplash.com/photo-1447933601403-0c6688de566e?w=1920&h=1080&fit=crop') center/cover;
+                    rgba(212, 165, 116, 0.9),
+                    rgba(244, 228, 193, 0.8)),
+                    url('https://images.unsplash.com/photo-1517433670267-08bbd4be890f?w=1920&h=1080&fit=crop') center/cover;
         min-height: 100vh;
         display: flex;
         align-items: center;
@@ -286,7 +286,7 @@
 
     .category-filters .btn:not(.active):hover {
         transform: translateY(-2px);
-        box-shadow: 0 5px 15px rgba(139, 69, 19, 0.2);
+        box-shadow: 0 5px 15px rgba(212, 165, 116, 0.2);
     }
 
     .menu-card {
@@ -299,7 +299,7 @@
 
     .menu-card:hover {
         transform: translateY(-10px);
-        box-shadow: 0 15px 35px rgba(139, 69, 19, 0.15);
+        box-shadow: 0 15px 35px rgba(212, 165, 116, 0.15);
     }
 
     .menu-card .card-img-top {
@@ -313,10 +313,10 @@
     }
 
     .price-section {
-        border-top: 1px solid rgba(139, 69, 19, 0.1);
-        border-bottom: 1px solid rgba(139, 69, 19, 0.1);
+        border-top: 1px solid rgba(212, 165, 116, 0.1);
+        border-bottom: 1px solid rgba(212, 165, 116, 0.1);
         padding: 0.75rem 0;
-        background: linear-gradient(45deg, rgba(139, 69, 19, 0.02), rgba(210, 105, 30, 0.02));
+        background: linear-gradient(45deg, rgba(212, 165, 116, 0.02), rgba(244, 228, 193, 0.02));
         border-radius: 8px;
         margin: 0.5rem -1rem;
         padding-left: 1rem;
@@ -346,7 +346,7 @@
 
     .add-to-cart:hover {
         transform: translateY(-2px);
-        box-shadow: 0 5px 15px rgba(139, 69, 19, 0.3);
+        box-shadow: 0 5px 15px rgba(212, 165, 116, 0.3);
     }
 
     .offer-card {
@@ -360,7 +360,7 @@
     }
 
     .offer-icon {
-        background: linear-gradient(45deg, rgba(139, 69, 19, 0.1), rgba(210, 105, 30, 0.1));
+        background: linear-gradient(45deg, rgba(212, 165, 116, 0.1), rgba(244, 228, 193, 0.1));
         width: 80px;
         height: 80px;
         border-radius: 50%;
@@ -384,8 +384,12 @@
         color: var(--coffee-primary) !important;
     }
 
-    .btn-coffee {
-        background: linear-gradient(45deg, var(--coffee-primary), var(--coffee-secondary));
+    .text-bakery {
+        color: var(--bakery-primary) !important;
+    }
+
+    .btn-bakery {
+        background: linear-gradient(45deg, var(--bakery-primary), var(--bakery-secondary));
         border: none;
         color: white;
         font-weight: 600;
@@ -393,32 +397,32 @@
         transition: all 0.3s ease;
     }
 
-    .btn-coffee:hover {
+    .btn-bakery:hover {
         color: white;
         transform: translateY(-2px);
-        box-shadow: 0 5px 15px rgba(139, 69, 19, 0.3);
+        box-shadow: 0 5px 15px rgba(212, 165, 116, 0.3);
     }
 
-    .btn-outline-coffee {
-        border: 2px solid var(--coffee-primary);
-        color: var(--coffee-primary);
+    .btn-outline-bakery {
+        border: 2px solid var(--bakery-primary);
+        color: var(--bakery-primary);
         background: transparent;
         font-weight: 600;
         border-radius: 15px;
         transition: all 0.3s ease;
     }
 
-    .btn-outline-coffee:hover {
-        background: var(--coffee-primary);
+    .btn-outline-bakery:hover {
+        background: var(--bakery-primary);
         color: white;
         transform: translateY(-2px);
-        box-shadow: 0 5px 15px rgba(139, 69, 19, 0.3);
+        box-shadow: 0 5px 15px rgba(212, 165, 116, 0.3);
     }
 
-    .btn-outline-coffee.active {
-        background: var(--coffee-primary);
+    .btn-outline-bakery.active {
+        background: var(--bakery-primary);
         color: white;
-        border-color: var(--coffee-primary);
+        border-color: var(--bakery-primary);
     }
 
     /* Updated responsive layout for consistent 3-column display */
@@ -532,104 +536,4 @@ function quickPay(itemId, itemName, itemPrice, itemImage) {
 document.addEventListener('DOMContentLoaded', function() {
     // Initialize menu functionality
     initializeMenuFilters();
-    initializeMenuSearch();
-
-    // Smooth scrolling for menu categories
-    document.querySelector('[href="#menu-categories"]')?.addEventListener('click', function(e) {
-        e.preventDefault();
-        document.getElementById('menu-categories').scrollIntoView({
-            behavior: 'smooth',
-            block: 'start'
-        });
-    });
-
-    // Debug cart functionality
-    console.log('Menu page loaded, checking cart...');
-    setTimeout(() => {
-        if (window.cart) {
-            console.log('Cart is available:', window.cart);
-            console.log('Current cart contents:', window.cart.getCartData());
-        } else {
-            console.log('Cart not yet available');
-        }
-    }, 1000);
-});
-
-// Menu filtering functionality
-function initializeMenuFilters() {
-    const categoryButtons = document.querySelectorAll('[data-category]');
-    const menuItems = document.querySelectorAll('.menu-item');
-
-    categoryButtons.forEach(button => {
-        button.addEventListener('click', function() {
-            const category = this.getAttribute('data-category');
-
-            // Update active button
-            categoryButtons.forEach(btn => {
-                btn.classList.remove('active');
-                btn.classList.add('btn-outline-coffee');
-                btn.classList.remove('btn-coffee');
-            });
-
-            this.classList.add('active');
-            this.classList.remove('btn-outline-coffee');
-            this.classList.add('btn-coffee');
-
-            // Filter items
-            menuItems.forEach(item => {
-                const itemCategory = item.getAttribute('data-category');
-
-                if (category === 'all' || itemCategory === category) {
-                    item.classList.remove('hidden');
-                    item.style.display = 'block';
-                } else {
-                    item.classList.add('hidden');
-                    setTimeout(() => {
-                        if (item.classList.contains('hidden')) {
-                            item.style.display = 'none';
-                        }
-                    }, 300);
-                }
-            });
-
-            // Re-trigger AOS animation for visible items
-            setTimeout(() => {
-                if (typeof AOS !== 'undefined') {
-                    AOS.refresh();
-                }
-            }, 400);
-        });
-    });
-}
-
-// Menu search functionality
-function initializeMenuSearch() {
-    const searchInput = document.getElementById('menuSearch');
-    const menuItems = document.querySelectorAll('.menu-item');
-
-    if (searchInput) {
-        searchInput.addEventListener('input', function() {
-            const searchTerm = this.value.toLowerCase();
-
-            menuItems.forEach(item => {
-                const itemName = item.querySelector('.card-title').textContent.toLowerCase();
-                const itemDescription = item.querySelector('.card-text').textContent.toLowerCase();
-
-                if (itemName.includes(searchTerm) || itemDescription.includes(searchTerm)) {
-                    item.style.display = 'block';
-                    item.classList.remove('hidden');
-                } else {
-                    item.classList.add('hidden');
-                    setTimeout(() => {
-                        if (item.classList.contains('hidden')) {
-                            item.style.display = 'none';
-                        }
-                    }, 300);
-                }
-            });
-        });
-    }
-}
-</script>
-@endpush
-@endsection
+    initializeMenuSearch

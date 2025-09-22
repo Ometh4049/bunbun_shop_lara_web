@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
-@section('title', 'Menu - Café Elixir')
-@section('description', 'Explore our carefully crafted coffee menu at Café Elixir. Premium coffee blends, artisanal drinks, and delicious treats.')
+@section('title', 'Reservations - Sweet Delights Bakery')
+@section('description', 'Reserve your table at Sweet Delights Bakery. Enjoy our artisanal pastries, fresh bread, and delicious treats.')
 
 @section('content')
 <!-- Hero Section -->
@@ -10,9 +10,9 @@
         <div class="row align-items-center min-vh-75">
             <div class="col-lg-6" data-aos="fade-up">
                 <h1 class="display-3 fw-bold text-white mb-4">Reserve Your Table</h1>
-                <p class="lead text-white mb-4">Secure your spot at Café Elixir for an unforgettable coffee experience. Whether it's a casual meetup, business meeting, or romantic date, we've got the perfect table for you.</p>
+                <p class="lead text-white mb-4">Secure your spot at Sweet Delights for an unforgettable bakery experience. Whether it's a casual meetup, business meeting, or romantic date, we've got the perfect table for you.</p>
                 <div class="d-flex gap-3">
-                    <a href="#reservation-form" class="btn btn-coffee btn-lg">
+                    <a href="#reservation-form" class="btn btn-bakery btn-lg">
                         <i class="bi bi-calendar-check me-2"></i>Book Now
                     </a>
                     <a href="{{ route('menu') }}" class="btn btn-outline-light btn-lg">
@@ -26,7 +26,7 @@
                         <div class="col-6">
                             <div class="stat-card">
                                 <div class="stat-icon">
-                                    <i class="bi bi-people-fill"></i>
+                                    <i class="bi bi-heart-fill"></i>
                                 </div>
                                 <h3>500+</h3>
                                 <p>Happy Customers</p>
@@ -44,7 +44,7 @@
                         <div class="col-6">
                             <div class="stat-card">
                                 <div class="stat-icon">
-                                    <i class="bi bi-clock-fill"></i>
+                                    <i class="bi bi-sunrise-fill"></i>
                                 </div>
                                 <h3>6AM</h3>
                                 <p>Opening Time</p>
@@ -53,10 +53,10 @@
                         <div class="col-6">
                             <div class="stat-card">
                                 <div class="stat-icon">
-                                    <i class="bi bi-cup-hot-fill"></i>
+                                    <i class="bi bi-basket-fill"></i>
                                 </div>
-                                <h3>50+</h3>
-                                <p>Coffee Varieties</p>
+                                <h3>80+</h3>
+                                <p>Pastry Varieties</p>
                             </div>
                         </div>
                     </div>
@@ -72,8 +72,8 @@
         <div class="row justify-content-center">
             <div class="col-lg-8">
                 <div class="text-center mb-5" data-aos="fade-up">
-                    <h2 class="display-5 fw-bold text-coffee mb-3">Book Your Table</h2>
-                    <p class="lead text-muted">Fill in the details below to reserve your perfect spot at Café Elixir</p>
+                    <h2 class="display-5 fw-bold text-bakery mb-3">Book Your Table</h2>
+                    <p class="lead text-muted">Fill in the details below to reserve your perfect spot at Sweet Delights</p>
                 </div>
 
                 <div class="reservation-card" data-aos="fade-up" data-aos-delay="200">
@@ -82,7 +82,7 @@
                         <div class="row g-4">
                             <!-- Personal Information -->
                             <div class="col-12">
-                                <h5 class="text-coffee mb-3">
+                                <h5 class="text-bakery mb-3">
                                     <i class="bi bi-person-circle me-2"></i>Personal Information
                                 </h5>
                             </div>
@@ -130,7 +130,7 @@
 
                             <!-- Reservation Details -->
                             <div class="col-12 mt-4">
-                                <h5 class="text-coffee mb-3">
+                                <h5 class="text-bakery mb-3">
                                     <i class="bi bi-calendar-event me-2"></i>Reservation Details
                                 </h5>
                             </div>
@@ -228,7 +228,7 @@
 
                             <!-- Special Requests -->
                             <div class="col-12 mt-4">
-                                <h5 class="text-coffee mb-3">
+                                <h5 class="text-bakery mb-3">
                                     <i class="bi bi-chat-square-text me-2"></i>Special Requests
                                 </h5>
                             </div>
@@ -284,7 +284,7 @@
                             <!-- Submit Button -->
                             <div class="col-12 mt-4">
                                 <div class="d-grid">
-                                    <button type="submit" class="btn btn-coffee btn-lg">
+                                    <button type="submit" class="btn btn-bakery btn-lg">
                                         <i class="bi bi-calendar-check me-2"></i>
                                         <span class="btn-text">Confirm Reservation</span>
                                         <span class="btn-loading d-none">
@@ -372,24 +372,24 @@
     <div class="container">
         <div class="row align-items-center">
             <div class="col-lg-6" data-aos="fade-right">
-                <h3 class="text-coffee mb-4">Need Help with Your Reservation?</h3>
+                <h3 class="text-bakery mb-4">Need Help with Your Reservation?</h3>
                 <p class="lead mb-4">Our friendly staff is here to assist you with any questions or special arrangements.</p>
 
                 <div class="contact-info">
                     <div class="contact-item mb-3">
-                        <i class="bi bi-telephone-fill text-coffee me-3"></i>
+                        <i class="bi bi-telephone-fill text-bakery me-3"></i>
                         <strong>Phone:</strong> <a href="tel:+94112345678" class="text-decoration-none">+94 11 234 5678</a>
                     </div>
                     <div class="contact-item mb-3">
-                        <i class="bi bi-envelope-fill text-coffee me-3"></i>
-                        <strong>Email:</strong> <a href="mailto:reservations@cafeelixir.lk" class="text-decoration-none">reservations@cafeelixir.lk</a>
+                        <i class="bi bi-envelope-fill text-bakery me-3"></i>
+                        <strong>Email:</strong> <a href="mailto:reservations@sweetdelights.lk" class="text-decoration-none">reservations@sweetdelights.lk</a>
                     </div>
                     <div class="contact-item mb-3">
-                        <i class="bi bi-geo-alt-fill text-coffee me-3"></i>
+                        <i class="bi bi-geo-alt-fill text-bakery me-3"></i>
                         <strong>Address:</strong> 123 Galle Road, Colombo 03, Sri Lanka
                     </div>
                     <div class="contact-item">
-                        <i class="bi bi-clock-fill text-coffee me-3"></i>
+                        <i class="bi bi-clock-fill text-bakery me-3"></i>
                         <strong>Hours:</strong> Daily 6:00 AM - 10:00 PM
                     </div>
                 </div>
@@ -415,9 +415,9 @@
 <style>
     .reservation-hero {
         background: linear-gradient(135deg,
-                    rgba(139, 69, 19, 0.9),
-                    rgba(210, 105, 30, 0.8)),
-                    url('https://images.unsplash.com/photo-1559056199-641a0ac8b55e?w=1920&h=1080&fit=crop') center/cover;
+                    rgba(212, 165, 116, 0.9),
+                    rgba(244, 228, 193, 0.8)),
+                    url('https://images.unsplash.com/photo-1517433670267-08bbd4be890f?w=1920&h=1080&fit=crop') center/cover;
         min-height: 100vh;
         display: flex;
         align-items: center;
@@ -468,7 +468,7 @@
     .stat-icon {
         width: 50px;
         height: 50px;
-        background: linear-gradient(45deg, var(--coffee-primary), var(--coffee-secondary));
+        background: linear-gradient(45deg, var(--bakery-primary), var(--bakery-secondary));
         border-radius: 50%;
         display: flex;
         align-items: center;
@@ -479,7 +479,7 @@
     }
 
     .stat-card h3 {
-        color: var(--coffee-primary);
+        color: var(--bakery-primary);
         font-weight: 700;
         margin-bottom: 0.5rem;
         font-size: 2rem;
@@ -496,7 +496,7 @@
         border-radius: 25px;
         padding: 3rem;
         box-shadow: 0 15px 35px rgba(0,0,0,0.1);
-        border: 1px solid rgba(139, 69, 19, 0.1);
+        border: 1px solid rgba(212, 165, 116, 0.1);
     }
 
     .form-control, .form-select {
@@ -508,8 +508,8 @@
     }
 
     .form-control:focus, .form-select:focus {
-        border-color: var(--coffee-primary);
-        box-shadow: 0 0 0 0.2rem rgba(139, 69, 19, 0.25);
+        border-color: var(--bakery-primary);
+        box-shadow: 0 0 0 0.2rem rgba(212, 165, 116, 0.25);
         transform: translateY(-2px);
     }
 
@@ -519,8 +519,8 @@
         margin-bottom: 0.75rem;
     }
 
-    .btn-coffee {
-        background: linear-gradient(45deg, var(--coffee-primary), var(--coffee-secondary));
+    .btn-bakery {
+        background: linear-gradient(45deg, var(--bakery-primary), var(--bakery-secondary));
         border: none;
         color: white;
         font-weight: 600;
@@ -531,7 +531,7 @@
         overflow: hidden;
     }
 
-    .btn-coffee::before {
+    .btn-bakery::before {
         content: '';
         position: absolute;
         top: 0;
@@ -542,13 +542,13 @@
         transition: all 0.5s;
     }
 
-    .btn-coffee:hover::before {
+    .btn-bakery:hover::before {
         left: 100%;
     }
 
-    .btn-coffee:hover {
+    .btn-bakery:hover {
         transform: translateY(-3px);
-        box-shadow: 0 8px 25px rgba(139, 69, 19, 0.3);
+        box-shadow: 0 8px 25px rgba(212, 165, 116, 0.3);
         color: white;
     }
 
@@ -556,11 +556,11 @@
         display: none;
     }
 
-    .btn-coffee.loading .btn-text {
+    .btn-bakery.loading .btn-text {
         display: none;
     }
 
-    .btn-coffee.loading .btn-loading {
+    .btn-bakery.loading .btn-loading {
         display: inline-block;
     }
 
@@ -594,7 +594,7 @@
     }
 
     .info-card h5 {
-        color: var(--coffee-primary);
+        color: var(--bakery-primary);
         font-weight: 600;
         margin-bottom: 1.5rem;
     }
@@ -605,10 +605,10 @@
     }
 
     .contact-info {
-        background: linear-gradient(45deg, rgba(139, 69, 19, 0.05), rgba(210, 105, 30, 0.05));
+        background: linear-gradient(45deg, rgba(212, 165, 116, 0.05), rgba(244, 228, 193, 0.05));
         border-radius: 15px;
         padding: 2rem;
-        border: 1px solid rgba(139, 69, 19, 0.1);
+        border: 1px solid rgba(212, 165, 116, 0.1);
     }
 
     .contact-item {
@@ -632,18 +632,18 @@
         box-shadow: 0 10px 25px rgba(0,0,0,0.1);
     }
 
-    .text-coffee {
-        color: var(--coffee-primary) !important;
+    .text-bakery {
+        color: var(--bakery-primary) !important;
     }
 
     .form-check-input:checked {
-        background-color: var(--coffee-primary);
-        border-color: var(--coffee-primary);
+        background-color: var(--bakery-primary);
+        border-color: var(--bakery-primary);
     }
 
     .form-check-input:focus {
-        border-color: var(--coffee-primary);
-        box-shadow: 0 0 0 0.25rem rgba(139, 69, 19, 0.25);
+        border-color: var(--bakery-primary);
+        box-shadow: 0 0 0 0.25rem rgba(212, 165, 116, 0.25);
     }
 
     @media (max-width: 768px) {
@@ -772,7 +772,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <a href="{{ route('menu') }}" class="btn btn-coffee">
+                        <a href="{{ route('menu') }}" class="btn btn-bakery">
                             <i class="bi bi-journal-text me-2"></i>View Menu
                         </a>
                     </div>

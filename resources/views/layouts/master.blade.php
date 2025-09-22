@@ -34,13 +34,15 @@
     <!-- Custom CSS -->
     <style>
         :root {
-            --coffee-primary: #8B4513;
-            --coffee-secondary: #D2691E;
-            --coffee-accent: #CD853F;
-            --coffee-dark: #2F1B14;
-            --coffee-light: #F5F5DC;
-            --gradient-primary: linear-gradient(135deg, #8B4513 0%, #D2691E 100%);
-            --gradient-hero: linear-gradient(135deg, rgba(139, 69, 19, 0.9) 0%, rgba(210, 105, 30, 0.8) 100%);
+            --bakery-primary: #D4A574;
+            --bakery-secondary: #F4E4C1;
+            --bakery-accent: #E8B4B8;
+            --bakery-warm: #F7E7CE;
+            --bakery-cream: #FFF8E7;
+            --bakery-brown: #8B6F47;
+            --bakery-pink: #F5D5D0;
+            --gradient-primary: linear-gradient(135deg, #D4A574 0%, #F4E4C1 100%);
+            --gradient-hero: linear-gradient(135deg, rgba(212, 165, 116, 0.9) 0%, rgba(244, 228, 193, 0.8) 100%);
         }
 
         * {
@@ -76,7 +78,7 @@
         .navbar-custom {
             background: rgba(255, 255, 255, 0.95) !important;
             backdrop-filter: blur(10px);
-            border-bottom: 2px solid var(--coffee-primary);
+            border-bottom: 2px solid var(--bakery-primary);
             transition: all 0.3s ease;
             padding: 1rem 0;
             cursor: url('img/mouse.png') 10 10, auto !important;
@@ -91,19 +93,19 @@
             font-family: 'Playfair Display', serif;
             font-weight: 700;
             font-size: 1.8rem;
-            color: var(--coffee-primary) !important;
+            color: var(--bakery-primary) !important;
             text-decoration: none;
             transition: all 0.3s ease;
         }
 
         .navbar-brand:hover {
             transform: scale(1.05);
-            color: var(--coffee-secondary) !important;
+            color: var(--bakery-secondary) !important;
         }
 
         .navbar-nav .nav-link {
             font-weight: 500;
-            color: var(--coffee-dark) !important;
+            color: var(--bakery-brown) !important;
             margin: 0 0.5rem;
             padding: 0.5rem 1rem !important;
             border-radius: 25px;
@@ -118,7 +120,7 @@
             transform: translateY(-2px);
         }
 
-        .btn-coffee {
+        .btn-bakery {
             background: var(--gradient-primary);
             border: none;
             color: white;
@@ -130,15 +132,15 @@
             display: inline-block;
         }
 
-        .btn-coffee:hover {
+        .btn-bakery:hover {
             transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(139, 69, 19, 0.4);
+            box-shadow: 0 5px 15px rgba(212, 165, 116, 0.4);
             color: white;
         }
 
-        .btn-outline-coffee {
-            border: 2px solid var(--coffee-primary);
-            color: var(--coffee-primary);
+        .btn-outline-bakery {
+            border: 2px solid var(--bakery-primary);
+            color: var(--bakery-primary);
             background: transparent;
             padding: 0.5rem 1.5rem;
             border-radius: 25px;
@@ -148,18 +150,18 @@
             display: inline-block;
         }
 
-        .btn-outline-coffee:hover {
-            background: var(--coffee-primary);
+        .btn-outline-bakery:hover {
+            background: var(--bakery-primary);
             color: white;
             transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(139, 69, 19, 0.4);
+            box-shadow: 0 5px 15px rgba(212, 165, 116, 0.4);
         }
 
         /* Hero Section */
         .hero-section {
             min-height: 100vh;
             background: var(--gradient-hero),
-                url('https://images.unsplash.com/photo-1447933601403-0c6688de566e?w=1920&h=1080&fit=crop') center/cover;
+                url('https://images.unsplash.com/photo-1509440159596-0249088772ff?w=1920&h=1080&fit=crop') center/cover;
             display: flex;
             align-items: center;
             color: white;
@@ -195,7 +197,7 @@
         }
 
         /* Card Styles */
-        .card-coffee {
+        .card-bakery {
             border: none;
             border-radius: 20px;
             overflow: hidden;
@@ -204,18 +206,18 @@
             height: 100%;
         }
 
-        .card-coffee:hover {
+        .card-bakery:hover {
             transform: translateY(-10px) scale(1.02);
-            box-shadow: 0 20px 40px rgba(139, 69, 19, 0.2);
+            box-shadow: 0 20px 40px rgba(212, 165, 116, 0.2);
         }
 
-        .card-coffee .card-img-top {
+        .card-bakery .card-img-top {
             height: 250px;
             object-fit: cover;
             transition: all 0.4s ease;
         }
 
-        .card-coffee:hover .card-img-top {
+        .card-bakery:hover .card-img-top {
             transform: scale(1.1);
         }
 
@@ -236,7 +238,7 @@
 
         .feature-icon:hover {
             transform: scale(1.1) rotate(5deg);
-            box-shadow: 0 10px 25px rgba(139, 69, 19, 0.3);
+            box-shadow: 0 10px 25px rgba(212, 165, 116, 0.3);
         }
 
         /* Stats Counter */
@@ -269,7 +271,7 @@
         }
 
         .footer h5 {
-            color: var(--coffee-light);
+            color: var(--bakery-cream);
             margin-bottom: 1rem;
         }
 
@@ -280,7 +282,7 @@
         }
 
         .footer a:hover {
-            color: var(--coffee-accent);
+            color: var(--bakery-accent);
             transform: translateX(5px);
         }
 
@@ -370,11 +372,11 @@
             pointer-events: none;
         }
 
-        .coffee-loader {
+        .bakery-loader {
             width: 60px;
             height: 60px;
             border: 6px solid #f3f3f3;
-            border-top: 6px solid var(--coffee-primary);
+            border-top: 6px solid var(--bakery-primary);
             border-radius: 50%;
             animation: spin 1s linear infinite;
         }
@@ -396,7 +398,7 @@
 <body>
     <!-- Loading Overlay -->
     <div class="loading-overlay" id="loadingOverlay">
-        <div class="coffee-loader"></div>
+        <div class="bakery-loader"></div>
     </div>
 
     <!-- Scroll Indicator -->
@@ -408,7 +410,7 @@
     <nav class="navbar navbar-expand-lg navbar-custom fixed-top" id="mainNavbar">
         <div class="container">
             <a class="navbar-brand" href="{{ route('home') }}">
-                <i class="bi bi-cup-hot-fill me-2"></i>Café Elixir
+                <i class="bi bi-shop me-2"></i>Sweet Delights Bakery
             </a>
 
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
@@ -455,23 +457,23 @@
 
                 <div class="d-flex gap-2">
                     @guest
-                        <a href="{{ route('login') }}" class="btn btn-outline-coffee">
+                        <a href="{{ route('login') }}" class="btn btn-outline-bakery">
                             <i class="bi bi-box-arrow-in-right me-1"></i>Login
                         </a>
-                        <a href="{{ route('register') }}" class="btn btn-coffee">
+                        <a href="{{ route('register') }}" class="btn btn-bakery">
                             <i class="bi bi-person-plus me-1"></i>Register
                         </a>
                     @else
                         <!-- Cart Button -->
                         <div class="position-relative me-2">
-                            <button class="btn btn-outline-coffee" data-bs-toggle="modal" data-bs-target="#cartModal">
+                            <button class="btn btn-outline-bakery" data-bs-toggle="modal" data-bs-target="#cartModal">
                                 <i class="bi bi-cart me-1"></i>Cart
                                 <span class="cart-counter" style="display: none;">0</span>
                             </button>
                         </div>
 
                         <div class="dropdown">
-                            <button class="btn btn-coffee dropdown-toggle" type="button" data-bs-toggle="dropdown">
+                            <button class="btn btn-bakery dropdown-toggle" type="button" data-bs-toggle="dropdown">
                                 <i class="bi bi-person-circle me-1"></i>{{ Auth::user()->name }}
                             </button>
                             <ul class="dropdown-menu">
@@ -521,9 +523,9 @@
         <div class="container">
             <div class="row g-4">
                 <div class="col-lg-4 col-md-6">
-                    <h5><i class="bi bi-cup-hot-fill me-2"></i>Café Elixir</h5>
-                    <p class="mb-3">Experience the perfect blend of premium coffee, exceptional service, and cozy
-                        atmosphere. Your daily dose of happiness in every cup.</p>
+                    <h5><i class="bi bi-shop me-2"></i>Sweet Delights Bakery</h5>
+                    <p class="mb-3">Experience the perfect blend of artisanal baking, exceptional service, and cozy
+                        atmosphere. Your daily dose of sweetness in every bite.</p>
                     <div class="d-flex gap-3">
                         <a href="#" class="text-decoration-none">
                             <i class="bi bi-facebook fs-4"></i>
@@ -564,7 +566,7 @@
                         </li>
                         <li class="mb-2">
                             <i class="bi bi-envelope me-2"></i>
-                            info@cafeelixer.com
+                            info@sweetdelights.lk
                         </li>
                         <li>
                             <i class="bi bi-clock me-2"></i>
@@ -575,10 +577,10 @@
 
                 <div class="col-lg-3 col-md-6">
                     <h5>Newsletter</h5>
-                    <p>Subscribe to get updates about new offers and coffee blends!</p>
+                    <p>Subscribe to get updates about new pastries and special offers!</p>
                     <div class="input-group mb-3">
                         <input type="email" class="form-control" placeholder="Your email">
-                        <button class="btn btn-coffee" type="button">
+                        <button class="btn btn-bakery" type="button">
                             <i class="bi bi-send"></i>
                         </button>
                     </div>
@@ -589,7 +591,7 @@
 
             <div class="row align-items-center">
                 <div class="col-md-6">
-                    <p class="mb-0">&copy; {{ date('Y') }} Café Elixir. All rights reserved.</p>
+                    <p class="mb-0">&copy; {{ date('Y') }} Sweet Delights Bakery. All rights reserved.</p>
                 </div>
                 <div class="col-md-6 text-md-end">
                     <a href="#" class="text-decoration-none me-3">Privacy Policy</a>
@@ -600,7 +602,7 @@
     </footer>
 
     <!-- Back to Top Button -->
-    <button class="btn btn-coffee position-fixed bottom-0 end-0 m-3 rounded-circle" id="backToTop"
+    <button class="btn btn-bakery position-fixed bottom-0 end-0 m-3 rounded-circle" id="backToTop"
         style="width: 50px; height: 50px; display: none; z-index: 1000;">
         <i class="bi bi-arrow-up"></i>
     </button>

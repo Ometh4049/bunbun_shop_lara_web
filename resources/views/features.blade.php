@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
-@section('title', 'Features & Amenities - Café Elixir')
-@section('description', 'Discover what makes Café Elixir special. From premium coffee and cozy atmosphere to free WiFi and exceptional service.')
+@section('title', 'Features & Amenities - Sweet Delights Bakery')
+@section('description', 'Discover what makes Sweet Delights special. From artisanal pastries and cozy atmosphere to fresh ingredients and exceptional service.')
 
 @section('content')
 <!-- Hero Section -->
@@ -9,10 +9,10 @@
     <div class="container">
         <div class="row align-items-center min-vh-75">
             <div class="col-lg-6" data-aos="fade-up">
-                <h1 class="display-3 fw-bold text-white mb-4">Why Choose Café Elixir?</h1>
-                <p class="lead text-white mb-4">Experience the perfect blend of quality, comfort, and community. Discover what makes us the premier coffee destination in Colombo.</p>
+                <h1 class="display-3 fw-bold text-white mb-4">Why Choose Sweet Delights?</h1>
+                <p class="lead text-white mb-4">Experience the perfect blend of quality, comfort, and community. Discover what makes us the premier bakery destination in Colombo.</p>
                 <div class="d-flex gap-3">
-                    <a href="#features-grid" class="btn btn-coffee btn-lg">
+                    <a href="#features-grid" class="btn btn-bakery btn-lg">
                         <i class="bi bi-arrow-down me-2"></i>Explore Features
                     </a>
                     <a href="{{ route('reservation') }}" class="btn btn-outline-light btn-lg">
@@ -25,20 +25,20 @@
                     <div class="row g-3">
                         <div class="col-6">
                             <div class="feature-preview">
-                                <i class="bi bi-wifi feature-icon"></i>
-                                <h6>Free WiFi</h6>
+                                <i class="bi bi-cake2 feature-icon"></i>
+                                <h6>Fresh Pastries</h6>
                             </div>
                         </div>
                         <div class="col-6">
                             <div class="feature-preview">
-                                <i class="bi bi-cup-hot feature-icon"></i>
-                                <h6>Premium Coffee</h6>
+                                <i class="bi bi-basket feature-icon"></i>
+                                <h6>Daily Baked</h6>
                             </div>
                         </div>
                         <div class="col-6">
                             <div class="feature-preview">
-                                <i class="bi bi-people feature-icon"></i>
-                                <h6>Expert Baristas</h6>
+                                <i class="bi bi-person-workspace feature-icon"></i>
+                                <h6>Master Bakers</h6>
                             </div>
                         </div>
                         <div class="col-6">
@@ -59,51 +59,51 @@
     <div class="container">
         <div class="row text-center mb-5" data-aos="fade-up">
             <div class="col-12">
-                <h2 class="display-4 fw-bold text-coffee mb-3">What Makes Us Special</h2>
-                <p class="lead text-muted">Discover the unique features and amenities that create the perfect coffee experience</p>
+                <h2 class="display-4 fw-bold text-bakery mb-3">What Makes Us Special</h2>
+                <p class="lead text-muted">Discover the unique features and amenities that create the perfect bakery experience</p>
             </div>
         </div>
 
         <div class="row g-4">
-            <!-- Premium Coffee -->
+            <!-- Artisanal Baking -->
             <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
                 <div class="feature-card h-100">
                     <div class="feature-icon-large">
-                        <i class="bi bi-cup-hot-fill"></i>
+                        <i class="bi bi-cake2-fill"></i>
                     </div>
-                    <h4 class="feature-title">Premium Coffee Selection</h4>
-                    <p class="feature-description">We source our beans directly from the finest coffee farms around the world, ensuring every cup delivers exceptional flavor and aroma.</p>
+                    <h4 class="feature-title">Artisanal Baking Selection</h4>
+                    <p class="feature-description">We source our ingredients directly from the finest suppliers around the world, ensuring every pastry delivers exceptional flavor and texture.</p>
                     <ul class="feature-list">
-                        <li><i class="bi bi-check-circle-fill text-success me-2"></i>Single-origin specialty beans</li>
-                        <li><i class="bi bi-check-circle-fill text-success me-2"></i>Fresh roasted weekly</li>
-                        <li><i class="bi bi-check-circle-fill text-success me-2"></i>50+ coffee varieties</li>
-                        <li><i class="bi bi-check-circle-fill text-success me-2"></i>Ethically sourced</li>
+                        <li><i class="bi bi-check-circle-fill text-success me-2"></i>Premium quality ingredients</li>
+                        <li><i class="bi bi-check-circle-fill text-success me-2"></i>Fresh baked daily</li>
+                        <li><i class="bi bi-check-circle-fill text-success me-2"></i>80+ pastry varieties</li>
+                        <li><i class="bi bi-check-circle-fill text-success me-2"></i>Locally sourced when possible</li>
                     </ul>
                     <div class="feature-action">
-                        <a href="{{ route('menu') }}" class="btn btn-outline-coffee">
+                        <a href="{{ route('menu') }}" class="btn btn-outline-bakery">
                             <i class="bi bi-journal-text me-2"></i>View Menu
                         </a>
                     </div>
                 </div>
             </div>
 
-            <!-- Expert Baristas -->
+            <!-- Master Bakers -->
             <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
                 <div class="feature-card h-100">
                     <div class="feature-icon-large">
-                        <i class="bi bi-people-fill"></i>
+                        <i class="bi bi-person-workspace"></i>
                     </div>
-                    <h4 class="feature-title">Expert Barista Team</h4>
-                    <p class="feature-description">Our skilled and passionate baristas undergo extensive training to craft each drink with precision, artistry, and love.</p>
+                    <h4 class="feature-title">Master Baker Team</h4>
+                    <p class="feature-description">Our skilled and passionate bakers undergo extensive training to craft each pastry with precision, artistry, and love.</p>
                     <ul class="feature-list">
-                        <li><i class="bi bi-check-circle-fill text-success me-2"></i>Certified coffee specialists</li>
-                        <li><i class="bi bi-check-circle-fill text-success me-2"></i>Latte art expertise</li>
+                        <li><i class="bi bi-check-circle-fill text-success me-2"></i>Certified baking specialists</li>
+                        <li><i class="bi bi-check-circle-fill text-success me-2"></i>Decorating expertise</li>
                         <li><i class="bi bi-check-circle-fill text-success me-2"></i>Personalized recommendations</li>
-                        <li><i class="bi bi-check-circle-fill text-success me-2"></i>Brewing technique masters</li>
+                        <li><i class="bi bi-check-circle-fill text-success me-2"></i>Baking technique masters</li>
                     </ul>
                     <div class="feature-action">
-                        <button class="btn btn-outline-coffee" data-bs-toggle="modal" data-bs-target="#baristasModal">
-                            <i class="bi bi-people me-2"></i>Meet Our Team
+                        <button class="btn btn-outline-bakery" data-bs-toggle="modal" data-bs-target="#bakersModal">
+                            <i class="bi bi-people me-2"></i>Meet Our Bakers
                         </button>
                     </div>
                 </div>
@@ -124,52 +124,52 @@
                         <li><i class="bi bi-check-circle-fill text-success me-2"></i>Outdoor seating</li>
                     </ul>
                     <div class="feature-action">
-                        <button class="btn btn-outline-coffee" data-bs-toggle="modal" data-bs-target="#atmosphereModal">
+                        <button class="btn btn-outline-bakery" data-bs-toggle="modal" data-bs-target="#atmosphereModal">
                             <i class="bi bi-camera me-2"></i>View Gallery
                         </button>
                     </div>
                 </div>
             </div>
 
-            <!-- Technology & Connectivity -->
+            <!-- Fresh Ingredients -->
             <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
                 <div class="feature-card h-100">
                     <div class="feature-icon-large">
-                        <i class="bi bi-wifi"></i>
+                        <i class="bi bi-egg-fill"></i>
                     </div>
-                    <h4 class="feature-title">Technology & Connectivity</h4>
-                    <p class="feature-description">Stay connected and productive with our high-speed internet and tech-friendly amenities designed for the modern professional.</p>
+                    <h4 class="feature-title">Fresh Quality Ingredients</h4>
+                    <p class="feature-description">We use only the freshest, highest quality ingredients in all our baking, ensuring every bite is a delightful experience.</p>
                     <ul class="feature-list">
-                        <li><i class="bi bi-check-circle-fill text-success me-2"></i>Free high-speed WiFi</li>
-                        <li><i class="bi bi-check-circle-fill text-success me-2"></i>Power outlets at every table</li>
-                        <li><i class="bi bi-check-circle-fill text-success me-2"></i>USB charging stations</li>
-                        <li><i class="bi bi-check-circle-fill text-success me-2"></i>Work-friendly environment</li>
+                        <li><i class="bi bi-check-circle-fill text-success me-2"></i>Farm-fresh eggs and dairy</li>
+                        <li><i class="bi bi-check-circle-fill text-success me-2"></i>Premium flour and grains</li>
+                        <li><i class="bi bi-check-circle-fill text-success me-2"></i>Organic fruits and nuts</li>
+                        <li><i class="bi bi-check-circle-fill text-success me-2"></i>No artificial preservatives</li>
                     </ul>
                     <div class="feature-action">
-                        <button class="btn btn-outline-coffee" data-bs-toggle="modal" data-bs-target="#wifiModal">
-                            <i class="bi bi-info-circle me-2"></i>WiFi Details
+                        <button class="btn btn-outline-bakery" data-bs-toggle="modal" data-bs-target="#ingredientsModal">
+                            <i class="bi bi-info-circle me-2"></i>Ingredient Details
                         </button>
                     </div>
                 </div>
             </div>
 
-            <!-- Fresh Food & Snacks -->
+            <!-- Custom Orders -->
             <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
                 <div class="feature-card h-100">
                     <div class="feature-icon-large">
-                        <i class="bi bi-cookie"></i>
+                        <i class="bi bi-gift-fill"></i>
                     </div>
-                    <h4 class="feature-title">Fresh Food & Snacks</h4>
-                    <p class="feature-description">Complement your coffee with our selection of freshly baked pastries, healthy snacks, and light meals prepared daily.</p>
+                    <h4 class="feature-title">Custom Orders & Catering</h4>
+                    <p class="feature-description">Create memorable moments with our custom cakes, special occasion pastries, and catering services for events.</p>
                     <ul class="feature-list">
-                        <li><i class="bi bi-check-circle-fill text-success me-2"></i>Fresh-baked pastries</li>
-                        <li><i class="bi bi-check-circle-fill text-success me-2"></i>Healthy snack options</li>
-                        <li><i class="bi bi-check-circle-fill text-success me-2"></i>Gluten-free choices</li>
-                        <li><i class="bi bi-check-circle-fill text-success me-2"></i>Local ingredients</li>
+                        <li><i class="bi bi-check-circle-fill text-success me-2"></i>Custom birthday cakes</li>
+                        <li><i class="bi bi-check-circle-fill text-success me-2"></i>Wedding cake designs</li>
+                        <li><i class="bi bi-check-circle-fill text-success me-2"></i>Corporate catering</li>
+                        <li><i class="bi bi-check-circle-fill text-success me-2"></i>Special dietary options</li>
                     </ul>
                     <div class="feature-action">
-                        <a href="{{ route('menu') }}" class="btn btn-outline-coffee">
-                            <i class="bi bi-basket me-2"></i>View Food Menu
+                        <a href="{{ route('contact') }}" class="btn btn-outline-bakery">
+                            <i class="bi bi-envelope me-2"></i>Contact for Orders
                         </a>
                     </div>
                 </div>
@@ -190,7 +190,7 @@
                         <li><i class="bi bi-check-circle-fill text-success me-2"></i>Special occasion support</li>
                     </ul>
                     <div class="feature-action">
-                        <button class="btn btn-outline-coffee" data-bs-toggle="modal" data-bs-target="#serviceModal">
+                        <button class="btn btn-outline-bakery" data-bs-toggle="modal" data-bs-target="#serviceModal">
                             <i class="bi bi-award me-2"></i>Learn More
                         </button>
                     </div>

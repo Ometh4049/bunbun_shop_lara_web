@@ -1,17 +1,17 @@
 @extends('layouts.admin')
 
-@section('title', 'Menu Management - Admin Dashboard')
+@section('title', 'Bakery Menu Management - Admin Dashboard')
 
 @section('content')
 <div class="container-fluid">
     <!-- Page Header -->
     <div class="d-flex justify-content-between align-items-center mb-4">
         <div>
-            <h1 class="h3 mb-0 text-gray-800">Menu Management</h1>
-            <p class="mb-0 text-muted">Manage menu items, categories, and pricing</p>
+            <h1 class="h3 mb-0 text-gray-800">Bakery Menu Management</h1>
+            <p class="mb-0 text-muted">Manage bakery items, categories, and pricing</p>
         </div>
         <div>
-            <button class="btn btn-coffee" data-bs-toggle="modal" data-bs-target="#addItemModal">
+            <button class="btn btn-bakery" data-bs-toggle="modal" data-bs-target="#addItemModal">
                 <i class="bi bi-plus-circle me-2"></i>Add New Item
             </button>
         </div>
@@ -23,7 +23,7 @@
             <div class="card border-0 shadow-sm">
                 <div class="card-body text-center">
                     <div class="stat-icon bg-primary mx-auto mb-3">
-                        <i class="bi bi-cup-hot"></i>
+                        <i class="bi bi-basket"></i>
                     </div>
                     <h4 class="mb-0" id="totalItemsCount">{{ $stats['total_items'] }}</h4>
                     <small class="text-muted">Total Items</small>
@@ -113,14 +113,14 @@
                     </div>
                 </div>
                 <div class="card-body">
-                    <h5 class="card-title text-coffee">{{ $item->name }}</h5>
+                    <h5 class="card-title text-bakery">{{ $item->name }}</h5>
                     <p class="card-text text-muted">{{ Str::limit($item->description, 100) }}</p>
 
                     <div class="item-details mb-3">
                         <div class="row g-2">
                             <div class="col-6">
                                 <small class="text-muted">Price:</small>
-                                <div class="fw-bold text-coffee">Rs. {{ number_format($item->price, 2) }}</div>
+                                <div class="fw-bold text-bakery">Rs. {{ number_format($item->price, 2) }}</div>
                             </div>
                             <div class="col-6">
                                 <small class="text-muted">Prep Time:</small>
@@ -171,10 +171,10 @@
 
     @if($menuItems->isEmpty())
     <div class="text-center py-5">
-        <i class="bi bi-cup text-muted" style="font-size: 4rem;"></i>
+        <i class="bi bi-basket text-muted" style="font-size: 4rem;"></i>
         <h4 class="text-muted mt-3">No menu items found</h4>
         <p class="text-muted">Start by adding your first menu item!</p>
-        <button class="btn btn-coffee" data-bs-toggle="modal" data-bs-target="#addItemModal">
+        <button class="btn btn-bakery" data-bs-toggle="modal" data-bs-target="#addItemModal">
             <i class="bi bi-plus-circle me-2"></i>Add First Item
         </button>
     </div>
@@ -185,7 +185,7 @@
 <div class="modal fade" id="addItemModal" tabindex="-1">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
-            <div class="modal-header bg-coffee text-white">
+            <div class="modal-header bg-bakery text-white">
                 <h5 class="modal-title">
                     <i class="bi bi-plus-circle me-2"></i>Add New Menu Item
                 </h5>
@@ -204,11 +204,11 @@
                             <label class="form-label fw-semibold">Category *</label>
                             <select class="form-select" name="category" required>
                                 <option value="">Select Category</option>
-                                <option value="Hot Coffee">Hot Coffee</option>
-                                <option value="Cold Coffee">Cold Coffee</option>
-                                <option value="Specialty">Specialty</option>
-                                <option value="Tea & Others">Tea & Others</option>
-                                <option value="Food & Snacks">Food & Snacks</option>
+                                <option value="Fresh Bread">Fresh Bread</option>
+                                <option value="Pastries">Pastries</option>
+                                <option value="Cakes & Desserts">Cakes & Desserts</option>
+                                <option value="Beverages">Beverages</option>
+                                <option value="Breakfast Items">Breakfast Items</option>
                             </select>
                             <div class="invalid-feedback">Please select a category.</div>
                         </div>
@@ -261,7 +261,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                <button type="button" class="btn btn-coffee" onclick="saveItem()">
+                <button type="button" class="btn btn-bakery" onclick="saveItem()">
                     <i class="bi bi-check-lg me-2"></i>Save Item
                 </button>
             </div>

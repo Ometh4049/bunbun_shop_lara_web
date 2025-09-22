@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
-@section('title', 'Dashboard - Café Elixir')
-@section('description', 'Your personal coffee dashboard at Café Elixir. Track orders, reservations, and loyalty points.')
+@section('title', 'Dashboard - Sweet Delights Bakery')
+@section('description', 'Your personal bakery dashboard at Sweet Delights. Track orders, reservations, and loyalty points.')
 
 @section('content')
 <!-- Dashboard Hero Section -->
@@ -11,11 +11,11 @@
             <div class="col-lg-8" data-aos="fade-up">
                 <h1 class="display-5 fw-bold text-white mb-3">Welcome back, {{ $dashboardData['user']->name }}!</h1>
                 <p class="lead text-white mb-4">
-                    Your coffee journey continues. Track your orders, manage reservations, and enjoy exclusive member benefits.
+                    Your bakery journey continues. Track your orders, manage reservations, and enjoy exclusive member benefits.
                 </p>
                 <div class="d-flex gap-3">
-                    <a href="{{ route('user.dashboard') }}" class="btn btn-outline-light btn-lg">
-                        <i class="bi bi-cup-hot me-2"></i>Order Coffee
+                    <a href="{{ route('menu') }}" class="btn btn-outline-light btn-lg">
+                        <i class="bi bi-basket me-2"></i>Order Pastries
                     </a>
                     <a href="{{ route('reservation') }}" class="btn btn-outline-light btn-lg">
                         <i class="bi bi-calendar-check me-2"></i>Book Table
@@ -167,11 +167,11 @@
                             @endforeach
                         @else
                             <div class="empty-state">
-                                <i class="bi bi-receipt text-muted" style="font-size: 3rem;"></i>
+                                <i class="bi bi-basket text-muted" style="font-size: 3rem;"></i>
                                 <h6 class="text-muted mt-3">No orders yet</h6>
-                                <p class="text-muted">Start your coffee journey with us!</p>
-                                <a href="{{ route('menu') }}" class="btn btn-coffee">
-                                    <i class="bi bi-cup-hot me-2"></i>Order Now
+                                <p class="text-muted">Start your bakery journey with us!</p>
+                                <a href="{{ route('menu') }}" class="btn btn-bakery">
+                                    <i class="bi bi-basket me-2"></i>Order Now
                                 </a>
                             </div>
                         @endif
@@ -182,8 +182,8 @@
                 <div class="dashboard-section mt-4">
                     <div class="section-header">
                         <div class="d-flex justify-content-between align-items-center">
-                            <h5><i class="bi bi-calendar-check me-2 text-coffee"></i>Upcoming Reservations</h5>
-                            <a href="{{ route('reservation') }}" class="btn btn-outline-coffee btn-sm">
+                            <h5><i class="bi bi-calendar-check me-2 text-bakery"></i>Upcoming Reservations</h5>
+                            <a href="{{ route('reservation') }}" class="btn btn-outline-bakery btn-sm">
                                 <i class="bi bi-plus-circle me-2"></i>New Reservation
                             </a>
                         </div>
@@ -224,7 +224,7 @@
                                 <i class="bi bi-calendar-x text-muted" style="font-size: 3rem;"></i>
                                 <h6 class="text-muted mt-3">No upcoming reservations</h6>
                                 <p class="text-muted">Book a table for your next visit!</p>
-                                <a href="{{ route('reservation') }}" class="btn btn-coffee">
+                                <a href="{{ route('reservation') }}" class="btn btn-bakery">
                                     <i class="bi bi-calendar-check me-2"></i>Make Reservation
                                 </a>
                             </div>
@@ -249,9 +249,9 @@
                                 </div>
                             </div>
                         </div>
-                        <h6 class="text-coffee mb-2">{{ $dashboardData['stats']['current_tier'] ?? 'Bronze' }} Member</h6>
+                        <h6 class="text-bakery mb-2">{{ $dashboardData['stats']['current_tier'] ?? 'Bronze' }} Member</h6>
                         <p class="text-muted mb-3">{{ $dashboardData['stats']['points_to_next_tier'] ?? 0 }} points to Platinum</p>
-                        <button class="btn btn-outline-coffee btn-sm" data-bs-toggle="modal" data-bs-target="#loyaltyModal">
+                        <button class="btn btn-outline-bakery btn-sm" data-bs-toggle="modal" data-bs-target="#loyaltyModal">
                             <i class="bi bi-info-circle me-2"></i>View Details
                         </button>
                     </div>
@@ -273,8 +273,8 @@
                                     <small class="text-muted">Ordered {{ $item->order_count }} times</small>
                                 </div>
                                 <div class="text-end">
-                                    <div class="fw-bold text-coffee">Rs. {{ number_format($item->price, 2) }}</div>
-                                    <button class="btn btn-coffee btn-sm mt-1 add-to-cart"
+                                    <div class="fw-bold text-bakery">Rs. {{ number_format($item->price, 2) }}</div>
+                                    <button class="btn btn-bakery btn-sm mt-1 add-to-cart"
                                             data-id="{{ $item->id ?? rand(1000, 9999) }}"
                                             data-name="{{ $item->name }}"
                                             data-price="{{ $item->price }}"
@@ -302,16 +302,16 @@
                     </div>
                     <div class="section-body">
                         <div class="d-grid gap-2">
-                            <button class="btn btn-outline-coffee" onclick="reorderLast()">
+                            <button class="btn btn-outline-bakery" onclick="reorderLast()">
                                 <i class="bi bi-arrow-clockwise me-2"></i>Reorder Last Order
                             </button>
-                            <a href="{{ route('menu') }}" class="btn btn-outline-coffee">
+                            <a href="{{ route('menu') }}" class="btn btn-outline-bakery">
                                 <i class="bi bi-journal-text me-2"></i>Browse Menu
                             </a>
-                            <a href="{{ route('reservation') }}" class="btn btn-outline-coffee">
+                            <a href="{{ route('reservation') }}" class="btn btn-outline-bakery">
                                 <i class="bi bi-calendar-plus me-2"></i>Book Table
                             </a>
-                            <button class="btn btn-outline-coffee" data-bs-toggle="modal" data-bs-target="#profileModal">
+                            <button class="btn btn-outline-bakery" data-bs-toggle="modal" data-bs-target="#profileModal">
                                 <i class="bi bi-person-gear me-2"></i>Update Profile
                             </button>
                         </div>
@@ -355,9 +355,9 @@
 <style>
     .dashboard-hero {
         background: linear-gradient(135deg,
-                    rgba(139, 69, 19, 0.9),
-                    rgba(210, 105, 30, 0.8)),
-                    url('https://images.unsplash.com/photo-1447933601403-0c6688de566e?w=1920&h=600&fit=crop') center/cover;
+                    rgba(212, 165, 116, 0.9),
+                    rgba(244, 228, 193, 0.8)),
+                    url('https://images.unsplash.com/photo-1517433670267-08bbd4be890f?w=1920&h=600&fit=crop') center/cover;
         position: relative;
         min-height: 400px;
     }
@@ -388,7 +388,7 @@
     .user-avatar {
         width: 80px;
         height: 80px;
-        background: linear-gradient(45deg, var(--coffee-primary), var(--coffee-secondary));
+        background: linear-gradient(45deg, var(--bakery-primary), var(--bakery-secondary));
         border-radius: 50%;
         display: flex;
         align-items: center;
@@ -457,7 +457,7 @@
     .stat-content h3 {
         font-size: 1.75rem;
         font-weight: 700;
-        color: var(--coffee-primary);
+        color: var(--bakery-primary);
         margin-bottom: 0.25rem;
     }
 
@@ -471,19 +471,19 @@
         background: white;
         border-radius: 20px;
         box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-        border: 1px solid rgba(139, 69, 19, 0.05);
+        border: 1px solid rgba(212, 165, 116, 0.05);
         overflow: hidden;
     }
 
     .section-header {
-        background: linear-gradient(45deg, rgba(139, 69, 19, 0.05), rgba(210, 105, 30, 0.05));
-        border-bottom: 1px solid rgba(139, 69, 19, 0.1);
+        background: linear-gradient(45deg, rgba(212, 165, 116, 0.05), rgba(244, 228, 193, 0.05));
+        border-bottom: 1px solid rgba(212, 165, 116, 0.1);
         padding: 1.5rem;
     }
 
     .section-header h5 {
         margin: 0;
-        color: var(--coffee-primary);
+        color: var(--bakery-primary);
         font-weight: 600;
     }
 
@@ -493,7 +493,7 @@
 
     .order-item, .reservation-item {
         padding: 1.5rem;
-        border-bottom: 1px solid rgba(139, 69, 19, 0.05);
+        border-bottom: 1px solid rgba(212, 165, 116, 0.05);
         transition: all 0.3s ease;
     }
 
@@ -502,7 +502,7 @@
     }
 
     .order-item:hover, .reservation-item:hover {
-        background: linear-gradient(45deg, rgba(139, 69, 19, 0.02), rgba(210, 105, 30, 0.02));
+        background: linear-gradient(45deg, rgba(212, 165, 116, 0.02), rgba(244, 228, 193, 0.02));
     }
 
     .loyalty-circle {
@@ -516,7 +516,7 @@
         width: 100px;
         height: 100px;
         border-radius: 50%;
-        background: conic-gradient(var(--coffee-primary) 0deg, var(--coffee-primary) 270deg, #e9ecef 270deg);
+        background: conic-gradient(var(--bakery-primary) 0deg, var(--bakery-primary) 270deg, #e9ecef 270deg);
         display: flex;
         align-items: center;
         justify-content: center;
@@ -542,12 +542,12 @@
         display: block;
         font-size: 1.25rem;
         font-weight: 700;
-        color: var(--coffee-primary);
+        color: var(--bakery-primary);
     }
 
     .favorite-item {
         padding: 1rem 0;
-        border-bottom: 1px solid rgba(139, 69, 19, 0.05);
+        border-bottom: 1px solid rgba(212, 165, 116, 0.05);
     }
 
     .favorite-item:last-child {
@@ -566,12 +566,12 @@
         padding: 3rem 1rem;
     }
 
-    .text-coffee {
-        color: var(--coffee-primary) !important;
+    .text-bakery {
+        color: var(--bakery-primary) !important;
     }
 
-    .btn-coffee {
-        background: linear-gradient(45deg, var(--coffee-primary), var(--coffee-secondary));
+    .btn-bakery {
+        background: linear-gradient(45deg, var(--bakery-primary), var(--bakery-secondary));
         border: none;
         color: white;
         font-weight: 600;
@@ -579,26 +579,26 @@
         transition: all 0.3s ease;
     }
 
-    .btn-coffee:hover {
+    .btn-bakery:hover {
         transform: translateY(-2px);
-        box-shadow: 0 5px 15px rgba(139, 69, 19, 0.3);
+        box-shadow: 0 5px 15px rgba(212, 165, 116, 0.3);
         color: white;
     }
 
-    .btn-outline-coffee {
-        border: 2px solid var(--coffee-primary);
-        color: var(--coffee-primary);
+    .btn-outline-bakery {
+        border: 2px solid var(--bakery-primary);
+        color: var(--bakery-primary);
         background: transparent;
         font-weight: 600;
         border-radius: 15px;
         transition: all 0.3s ease;
     }
 
-    .btn-outline-coffee:hover {
-        background: var(--coffee-primary);
+    .btn-outline-bakery:hover {
+        background: var(--bakery-primary);
         color: white;
         transform: translateY(-2px);
-        box-shadow: 0 5px 15px rgba(139, 69, 19, 0.3);
+        box-shadow: 0 5px 15px rgba(212, 165, 116, 0.3);
     }
 
     @media (max-width: 768px) {
@@ -638,7 +638,7 @@ document.addEventListener('DOMContentLoaded', function() {
     if (circleProgress) {
         const percentage = circleProgress.getAttribute('data-percentage');
         const degrees = (percentage / 100) * 360;
-        circleProgress.style.background = `conic-gradient(var(--coffee-primary) 0deg, var(--coffee-primary) ${degrees}deg, #e9ecef ${degrees}deg)`;
+        circleProgress.style.background = `conic-gradient(var(--bakery-primary) 0deg, var(--bakery-primary) ${degrees}deg, #e9ecef ${degrees}deg)`;
     }
 
     // Real-time updates for reservations
@@ -669,7 +669,7 @@ function showOrderSuccessCelebration() {
                 <i class="bi bi-check-circle-fill text-success"></i>
             </div>
             <h3 class="text-success mb-3">Order Successful!</h3>
-            <p class="lead">Your coffee is being prepared with love ☕</p>
+            <p class="lead">Your order is being prepared with love 🥐</p>
             <div class="points-celebration">
                 <i class="bi bi-star-fill text-warning me-2"></i>
                 <span class="text-warning fw-bold">Loyalty points earned!</span>
@@ -802,7 +802,7 @@ function updateLoyaltyProgress(currentPoints, pointsToNext) {
     if (circleProgress) {
         const percentage = Math.min((currentPoints / 1500) * 100, 100);
         const degrees = (percentage / 100) * 360;
-        circleProgress.style.background = `conic-gradient(var(--coffee-primary) 0deg, var(--coffee-primary) ${degrees}deg, #e9ecef ${degrees}deg)`;
+        circleProgress.style.background = `conic-gradient(var(--bakery-primary) 0deg, var(--bakery-primary) ${degrees}deg, #e9ecef ${degrees}deg)`;
     }
 }
 
@@ -816,7 +816,7 @@ function reorderItems(orderId) {
     // Simulate API call
     setTimeout(() => {
         button.innerHTML = '<i class="bi bi-check-lg me-1"></i>Added!';
-        button.classList.remove('btn-outline-coffee');
+        button.classList.remove('btn-outline-bakery');
         button.classList.add('btn-success');
 
         showNotification('Order items added to cart!', 'success');
@@ -825,7 +825,7 @@ function reorderItems(orderId) {
             button.innerHTML = originalText;
             button.disabled = false;
             button.classList.remove('btn-success');
-            button.classList.add('btn-outline-coffee');
+            button.classList.add('btn-outline-bakery');
         }, 2000);
     }, 800);
 }

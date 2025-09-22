@@ -28,7 +28,7 @@
                                         <i class="bi bi-star-fill text-warning"></i>
                                         <i class="bi bi-star-fill text-warning"></i>
                                     </div>
-                                    <p class="fst-italic">"Best coffee in town! The atmosphere is perfect."</p>
+                                    <p class="fst-italic">"Best pastries in town! The atmosphere is perfect."</p>
                                     <small>- Nirodha.</small>
                                 </div>
                             </div>
@@ -42,10 +42,10 @@
                 <div class="login-form-container">
                     <div class="text-center mb-4">
                         <div class="logo-container mb-3">
-                            <i class="bi bi-cup-hot-fill text-coffee pulse" style="font-size: 3rem;"></i>
+                            <i class="bi bi-shop text-bakery pulse" style="font-size: 3rem;"></i>
                         </div>
-                        <h2 class="fw-bold text-coffee mb-2">Sign In</h2>
-                        <p class="text-muted">Welcome back to Café Elixir</p>
+                        <h2 class="fw-bold text-bakery mb-2">Sign In</h2>
+                        <p class="text-muted">Welcome back to Sweet Delights Bakery</p>
                     </div>
 
                     <!-- Session Status -->
@@ -116,7 +116,7 @@
                                         </label>
                                     </div>
                                     @if (Route::has('password.request'))
-                                        <a class="text-coffee text-decoration-none fw-semibold" href="{{ route('password.request') }}">
+                                        <a class="text-bakery text-decoration-none fw-semibold" href="{{ route('password.request') }}">
                                             <i class="bi bi-key me-1"></i>Forgot password?
                                         </a>
                                     @endif
@@ -124,7 +124,7 @@
 
                                 <!-- Submit Button -->
                                 <div class="d-grid gap-2 mb-4">
-                                    <button type="submit" class="btn btn-coffee btn-lg" id="loginBtn">
+                                    <button type="submit" class="btn btn-bakery btn-lg" id="loginBtn">
                                         <i class="bi bi-box-arrow-in-right me-2"></i>
                                         <span class="btn-text">Sign In</span>
                                         <span class="btn-loading d-none">
@@ -153,7 +153,7 @@
                                 <div class="text-center">
                                     <p class="mb-0 text-muted">
                                         Don't have an account?
-                                        <a href="{{ route('register') }}" class="text-coffee text-decoration-none fw-semibold">
+                                        <a href="{{ route('register') }}" class="text-bakery text-decoration-none fw-semibold">
                                             <i class="bi bi-person-plus me-1"></i>Create one here
                                         </a>
                                     </p>
@@ -196,13 +196,13 @@
         }
 
         .form-control-lg:focus {
-            border-color: var(--coffee-primary);
-            box-shadow: 0 0 0 0.2rem rgba(139, 69, 19, 0.25);
+            border-color: var(--bakery-primary);
+            box-shadow: 0 0 0 0.2rem rgba(212, 165, 116, 0.25);
             transform: translateY(-2px);
         }
 
-        .btn-coffee {
-            background: linear-gradient(45deg, var(--coffee-primary), var(--coffee-secondary));
+        .btn-bakery {
+            background: linear-gradient(45deg, var(--bakery-primary), var(--bakery-secondary));
             border: none;
             color: white;
             font-weight: 600;
@@ -213,13 +213,13 @@
             overflow: hidden;
         }
 
-        .btn-coffee:hover {
+        .btn-bakery:hover {
             transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(139, 69, 19, 0.3);
+            box-shadow: 0 8px 25px rgba(212, 165, 116, 0.3);
             color: white;
         }
 
-        .btn-coffee::before {
+        .btn-bakery::before {
             content: '';
             position: absolute;
             top: 0;
@@ -230,15 +230,15 @@
             transition: all 0.5s;
         }
 
-        .btn-coffee:hover::before {
+        .btn-bakery:hover::before {
             left: 100%;
         }
 
         .login-hero {
             background: linear-gradient(135deg,
-                        rgba(139, 69, 19, 0.9),
-                        rgba(210, 105, 30, 0.8)),
-                        url('https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?w=1200&h=800&fit=crop') center/cover;
+                        rgba(212, 165, 116, 0.9),
+                        rgba(244, 228, 193, 0.8)),
+                        url('https://images.unsplash.com/photo-1517433670267-08bbd4be890f?w=1200&h=800&fit=crop') center/cover;
             position: relative;
         }
 
@@ -354,19 +354,19 @@
             font-size: 0.875rem;
         }
 
-        .text-coffee {
-            color: var(--coffee-primary) !important;
+        .text-bakery {
+            color: var(--bakery-primary) !important;
         }
 
         .btn-loading {
             display: none;
         }
 
-        .btn-coffee.loading .btn-text {
+        .btn-bakery.loading .btn-text {
             display: none;
         }
 
-        .btn-coffee.loading .btn-loading {
+        .btn-bakery.loading .btn-loading {
             display: inline-block;
         }
 
@@ -440,17 +440,17 @@
             // Rotating reviews
             const reviews = [
                 {
-                    text: "Best coffee in town! The atmosphere is perfect.",
+                    text: "Best pastries in town! The atmosphere is perfect.",
                     author: "Nirodha.",
                     stars: 5
                 },
                 {
-                    text: "Amazing service and quality. Highly recommended!",
+                    text: "Amazing baking and quality. Highly recommended!",
                     author: "Dinidu.",
                     stars: 5
                 },
                 {
-                    text: "My daily dose of happiness. Love this place!",
+                    text: "My daily dose of sweetness. Love this place!",
                     author: "Chanul.",
                     stars: 5
                 }

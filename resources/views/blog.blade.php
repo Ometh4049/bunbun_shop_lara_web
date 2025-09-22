@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
-@section('title', 'Blog - Café Elixir')
-@section('description', 'Discover coffee stories, brewing guides, and café updates at Café Elixir blog. Stay updated with the latest coffee trends and tips.')
+@section('title', 'Blog - Sweet Delights Bakery')
+@section('description', 'Discover baking stories, recipe guides, and bakery updates at Sweet Delights blog. Stay updated with the latest baking trends and tips.')
 
 @section('content')
 <!-- Hero Section -->
@@ -9,10 +9,10 @@
     <div class="container">
         <div class="row align-items-center min-vh-75">
             <div class="col-lg-6" data-aos="fade-up">
-                <h1 class="display-3 fw-bold text-white mb-4">Coffee Stories & More</h1>
-                <p class="lead text-white mb-4">Dive into the world of coffee with our expert insights, brewing guides, and stories from the heart of Café Elixir. Discover what makes every cup special.</p>
+                <h1 class="display-3 fw-bold text-white mb-4">Baking Stories & More</h1>
+                <p class="lead text-white mb-4">Dive into the world of baking with our expert insights, recipe guides, and stories from the heart of Sweet Delights. Discover what makes every pastry special.</p>
                 <div class="d-flex gap-3">
-                    <a href="#blog-posts" class="btn btn-coffee btn-lg">
+                    <a href="#blog-posts" class="btn btn-bakery btn-lg">
                         <i class="bi bi-arrow-down me-2"></i>Read Articles
                     </a>
                     <a href="#newsletter" class="btn btn-outline-light btn-lg">
@@ -22,8 +22,8 @@
             </div>
             <div class="col-lg-6" data-aos="fade-left" data-aos-delay="200">
                 <div class="hero-image-container">
-                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&h=700&fit=crop"
-                         alt="Coffee Writing"
+                    <img src="https://images.unsplash.com/photo-1517433670267-08bbd4be890f?w=600&h=700&fit=crop"
+                         alt="Baking Stories"
                          class="img-fluid rounded-3 shadow-lg floating">
                 </div>
             </div>
@@ -38,28 +38,29 @@
             <div class="col-lg-10">
                 <div class="featured-article" data-aos="fade-up">
                     <div class="badge bg-coffee mb-3">
+                      <div class="badge bg-bakery mb-3">
                         <i class="bi bi-star-fill me-1"></i>Featured Article
                     </div>
                     <div class="row align-items-center">
                         <div class="col-lg-6">
-                            <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=600&h=400&fit=crop"
-                                 alt="Perfect Espresso"
+                            <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?w=600&h=400&fit=crop"
+                                 alt="Perfect Croissant"
                                  class="img-fluid rounded-3 shadow">
                         </div>
                         <div class="col-lg-6">
                             <div class="ps-lg-4 mt-4 mt-lg-0">
-                                <span class="badge bg-secondary mb-2">Brewing Guide</span>
-                                <h2 class="h1 fw-bold text-coffee mb-3">The Art of Perfect Espresso</h2>
-                                <p class="lead text-muted mb-4">Master the fundamentals of espresso making with our comprehensive guide. From bean selection to extraction timing, discover the secrets behind every perfect shot.</p>
+                                <span class="badge bg-secondary mb-2">Baking Guide</span>
+                                <h2 class="h1 fw-bold text-bakery mb-3">The Art of Perfect Croissants</h2>
+                                <p class="lead text-muted mb-4">Master the fundamentals of croissant making with our comprehensive guide. From dough preparation to lamination technique, discover the secrets behind every perfect pastry.</p>
                                 <div class="d-flex align-items-center mb-4">
                                     <img src="img/avindu.jpg"
                                          class="rounded-circle me-3" width="50" height="50" alt="Author">
                                     <div>
                                         <h6 class="mb-0">Avindu Oshan</h6>
-                                        <small class="text-muted">Head Barista • Dec 15, 2024</small>
+                                        <small class="text-muted">Head Baker • Dec 15, 2024</small>
                                     </div>
                                 </div>
-                                <a href="#" class="btn btn-coffee" data-bs-toggle="modal" data-bs-target="#articleModal1">
+                                <a href="#" class="btn btn-bakery" data-bs-toggle="modal" data-bs-target="#articleModal1">
                                     <i class="bi bi-book-open me-2"></i>Read Full Article
                                 </a>
                             </div>
@@ -85,22 +86,22 @@
         <div class="row justify-content-center mb-5" data-aos="fade-up" data-aos-delay="100">
             <div class="col-lg-10">
                 <div class="category-filters d-flex flex-wrap justify-content-center gap-2">
-                    <button class="btn btn-coffee active" data-category="all">
+                    <button class="btn btn-bakery active" data-category="all">
                         <i class="bi bi-grid me-2"></i>All Posts
                     </button>
-                    <button class="btn btn-outline-coffee" data-category="brewing">
-                        <i class="bi bi-cup-hot me-2"></i>Brewing Guides
+                    <button class="btn btn-outline-bakery" data-category="baking">
+                        <i class="bi bi-cake2 me-2"></i>Baking Guides
                     </button>
-                    <button class="btn btn-outline-coffee" data-category="culture">
-                        <i class="bi bi-globe me-2"></i>Coffee Culture
+                    <button class="btn btn-outline-bakery" data-category="culture">
+                        <i class="bi bi-globe me-2"></i>Bakery Culture
                     </button>
-                    <button class="btn btn-outline-coffee" data-category="recipes">
+                    <button class="btn btn-outline-bakery" data-category="recipes">
                         <i class="bi bi-journal-bookmark me-2"></i>Recipes
                     </button>
-                    <button class="btn btn-outline-coffee" data-category="news">
-                        <i class="bi bi-newspaper me-2"></i>Café News
+                    <button class="btn btn-outline-bakery" data-category="news">
+                        <i class="bi bi-newspaper me-2"></i>Bakery News
                     </button>
-                    <button class="btn btn-outline-coffee" data-category="health">
+                    <button class="btn btn-outline-bakery" data-category="health">
                         <i class="bi bi-heart-pulse me-2"></i>Health & Wellness
                     </button>
                 </div>
@@ -110,25 +111,27 @@
         <!-- Blog Posts Grid -->
         <div class="row g-4" id="blog-grid">
             <!-- Brewing Guide Post -->
+            <!-- Baking Guide Post -->
             <div class="col-lg-4 col-md-6 blog-item" data-category="brewing" data-aos="fade-up" data-aos-delay="100">
+            <div class="col-lg-4 col-md-6 blog-item" data-category="baking" data-aos="fade-up" data-aos-delay="100">
                 <article class="blog-card h-100">
                     <div class="blog-image">
-                        <img src="img/mastering.jpg"
-                             alt="French Press Guide" class="img-fluid">
+                        <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?w=400&h=250&fit=crop"
+                             alt="Croissant Guide" class="img-fluid">
                         <div class="blog-category">
-                            <span class="badge bg-info">Brewing Guide</span>
+                            <span class="badge bg-info">Baking Guide</span>
                         </div>
                         <div class="blog-date">
                             <span class="badge bg-dark">Dec 10</span>
                         </div>
                     </div>
                     <div class="blog-content">
-                        <h5 class="blog-title">Mastering the French Press</h5>
-                        <p class="blog-excerpt">Learn the step-by-step process to brew the perfect French press coffee at home. From grind size to steeping time, we cover it all.</p>
+                        <h5 class="blog-title">Mastering Croissant Lamination</h5>
+                        <p class="blog-excerpt">Learn the step-by-step process to create perfect flaky croissants at home. From dough preparation to lamination technique, we cover it all.</p>
                         <div class="blog-meta">
                             <div class="d-flex align-items-center justify-content-between">
                                 <div class="author-info">
-                                    <small class="text-muted">By Nimal Perera</small>
+                                    <small class="text-muted">By Nimal Perera, Master Baker</small>
                                 </div>
                                 <div class="blog-stats">
                                     <small class="text-muted">
@@ -137,7 +140,7 @@
                                     </small>
                                 </div>
                             </div>
-                            <a href="#" class="btn btn-outline-coffee btn-sm mt-3" data-bs-toggle="modal" data-bs-target="#articleModal2">
+                            <a href="#" class="btn btn-outline-bakery btn-sm mt-3" data-bs-toggle="modal" data-bs-target="#articleModal2">
                                 Read More <i class="bi bi-arrow-right ms-1"></i>
                             </a>
                         </div>
@@ -146,21 +149,22 @@
             </div>
 
             <!-- Coffee Culture Post -->
+            <!-- Bakery Culture Post -->
             <div class="col-lg-4 col-md-6 blog-item" data-category="culture" data-aos="fade-up" data-aos-delay="200">
                 <article class="blog-card h-100">
                     <div class="blog-image">
-                        <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=400&h=250&fit=crop"
-                             alt="Ceylon Coffee History" class="img-fluid">
+                        <img src="https://images.unsplash.com/photo-1517433670267-08bbd4be890f?w=400&h=250&fit=crop"
+                             alt="Sri Lankan Baking History" class="img-fluid">
                         <div class="blog-category">
-                            <span class="badge bg-success">Coffee Culture</span>
+                            <span class="badge bg-success">Bakery Culture</span>
                         </div>
                         <div class="blog-date">
                             <span class="badge bg-dark">Dec 08</span>
                         </div>
                     </div>
                     <div class="blog-content">
-                        <h5 class="blog-title">Ceylon Coffee: A Rich Heritage</h5>
-                        <p class="blog-excerpt">Explore the fascinating history of Ceylon coffee and how Sri Lanka became renowned for its exceptional tea after the coffee leaf disease.</p>
+                        <h5 class="blog-title">Sri Lankan Baking: A Rich Heritage</h5>
+                        <p class="blog-excerpt">Explore the fascinating history of Sri Lankan baking traditions and how local flavors have influenced our modern pastry creations.</p>
                         <div class="blog-meta">
                             <div class="d-flex align-items-center justify-content-between">
                                 <div class="author-info">
@@ -173,7 +177,7 @@
                                     </small>
                                 </div>
                             </div>
-                            <a href="#" class="btn btn-outline-coffee btn-sm mt-3" data-bs-toggle="modal" data-bs-target="#articleModal3">
+                            <a href="#" class="btn btn-outline-bakery btn-sm mt-3" data-bs-toggle="modal" data-bs-target="#articleModal3">
                                 Read More <i class="bi bi-arrow-right ms-1"></i>
                             </a>
                         </div>
@@ -185,8 +189,8 @@
             <div class="col-lg-4 col-md-6 blog-item" data-category="recipes" data-aos="fade-up" data-aos-delay="300">
                 <article class="blog-card h-100">
                     <div class="blog-image">
-                        <img src="https://images.unsplash.com/photo-1461023058943-07fcbe16d735?w=400&h=250&fit=crop"
-                             alt="Iced Coffee Recipe" class="img-fluid">
+                        <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?w=400&h=250&fit=crop"
+                             alt="Pastry Recipe" class="img-fluid">
                         <div class="blog-category">
                             <span class="badge bg-warning">Recipe</span>
                         </div>
@@ -195,8 +199,8 @@
                         </div>
                     </div>
                     <div class="blog-content">
-                        <h5 class="blog-title">Ultimate Cold Brew Recipe</h5>
-                        <p class="blog-excerpt">Beat the Sri Lankan heat with our signature cold brew recipe. Perfect for those hot Colombo afternoons when you need a refreshing coffee fix.</p>
+                        <h5 class="blog-title">Ultimate Puff Pastry Recipe</h5>
+                        <p class="blog-excerpt">Create perfect puff pastry with our signature recipe. Perfect for those special occasions when you want to impress with homemade pastries.</p>
                         <div class="blog-meta">
                             <div class="d-flex align-items-center justify-content-between">
                                 <div class="author-info">
@@ -209,7 +213,7 @@
                                     </small>
                                 </div>
                             </div>
-                            <a href="#" class="btn btn-outline-coffee btn-sm mt-3" data-bs-toggle="modal" data-bs-target="#articleModal4">
+                            <a href="#" class="btn btn-outline-bakery btn-sm mt-3" data-bs-toggle="modal" data-bs-target="#articleModal4">
                                 Read More <i class="bi bi-arrow-right ms-1"></i>
                             </a>
                         </div>
@@ -218,25 +222,26 @@
             </div>
 
             <!-- Café News Post -->
+            <!-- Bakery News Post -->
             <div class="col-lg-4 col-md-6 blog-item" data-category="news" data-aos="fade-up" data-aos-delay="100">
                 <article class="blog-card h-100">
                     <div class="blog-image">
-                        <img src="https://images.unsplash.com/photo-1445116572660-236099ec97a0?w=400&h=250&fit=crop"
-                             alt="New Coffee Blend" class="img-fluid">
+                        <img src="https://images.unsplash.com/photo-1517433670267-08bbd4be890f?w=400&h=250&fit=crop"
+                             alt="New Pastry Collection" class="img-fluid">
                         <div class="blog-category">
-                            <span class="badge bg-primary">Café News</span>
+                            <span class="badge bg-primary">Bakery News</span>
                         </div>
                         <div class="blog-date">
                             <span class="badge bg-dark">Dec 12</span>
                         </div>
                     </div>
                     <div class="blog-content">
-                        <h5 class="blog-title">Introducing Our New Signature Blend</h5>
-                        <p class="blog-excerpt">We're excited to launch our latest creation - the "Elixir Harmony" blend, featuring beans from three different regions for a unique flavor profile.</p>
+                        <h5 class="blog-title">Introducing Our New Seasonal Collection</h5>
+                        <p class="blog-excerpt">We're excited to launch our latest creation - the "Winter Delights" collection, featuring pastries inspired by seasonal flavors for a unique taste experience.</p>
                         <div class="blog-meta">
                             <div class="d-flex align-items-center justify-content-between">
                                 <div class="author-info">
-                                    <small class="text-muted">By Café Elixir Team</small>
+                                    <small class="text-muted">By Sweet Delights Team</small>
                                 </div>
                                 <div class="blog-stats">
                                     <small class="text-muted">
@@ -245,7 +250,7 @@
                                     </small>
                                 </div>
                             </div>
-                            <a href="#" class="btn btn-outline-coffee btn-sm mt-3" data-bs-toggle="modal" data-bs-target="#articleModal5">
+                            <a href="#" class="btn btn-outline-bakery btn-sm mt-3" data-bs-toggle="modal" data-bs-target="#articleModal5">
                                 Read More <i class="bi bi-arrow-right ms-1"></i>
                             </a>
                         </div>
@@ -257,8 +262,8 @@
             <div class="col-lg-4 col-md-6 blog-item" data-category="health" data-aos="fade-up" data-aos-delay="200">
                 <article class="blog-card h-100">
                     <div class="blog-image">
-                        <img src="https://images.unsplash.com/photo-1559056199-641a0ac8b55e?w=400&h=250&fit=crop"
-                             alt="Coffee Health Benefits" class="img-fluid">
+                        <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?w=400&h=250&fit=crop"
+                             alt="Healthy Baking" class="img-fluid">
                         <div class="blog-category">
                             <span class="badge bg-danger">Health & Wellness</span>
                         </div>
@@ -267,8 +272,8 @@
                         </div>
                     </div>
                     <div class="blog-content">
-                        <h5 class="blog-title">Health Benefits of Quality Coffee</h5>
-                        <p class="blog-excerpt">Discover the surprising health benefits of drinking quality coffee, from antioxidants to improved mental focus and physical performance.</p>
+                        <h5 class="blog-title">Healthy Baking Alternatives</h5>
+                        <p class="blog-excerpt">Discover healthier baking alternatives and techniques, from whole grain flours to natural sweeteners and reduced-fat options.</p>
                         <div class="blog-meta">
                             <div class="d-flex align-items-center justify-content-between">
                                 <div class="author-info">
@@ -281,7 +286,7 @@
                                     </small>
                                 </div>
                             </div>
-                            <a href="#" class="btn btn-outline-coffee btn-sm mt-3" data-bs-toggle="modal" data-bs-target="#articleModal6">
+                            <a href="#" class="btn btn-outline-bakery btn-sm mt-3" data-bs-toggle="modal" data-bs-target="#articleModal6">
                                 Read More <i class="bi bi-arrow-right ms-1"></i>
                             </a>
                         </div>
@@ -293,8 +298,8 @@
             <div class="col-lg-4 col-md-6 blog-item" data-category="recipes" data-aos="fade-up" data-aos-delay="300">
                 <article class="blog-card h-100">
                     <div class="blog-image">
-                        <img src="img/latee.jpg"
-                             alt="Latte Art" class="img-fluid">
+                        <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=400&h=250&fit=crop"
+                             alt="Cake Decorating" class="img-fluid">
                         <div class="blog-category">
                             <span class="badge bg-warning">Recipe</span>
                         </div>
@@ -303,8 +308,8 @@
                         </div>
                     </div>
                     <div class="blog-content">
-                        <h5 class="blog-title">Latte Art for Beginners</h5>
-                        <p class="blog-excerpt">Learn the basics of latte art with our easy-to-follow guide. Start with simple patterns and work your way up to impressive designs that will wow your guests.</p>
+                        <h5 class="blog-title">Cake Decorating for Beginners</h5>
+                        <p class="blog-excerpt">Learn the basics of cake decorating with our easy-to-follow guide. Start with simple techniques and work your way up to impressive designs that will wow your guests.</p>
                         <div class="blog-meta">
                             <div class="d-flex align-items-center justify-content-between">
                                 <div class="author-info">
@@ -317,7 +322,7 @@
                                     </small>
                                 </div>
                             </div>
-                            <a href="#" class="btn btn-outline-coffee btn-sm mt-3" data-bs-toggle="modal" data-bs-target="#articleModal7">
+                            <a href="#" class="btn btn-outline-bakery btn-sm mt-3" data-bs-toggle="modal" data-bs-target="#articleModal7">
                                 Read More <i class="bi bi-arrow-right ms-1"></i>
                             </a>
                         </div>
@@ -328,7 +333,7 @@
 
         <!-- Load More Button -->
         <div class="text-center mt-5" data-aos="fade-up">
-            <button class="btn btn-outline-coffee btn-lg" id="loadMoreBtn">
+            <button class="btn btn-outline-bakery btn-lg" id="loadMoreBtn">
                 <i class="bi bi-plus-circle me-2"></i>Load More Articles
             </button>
         </div>

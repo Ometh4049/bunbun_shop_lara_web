@@ -1,5 +1,5 @@
-// Enhanced Cart Management System for Café Elixir
-class CafeElixirCart {
+// Enhanced Cart Management System for Sweet Delights Bakery
+class SweetDelightsCart {
     constructor() {
         this.cart = this.loadCart();
         this.init();
@@ -9,12 +9,12 @@ class CafeElixirCart {
         this.createCartModal();
         this.updateCartDisplay();
         this.bindEvents();
-        console.log('Café Elixir Cart initialized successfully');
+        console.log('Sweet Delights Cart initialized successfully');
     }
 
     loadCart() {
         try {
-            const cartData = localStorage.getItem('cafeElixirCart');
+            const cartData = localStorage.getItem('sweetDelightsCart');
             return cartData ? JSON.parse(cartData) : [];
         } catch (error) {
             console.error('Error loading cart:', error);
@@ -24,7 +24,7 @@ class CafeElixirCart {
 
     saveCart() {
         try {
-            localStorage.setItem('cafeElixirCart', JSON.stringify(this.cart));
+            localStorage.setItem('sweetDelightsCart', JSON.stringify(this.cart));
             console.log('Cart saved:', this.cart);
         } catch (error) {
             console.error('Error saving cart:', error);
@@ -212,7 +212,7 @@ class CafeElixirCart {
                 <div class="modal-dialog modal-lg">
                     <div class="modal-content">
                         <div class="modal-header bg-coffee text-white">
-                            <h5 class="modal-title">
+                    <div class="modal-header bg-bakery text-white">
                                 <i class="bi bi-cart me-2"></i>Your Cart
                             </h5>
                             <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
@@ -223,8 +223,8 @@ class CafeElixirCart {
                                 <h5 class="mt-3 text-muted">Your cart is empty</h5>
                                 <p class="text-muted">Add some delicious items from our menu!</p>
                                 <a href="/menu" class="btn btn-coffee" data-bs-dismiss="modal">
-                                    <i class="bi bi-cup-hot me-2"></i>Browse Menu
-                                </a>
+                            <a href="/menu" class="btn btn-bakery" data-bs-dismiss="modal">
+                                <i class="bi bi-basket me-2"></i>Browse Menu
                             </div>
                             <div id="cartItems"></div>
                         </div>
@@ -238,7 +238,7 @@ class CafeElixirCart {
                                 </div>
                                 <div class="d-grid gap-2">
                                     <button class="btn btn-coffee btn-lg" onclick="window.cart.proceedToCheckout()">
-                                        <i class="bi bi-credit-card me-2"></i>Proceed to Checkout
+                                <button class="btn btn-bakery btn-lg" onclick="window.cart.proceedToCheckout()">
                                     </button>
                                 </div>
                             </div>
@@ -320,14 +320,14 @@ class CafeElixirCart {
                 // Success state
                 button.innerHTML = '<i class="bi bi-check-lg me-1"></i>Added!';
                 button.classList.add('btn-success');
-                button.classList.remove('btn-coffee');
+                button.classList.remove('btn-bakery');
 
                 // Reset button after delay
                 setTimeout(() => {
                     button.innerHTML = originalHTML;
                     button.disabled = false;
                     button.classList.remove('btn-success');
-                    button.classList.add('btn-coffee');
+                    button.classList.add('btn-bakery');
                 }, 2000);
             } else {
                 // Error state
@@ -464,10 +464,10 @@ class CafeElixirCart {
 // Initialize cart when DOM is loaded
 document.addEventListener('DOMContentLoaded', function() {
     console.log('DOM loaded, initializing cart...');
-    window.cart = new CafeElixirCart();
+    window.cart = new SweetDelightsCart();
 
     // Make cart globally accessible
-    window.cafeElixirCart = window.cart;
+    window.sweetDelightsCart = window.cart;
 
     console.log('Cart initialized and made globally available');
 });
@@ -523,21 +523,21 @@ cartStyle.textContent = `
         min-width: 20px;
     }
 
-    .bg-coffee {
-        background: linear-gradient(45deg, #8B4513, #D2691E) !important;
+    .bg-bakery {
+        background: linear-gradient(45deg, var(--bakery-primary), var(--bakery-secondary)) !important;
     }
 
-    .btn-coffee {
-        background: linear-gradient(45deg, #8B4513, #D2691E);
+    .btn-bakery {
+        background: linear-gradient(45deg, var(--bakery-primary), var(--bakery-secondary));
         border: none;
         color: white;
         font-weight: 600;
         transition: all 0.3s ease;
     }
 
-    .btn-coffee:hover {
+    .btn-bakery:hover {
         transform: translateY(-2px);
-        box-shadow: 0 5px 15px rgba(139, 69, 19, 0.3);
+        box-shadow: 0 5px 15px rgba(212, 165, 116, 0.3);
         color: white;
     }
 
@@ -546,7 +546,7 @@ cartStyle.textContent = `
     }
 
     .cart-item:hover {
-        background-color: rgba(139, 69, 19, 0.02);
+        background-color: rgba(212, 165, 116, 0.02);
     }
 `;
 document.head.appendChild(cartStyle);

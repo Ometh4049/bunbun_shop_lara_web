@@ -1,6 +1,6 @@
 @extends('layouts.admin')
 
-@section('title', 'Admin Dashboard - Café Elixir')
+@section('title', 'Admin Dashboard - Sweet Delights Bakery')
 
 @section('content')
 <div class="container-fluid">
@@ -8,7 +8,7 @@
     <div class="d-flex justify-content-between align-items-center mb-4">
         <div>
             <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
-            <p class="mb-0 text-muted">Welcome back! Here's what's happening at Café Elixir today.</p>
+            <p class="mb-0 text-muted">Welcome back! Here's what's happening at Sweet Delights today.</p>
         </div>
         <div>
             <span class="badge bg-success fs-6">

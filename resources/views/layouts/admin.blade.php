@@ -22,11 +22,13 @@
     <!-- Custom CSS -->
     <style>
         :root {
-            --coffee-primary: #8B4513;
-            --coffee-secondary: #D2691E;
-            --coffee-accent: #CD853F;
-            --coffee-dark: #2F1B14;
-            --coffee-light: #F5F5DC;
+            --bakery-primary: #D4A574;
+            --bakery-secondary: #F4E4C1;
+            --bakery-accent: #E8B4B8;
+            --bakery-warm: #F7E7CE;
+            --bakery-cream: #FFF8E7;
+            --bakery-brown: #8B6F47;
+            --bakery-pink: #F5D5D0;
         }
 
         body {
@@ -39,7 +41,7 @@
         }
 
         .sidebar {
-            background: linear-gradient(135deg, var(--coffee-primary), var(--coffee-secondary));
+            background: linear-gradient(135deg, var(--bakery-primary), var(--bakery-secondary));
             min-height: 100vh;
             width: 280px;
             position: fixed;
@@ -117,8 +119,8 @@
             font-size: 1.5rem;
         }
 
-        .btn-coffee {
-            background: linear-gradient(45deg, var(--coffee-primary), var(--coffee-secondary));
+        .btn-bakery {
+            background: linear-gradient(45deg, var(--bakery-primary), var(--bakery-secondary));
             border: none;
             color: white;
             font-weight: 600;
@@ -126,14 +128,14 @@
             transition: all 0.3s ease;
         }
 
-        .btn-coffee:hover {
+        .btn-bakery:hover {
             transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(139, 69, 19, 0.3);
+            box-shadow: 0 5px 15px rgba(212, 165, 116, 0.3);
             color: white;
         }
 
-        .text-coffee {
-            color: var(--coffee-primary) !important;
+        .text-bakery {
+            color: var(--bakery-primary) !important;
         }
 
         .text-gray-800 {
@@ -184,7 +186,7 @@
     <!-- Sidebar -->
     <nav class="sidebar">
         <div class="sidebar-brand">
-            <h4><i class="bi bi-cup-hot-fill me-2"></i>Café Elixir</h4>
+            <h4><i class="bi bi-shop me-2"></i>Sweet Delights</h4>
             <small class="text-white-50">Admin Dashboard</small>
         </div>
 
@@ -293,7 +295,7 @@
 
                     <!-- User Menu -->
                     <div class="dropdown">
-                        <button class="btn btn-coffee dropdown-toggle" data-bs-toggle="dropdown">
+                        <button class="btn btn-bakery dropdown-toggle" data-bs-toggle="dropdown">
                             <i class="bi bi-person-circle me-1"></i>{{ Auth::user()->name }}
                         </button>
                         <ul class="dropdown-menu dropdown-menu-end">
