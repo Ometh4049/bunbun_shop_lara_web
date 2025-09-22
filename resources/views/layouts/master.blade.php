@@ -32,17 +32,14 @@
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
     <!-- Custom CSS -->
+    <link rel="stylesheet" href="{{ asset('css/bakery-theme.css') }}">
     <style>
         :root {
-            --bakery-primary: #D4A574;
-            --bakery-secondary: #F4E4C1;
-            --bakery-accent: #E8B4B8;
-            --bakery-warm: #F7E7CE;
-            --bakery-cream: #FFF8E7;
-            --bakery-brown: #8B6F47;
-            --bakery-pink: #F5D5D0;
-            --gradient-primary: linear-gradient(135deg, #D4A574 0%, #F4E4C1 100%);
-            --gradient-hero: linear-gradient(135deg, rgba(212, 165, 116, 0.9) 0%, rgba(244, 228, 193, 0.8) 100%);
+            /* Legacy variables for backward compatibility */
+            --bakery-primary: #D88A6A;
+            --bakery-secondary: #E6C9A8;
+            --coffee-primary: #7A543E;
+            --coffee-secondary: #D88A6A;
         }
 
         * {
@@ -75,48 +72,47 @@
 
 
         /* Navbar Styles */
-        .navbar-custom {
+        .navbar-bakery {
             background: rgba(255, 255, 255, 0.95) !important;
             backdrop-filter: blur(10px);
-            border-bottom: 2px solid var(--bakery-primary);
+            border-bottom: 2px solid var(--bakery-terracotta);
             transition: all 0.3s ease;
             padding: 1rem 0;
-            cursor: url('img/mouse.png') 10 10, auto !important;
         }
 
-        .navbar-custom.scrolled {
+        .navbar-bakery.scrolled {
             padding: 0.5rem 0;
-            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+            box-shadow: var(--shadow-md);
         }
 
-        .navbar-brand {
+        .navbar-brand-bakery {
             font-family: 'Playfair Display', serif;
             font-weight: 700;
             font-size: 1.8rem;
-            color: var(--bakery-primary) !important;
+            color: var(--bakery-brown) !important;
             text-decoration: none;
             transition: all 0.3s ease;
         }
 
-        .navbar-brand:hover {
+        .navbar-brand-bakery:hover {
             transform: scale(1.05);
-            color: var(--bakery-secondary) !important;
+            color: var(--bakery-terracotta) !important;
         }
 
-        .navbar-nav .nav-link {
+        .nav-link-bakery {
             font-weight: 500;
             color: var(--bakery-brown) !important;
             margin: 0 0.5rem;
             padding: 0.5rem 1rem !important;
-            border-radius: 25px;
+            border-radius: var(--radius-lg);
             transition: all 0.3s ease;
             position: relative;
         }
 
-        .navbar-nav .nav-link:hover,
-        .navbar-nav .nav-link.active {
+        .nav-link-bakery:hover,
+        .nav-link-bakery.active {
             color: white !important;
-            background: var(--gradient-primary);
+            background: var(--gradient-warm);
             transform: translateY(-2px);
         }
 
@@ -407,9 +403,9 @@
     </div>
 
     <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-custom fixed-top" id="mainNavbar">
+    <nav class="navbar navbar-expand-lg navbar-bakery fixed-top" id="mainNavbar">
         <div class="container">
-            <a class="navbar-brand" href="{{ route('home') }}">
+            <a class="navbar-brand-bakery" href="{{ route('home') }}">
                 <i class="bi bi-shop me-2"></i>Sweet Delights Bakery
             </a>
 
@@ -420,35 +416,35 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav mx-auto">
                     <li class="nav-item">
-                        <a class="nav-link {{ request()->routeIs('home') ? 'active' : '' }}" href="{{ route('home') }}">
+                        <a class="nav-link-bakery {{ request()->routeIs('home') ? 'active' : '' }}" href="{{ route('home') }}">
                             <i class="bi bi-house me-1"></i>Home
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link {{ request()->routeIs('menu') ? 'active' : '' }}" href="{{ route('menu') }}">
+                        <a class="nav-link-bakery {{ request()->routeIs('menu') ? 'active' : '' }}" href="{{ route('menu') }}">
                             <i class="bi bi-journal-text me-1"></i>Menu
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link {{ request()->routeIs('reservation') ? 'active' : '' }}"
+                        <a class="nav-link-bakery {{ request()->routeIs('reservation') ? 'active' : '' }}"
                             href="{{ route('reservation') }}">
                             <i class="bi bi-calendar-check me-1"></i>Reservation
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link {{ request()->routeIs('blog') ? 'active' : '' }}"
+                        <a class="nav-link-bakery {{ request()->routeIs('blog') ? 'active' : '' }}"
                             href="{{ route('blog') }}">
                             <i class="bi bi-pencil-square me-1"></i>Blog
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link {{ request()->routeIs('features') ? 'active' : '' }}"
+                        <a class="nav-link-bakery {{ request()->routeIs('features') ? 'active' : '' }}"
                             href="{{ route('features') }}">
                             <i class="bi bi-star me-1"></i>Features
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link {{ request()->routeIs('contact') ? 'active' : '' }}"
+                        <a class="nav-link-bakery {{ request()->routeIs('contact') ? 'active' : '' }}"
                             href="{{ route('contact') }}">
                             <i class="bi bi-envelope me-1"></i>Contact
                         </a>
@@ -519,7 +515,7 @@
     </main>
 
     <!-- Footer -->
-    <footer class="footer">
+    <footer class="footer-bakery">
         <div class="container">
             <div class="row g-4">
                 <div class="col-lg-4 col-md-6">
@@ -579,7 +575,7 @@
                     <h5>Newsletter</h5>
                     <p>Subscribe to get updates about new pastries and special offers!</p>
                     <div class="input-group mb-3">
-                        <input type="email" class="form-control" placeholder="Your email">
+                        <input type="email" class="form-control-bakery" placeholder="Your email">
                         <button class="btn btn-bakery" type="button">
                             <i class="bi bi-send"></i>
                         </button>
@@ -591,11 +587,11 @@
 
             <div class="row align-items-center">
                 <div class="col-md-6">
-                    <p class="mb-0">&copy; {{ date('Y') }} Sweet Delights Bakery. All rights reserved.</p>
+                    <p class="mb-0 text-white-50">&copy; {{ date('Y') }} Sweet Delights Bakery. All rights reserved.</p>
                 </div>
                 <div class="col-md-6 text-md-end">
-                    <a href="#" class="text-decoration-none me-3">Privacy Policy</a>
-                    <a href="#" class="text-decoration-none">Terms of Service</a>
+                    <a href="#" class="text-decoration-none me-3 text-white-50">Privacy Policy</a>
+                    <a href="#" class="text-decoration-none text-white-50">Terms of Service</a>
                 </div>
             </div>
         </div>

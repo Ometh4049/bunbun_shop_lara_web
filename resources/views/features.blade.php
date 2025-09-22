@@ -5,7 +5,7 @@
 
 @section('content')
 <!-- Hero Section -->
-<section class="features-hero">
+<section class="hero-bakery features-hero">
     <div class="container">
         <div class="row align-items-center min-vh-75">
             <div class="col-lg-6" data-aos="fade-up">
@@ -55,11 +55,11 @@
 </section>
 
 <!-- Features Overview -->
-<section class="py-5 bg-light" id="features-grid">
+<section class="py-5 section-cream" id="features-grid">
     <div class="container">
         <div class="row text-center mb-5" data-aos="fade-up">
             <div class="col-12">
-                <h2 class="display-4 fw-bold text-bakery mb-3">What Makes Us Special</h2>
+                <h2 class="display-4 fw-bold text-bakery-brown mb-3">What Makes Us Special</h2>
                 <p class="lead text-muted">Discover the unique features and amenities that create the perfect bakery experience</p>
             </div>
         </div>
@@ -68,10 +68,10 @@
             <!-- Artisanal Baking -->
             <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
                 <div class="feature-card h-100">
-                    <div class="feature-icon-large">
+                    <div class="feature-icon">
                         <i class="bi bi-cake2-fill"></i>
                     </div>
-                    <h4 class="feature-title">Artisanal Baking Selection</h4>
+                    <h4 class="feature-title">Artisanal Pastries</h4>
                     <p class="feature-description">We source our ingredients directly from the finest suppliers around the world, ensuring every pastry delivers exceptional flavor and texture.</p>
                     <ul class="feature-list">
                         <li><i class="bi bi-check-circle-fill text-success me-2"></i>Premium quality ingredients</li>
@@ -90,7 +90,7 @@
             <!-- Master Bakers -->
             <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
                 <div class="feature-card h-100">
-                    <div class="feature-icon-large">
+                    <div class="feature-icon">
                         <i class="bi bi-person-workspace"></i>
                     </div>
                     <h4 class="feature-title">Master Baker Team</h4>
@@ -112,7 +112,7 @@
             <!-- Cozy Atmosphere -->
             <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
                 <div class="feature-card h-100">
-                    <div class="feature-icon-large">
+                    <div class="feature-icon">
                         <i class="bi bi-house-heart-fill"></i>
                     </div>
                     <h4 class="feature-title">Cozy & Welcoming Space</h4>
@@ -134,7 +134,7 @@
             <!-- Fresh Ingredients -->
             <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
                 <div class="feature-card h-100">
-                    <div class="feature-icon-large">
+                    <div class="feature-icon">
                         <i class="bi bi-egg-fill"></i>
                     </div>
                     <h4 class="feature-title">Fresh Quality Ingredients</h4>
@@ -156,7 +156,7 @@
             <!-- Custom Orders -->
             <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
                 <div class="feature-card h-100">
-                    <div class="feature-icon-large">
+                    <div class="feature-icon">
                         <i class="bi bi-gift-fill"></i>
                     </div>
                     <h4 class="feature-title">Custom Orders & Catering</h4>
@@ -178,7 +178,7 @@
             <!-- Exceptional Service -->
             <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
                 <div class="feature-card h-100">
-                    <div class="feature-icon-large">
+                    <div class="feature-icon">
                         <i class="bi bi-star-fill"></i>
                     </div>
                     <h4 class="feature-title">Exceptional Service</h4>

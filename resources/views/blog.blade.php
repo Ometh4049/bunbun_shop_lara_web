@@ -5,7 +5,7 @@
 
 @section('content')
 <!-- Hero Section -->
-<section class="blog-hero">
+<section class="hero-bakery blog-hero">
     <div class="container">
         <div class="row align-items-center min-vh-75">
             <div class="col-lg-6" data-aos="fade-up">
@@ -32,12 +32,13 @@
 </section>
 
 <!-- Featured Article -->
-<section class="py-5">
+<section class="py-5 section-white">
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-lg-10">
-                <div class="featured-article" data-aos="fade-up">
-                    <div class="badge bg-coffee mb-3">
+                <div class="card-bakery" data-aos="fade-up">
+                    <div class="card-body-bakery">
+                        <div class="badge bg-bakery-terracotta text-white mb-3">
                       <div class="badge bg-bakery mb-3">
                         <i class="bi bi-star-fill me-1"></i>Featured Article
                     </div>
@@ -50,7 +51,7 @@
                         <div class="col-lg-6">
                             <div class="ps-lg-4 mt-4 mt-lg-0">
                                 <span class="badge bg-secondary mb-2">Baking Guide</span>
-                                <h2 class="h1 fw-bold text-bakery mb-3">The Art of Perfect Croissants</h2>
+                                <h2 class="h1 fw-bold text-bakery-brown mb-3">The Art of Perfect Croissants</h2>
                                 <p class="lead text-muted mb-4">Master the fundamentals of croissant making with our comprehensive guide. From dough preparation to lamination technique, discover the secrets behind every perfect pastry.</p>
                                 <div class="d-flex align-items-center mb-4">
                                     <img src="img/avindu.jpg"
@@ -66,6 +67,7 @@
                             </div>
                         </div>
                     </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -73,35 +75,35 @@
 </section>
 
 <!-- Blog Categories -->
-<section class="py-5 bg-light" id="blog-posts">
+<section class="py-5 section-cream" id="blog-posts">
     <div class="container">
         <div class="row text-center mb-5" data-aos="fade-up">
             <div class="col-12">
-                <h2 class="display-5 fw-bold text-coffee mb-3">Explore Our Blog Categories</h2>
-                <p class="lead text-muted">Choose from our diverse collection of coffee-related content</p>
+                <h2 class="display-5 fw-bold text-bakery-brown mb-3">Explore Our Blog Categories</h2>
+                <p class="lead text-muted">Choose from our diverse collection of baking-related content</p>
             </div>
         </div>
 
         <!-- Category Filter -->
         <div class="row justify-content-center mb-5" data-aos="fade-up" data-aos-delay="100">
             <div class="col-lg-10">
-                <div class="category-filters d-flex flex-wrap justify-content-center gap-2">
-                    <button class="btn btn-bakery active" data-category="all">
+                <div class="category-filters">
+                    <button class="category-filter-btn active" data-category="all">
                         <i class="bi bi-grid me-2"></i>All Posts
                     </button>
-                    <button class="btn btn-outline-bakery" data-category="baking">
+                    <button class="category-filter-btn" data-category="baking">
                         <i class="bi bi-cake2 me-2"></i>Baking Guides
                     </button>
-                    <button class="btn btn-outline-bakery" data-category="culture">
+                    <button class="category-filter-btn" data-category="culture">
                         <i class="bi bi-globe me-2"></i>Bakery Culture
                     </button>
-                    <button class="btn btn-outline-bakery" data-category="recipes">
+                    <button class="category-filter-btn" data-category="recipes">
                         <i class="bi bi-journal-bookmark me-2"></i>Recipes
                     </button>
-                    <button class="btn btn-outline-bakery" data-category="news">
+                    <button class="category-filter-btn" data-category="news">
                         <i class="bi bi-newspaper me-2"></i>Bakery News
                     </button>
-                    <button class="btn btn-outline-bakery" data-category="health">
+                    <button class="category-filter-btn" data-category="health">
                         <i class="bi bi-heart-pulse me-2"></i>Health & Wellness
                     </button>
                 </div>
@@ -114,10 +116,10 @@
             <!-- Baking Guide Post -->
             <div class="col-lg-4 col-md-6 blog-item" data-category="brewing" data-aos="fade-up" data-aos-delay="100">
             <div class="col-lg-4 col-md-6 blog-item" data-category="baking" data-aos="fade-up" data-aos-delay="100">
-                <article class="blog-card h-100">
-                    <div class="blog-image">
+                <article class="blog-card">
+                    <div class="position-relative overflow-hidden">
                         <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?w=400&h=250&fit=crop"
-                             alt="Croissant Guide" class="img-fluid">
+                             alt="Croissant Guide" class="blog-image">
                         <div class="blog-category">
                             <span class="badge bg-info">Baking Guide</span>
                         </div>
@@ -140,7 +142,7 @@
                                     </small>
                                 </div>
                             </div>
-                            <a href="#" class="btn btn-outline-bakery btn-sm mt-3" data-bs-toggle="modal" data-bs-target="#articleModal2">
+                            <a href="#" class="btn-outline-bakery btn-bakery-sm mt-3" data-bs-toggle="modal" data-bs-target="#articleModal2">
                                 Read More <i class="bi bi-arrow-right ms-1"></i>
                             </a>
                         </div>

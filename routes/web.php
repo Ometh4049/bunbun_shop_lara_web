@@ -158,6 +158,11 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(fun
     Route::get('/analytics', [AdminController::class, 'analytics'])->name('analytics');
     Route::get('/settings', [AdminController::class, 'settings'])->name('settings');
 
+    // Product management routes
+    Route::resource('products', \App\Http\Controllers\ProductController::class);
+    Route::patch('/products/{product}/toggle-status', [\App\Http\Controllers\ProductController::class, 'toggleStatus'])->name('products.toggle-status');
+    Route::get('/products/category/{categoryId}', [\App\Http\Controllers\ProductController::class, 'byCategory'])->name('products.by-category');
+
     // Menu management routes
     Route::post('/menu', [MenuController::class, 'store'])->name('menu.store');
     Route::get('/menu/{id}', [MenuController::class, 'show'])->name('menu.show');
@@ -204,4 +209,16 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(fun
     Route::post('/reservation-requests/{id}/reject', [AdminReservationChangeController::class, 'reject'])->name('reservation-requests.reject');
     Route::delete('/reservation-requests/{id}', [AdminReservationChangeController::class, 'destroy'])->name('reservation-requests.destroy');
     Route::get('/reservation-requests/pending-count', [AdminReservationChangeController::class, 'getPendingCount'])->name('reservation-requests.pending-count');
+});
+
+// Additional admin routes with is_admin middleware
+Route::middleware(['auth', 'is_admin'])->prefix('admin')->name('admin.')->group(function () {
+    // These routes require the new is_admin flag
+    Route::get('/advanced-settings', function () {
+        return view('admin.advanced-settings');
+    })->name('advanced-settings');
+    
+    Route::get('/system-logs', function () {
+        return view('admin.system-logs');
+    })->name('system-logs');
 });

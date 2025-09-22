@@ -98,6 +98,14 @@ class HomeController extends Controller
     // Handle contact form submission
     public function storeContact(Request $request)
     {
+        // Honeypot spam protection
+        if ($request->filled('website')) {
+            return response()->json([
+                'success' => false,
+                'message' => 'Spam detected'
+            ], 422);
+        }
+
         $validatedData = $request->validate([
             'firstName' => 'required|string|max:255',
             'lastName' => 'required|string|max:255',
@@ -110,6 +118,11 @@ class HomeController extends Controller
             'urgency' => 'required|string|in:normal,urgent,immediate',
             'newsletter' => 'nullable|boolean'
         ]);
+
+        // Sanitize input data
+        $validatedData['firstName'] = strip_tags($validatedData['firstName']);
+        $validatedData['lastName'] = strip_tags($validatedData['lastName']);
+        $validatedData['message'] = strip_tags($validatedData['message']);
 
         // Generate message ID
         $messageId = 'CM' . str_pad(ContactMessage::count() + 1, 6, '0', STR_PAD_LEFT);

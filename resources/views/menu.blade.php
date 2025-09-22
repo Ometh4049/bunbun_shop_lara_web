@@ -5,7 +5,7 @@
 
 @section('content')
 <!-- Hero Section -->
-<section class="menu-hero">
+<section class="hero-bakery menu-hero">
     <div class="container">
         <div class="row align-items-center min-vh-75">
             <div class="col-lg-6" data-aos="fade-up">
@@ -32,20 +32,25 @@
 </section>
 
 <!-- Menu Categories -->
-<section id="menu-categories" class="py-5">
+<section id="menu-categories" class="py-5 section-white">
     <div class="container">
         <div class="row text-center mb-5" data-aos="fade-up">
             <div class="col-12">
-                <h2 class="display-4 fw-bold text-coffee mb-3">Menu Categories</h2>
-                <p class="lead text-muted">Choose from our carefully curated selection of beverages and treats</p>
+                <h2 class="display-4 fw-bold text-bakery-brown mb-3">Our Bakery Selection</h2>
+                <p class="lead text-muted">Choose from our carefully curated selection of fresh pastries and treats</p>
             </div>
+        </div>
+
+        <!-- Search Bar -->
+        <div class="menu-search" data-aos="fade-up" data-aos-delay="100">
+            <input type="text" class="form-control-bakery" id="menuSearch" placeholder="Search our delicious pastries...">
         </div>
 
         <!-- Category Filter Buttons -->
         <div class="row justify-content-center mb-5" data-aos="fade-up" data-aos-delay="100">
             <div class="col-lg-8">
                 <div class="category-filters d-flex flex-wrap justify-content-center gap-2">
-                    <button class="btn btn-bakery active" data-category="all">
+                    <button class="category-filter-btn active" data-category="all">
                         <i class="bi bi-grid me-2"></i>All Items
                     </button>
                     @foreach($categories as $category)
@@ -61,7 +66,7 @@
                             $categoryClass = $categoryData[0];
                             $categoryIcon = $categoryData[1];
                         @endphp
-                        <button class="btn btn-outline-bakery" data-category="{{ $categoryClass }}">
+                        <button class="category-filter-btn" data-category="{{ $categoryClass }}">
                             <i class="bi {{ $categoryIcon }} me-2"></i>{{ $category }}
                         </button>
                     @endforeach
@@ -108,9 +113,9 @@
                     @endphp
 
                     <div class="col-lg-4 col-md-4 col-sm-6 col-12 menu-item" data-category="{{ $categoryClass }}" data-aos="fade-up" data-aos-delay="{{ (($index % 3) + 1) * 100 }}">
-                        <div class="card menu-card h-100">
+                        <div class="menu-item-card">
                             <div class="position-relative overflow-hidden">
-                                <img src="{{ $item->image }}" class="card-img-top" alt="{{ $item->name }}">
+                                <img src="{{ $item->image }}" class="menu-item-image" alt="{{ $item->name }}">
                                 <div class="position-absolute top-0 end-0 m-3">
                                     <span class="badge bg-warning text-dark">
                                         <i class="bi bi-star-fill"></i> {{ $rating }}
@@ -127,11 +132,12 @@
                                     </div>
                                 @endif
                             </div>
-                            <div class="card-body">
-                                <h5 class="card-title text-coffee">{{ $item->name }}</h5>
-                                <p class="card-text text-muted">{{ $item->description }}</p>
-                                <div class="price-section mb-3">
-                                    <span class="h5 text-bakery mb-0">Rs. {{ number_format($item->price, 2) }}</span>
+                            <div class="menu-item-content">
+                                <div class="menu-item-category">{{ $item->category }}</div>
+                                <h5 class="menu-item-title">{{ $item->name }}</h5>
+                                <p class="menu-item-description">{{ $item->description }}</p>
+                                <div class="menu-item-price">
+                                    Rs. {{ number_format($item->price, 2) }}
                                 </div>
                                 <div class="d-flex justify-content-between align-items-center">
                                     @auth
@@ -174,58 +180,52 @@
 </section>
 
 <!-- Special Offers Section -->
-<section class="py-5 bg-light">
+<section class="py-5 section-beige">
     <div class="container">
         <div class="row text-center mb-5" data-aos="fade-up">
             <div class="col-12">
-                <h2 class="display-5 fw-bold text-bakery mb-3">Today's Special Offers</h2>
+                <h2 class="display-5 fw-bold text-bakery-brown mb-3">Today's Special Offers</h2>
                 <p class="lead text-muted">Don't miss these amazing deals at Sweet Delights</p>
             </div>
         </div>
 
         <div class="row g-4">
             <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
-                <div class="card offer-card border-0 shadow">
-                    <div class="card-body text-center">
-                        <div class="offer-icon mb-3">
-                            <i class="bi bi-clock-history text-bakery" style="font-size: 3rem;"></i>
-                        </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="bi bi-clock-history"></i>
+                    </div>
                         <h4 class="card-title">Afternoon Treats</h4>
                         <p class="card-text">Get 20% off all pastries from 2 PM to 5 PM</p>
                         <div class="offer-time">
                             <span class="badge bg-bakery">2:00 PM - 5:00 PM</span>
                         </div>
-                    </div>
                 </div>
             </div>
 
             <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
-                <div class="card offer-card border-0 shadow">
-                    <div class="card-body text-center">
-                        <div class="offer-icon mb-3">
-                            <i class="bi bi-gift text-bakery" style="font-size: 3rem;"></i>
-                        </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="bi bi-gift"></i>
+                    </div>
                         <h4 class="card-title">Combo Deal</h4>
                         <p class="card-text">Any beverage + pastry for just Rs. 650 (Save Rs. 150)</p>
                         <div class="offer-time">
                             <span class="badge bg-success">All Day</span>
                         </div>
-                    </div>
                 </div>
             </div>
 
             <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
-                <div class="card offer-card border-0 shadow">
-                    <div class="card-body text-center">
-                        <div class="offer-icon mb-3">
-                            <i class="bi bi-heart text-bakery" style="font-size: 3rem;"></i>
-                        </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="bi bi-heart"></i>
+                    </div>
                         <h4 class="card-title">Loyalty Card</h4>
                         <p class="card-text">Buy 10 pastries, get the 11th absolutely free!</p>
                         <div class="offer-time">
                             <span class="badge bg-info">Sign Up Today</span>
                         </div>
-                    </div>
                 </div>
             </div>
         </div>
@@ -496,6 +496,66 @@
 
 @push('scripts')
 <script>
+// Menu Search Functionality
+document.addEventListener('DOMContentLoaded', function() {
+    const searchInput = document.getElementById('menuSearch');
+    const menuItems = document.querySelectorAll('.menu-item');
+    
+    searchInput.addEventListener('input', function() {
+        const searchTerm = this.value.toLowerCase();
+        
+        menuItems.forEach(item => {
+            const title = item.querySelector('.menu-item-title').textContent.toLowerCase();
+            const description = item.querySelector('.menu-item-description').textContent.toLowerCase();
+            const category = item.querySelector('.menu-item-category').textContent.toLowerCase();
+            
+            if (title.includes(searchTerm) || description.includes(searchTerm) || category.includes(searchTerm)) {
+                item.style.display = 'block';
+                item.classList.remove('hidden');
+            } else {
+                item.classList.add('hidden');
+                setTimeout(() => {
+                    if (item.classList.contains('hidden')) {
+                        item.style.display = 'none';
+                    }
+                }, 300);
+            }
+        });
+    });
+    
+    // Category Filter Functionality
+    const filterButtons = document.querySelectorAll('.category-filter-btn');
+    
+    filterButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            const category = this.getAttribute('data-category');
+            
+            // Update active button
+            filterButtons.forEach(btn => {
+                btn.classList.remove('active');
+            });
+            this.classList.add('active');
+            
+            // Filter items
+            menuItems.forEach(item => {
+                const itemCategory = item.getAttribute('data-category');
+                
+                if (category === 'all' || itemCategory === category) {
+                    item.style.display = 'block';
+                    item.classList.remove('hidden');
+                } else {
+                    item.classList.add('hidden');
+                    setTimeout(() => {
+                        if (item.classList.contains('hidden')) {
+                            item.style.display = 'none';
+                        }
+                    }, 300);
+                }
+            });
+        });
+    });
+});
+
 // Quick Pay functionality
 function quickPay(itemId, itemName, itemPrice, itemImage) {
     console.log('Quick pay initiated for:', itemName);

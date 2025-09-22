@@ -5,7 +5,7 @@
 
 @section('content')
 <!-- Contact Hero Section -->
-<section class="contact-hero">
+<section class="hero-bakery contact-hero">
     <div class="container">
         <div class="row align-items-center min-vh-75">
             <div class="col-lg-6" data-aos="fade-up">
@@ -67,76 +67,79 @@
 </section>
 
 <!-- Contact Form Section -->
-<section id="contact-form" class="py-5">
+<section id="contact-form" class="py-5 section-white">
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-lg-8">
                 <div class="text-center mb-5" data-aos="fade-up">
-                    <h2 class="display-5 fw-bold text-coffee mb-3">Send Us a Message</h2>
+                    <h2 class="display-5 fw-bold text-bakery-brown mb-3">Send Us a Message</h2>
                     <p class="lead text-muted">We're here to help! Fill out the form below and we'll get back to you as soon as possible.</p>
                 </div>
 
-                <div class="contact-card" data-aos="fade-up" data-aos-delay="200">
+                <div class="contact-form-card" data-aos="fade-up" data-aos-delay="200">
                     <form id="contactForm" class="needs-validation contact-form" novalidate>
                         @csrf
+                        <!-- Honeypot for spam protection -->
+                        <input type="text" name="website" style="display: none;" tabindex="-1" autocomplete="off">
+                        
                         <div class="row g-4">
                             <!-- Personal Information -->
                             <div class="col-12">
-                                <h5 class="text-coffee mb-3">
+                                <h5 class="text-bakery-brown mb-3">
                                     <i class="bi bi-person-circle me-2"></i>Personal Information
                                 </h5>
                             </div>
 
                             <div class="col-md-6">
-                                <label for="firstName" class="form-label fw-semibold">
+                                <label for="firstName" class="form-label-bakery">
                                     <i class="bi bi-person me-2"></i>First Name *
                                 </label>
-                                <input type="text" class="form-control form-control-lg" id="firstName" name="firstName" required>
+                                <input type="text" class="form-control-bakery" id="firstName" name="firstName" required>
                                 <div class="invalid-feedback">
                                     Please provide your first name.
                                 </div>
                             </div>
 
                             <div class="col-md-6">
-                                <label for="lastName" class="form-label fw-semibold">
+                                <label for="lastName" class="form-label-bakery">
                                     <i class="bi bi-person-fill me-2"></i>Last Name *
                                 </label>
-                                <input type="text" class="form-control form-control-lg" id="lastName" name="lastName" required>
+                                <input type="text" class="form-control-bakery" id="lastName" name="lastName" required>
                                 <div class="invalid-feedback">
                                     Please provide your last name.
                                 </div>
                             </div>
 
                             <div class="col-md-6">
-                                <label for="email" class="form-label fw-semibold">
+                                <label for="email" class="form-label-bakery">
                                     <i class="bi bi-envelope me-2"></i>Email Address *
                                 </label>
-                                <input type="email" class="form-control form-control-lg" id="email" name="email" required>
+                                <input type="email" class="form-control-bakery" id="email" name="email" required>
                                 <div class="invalid-feedback">
                                     Please provide a valid email address.
                                 </div>
                             </div>
 
                             <div class="col-md-6">
-                                <label for="phone" class="form-label fw-semibold">
+                                <label for="phone" class="form-label-bakery">
                                     <i class="bi bi-telephone me-2"></i>Phone Number
                                 </label>
-                                <input type="tel" class="form-control form-control-lg" id="phone" name="phone"
+                                <input type="tel" class="form-control-bakery" id="phone" name="phone"
                                        placeholder="+94 XX XXX XXXX">
                             </div>
 
                             <!-- Message Details -->
                             <div class="col-12 mt-4">
-                                <h5 class="text-coffee mb-3">
+                                <h5 class="text-bakery-brown mb-3">
                                     <i class="bi bi-chat-square-text me-2"></i>Message Details
                                 </h5>
                             </div>
 
                             <div class="col-12">
-                                <label for="subject" class="form-label fw-semibold">
+                                <label for="subject" class="form-label-bakery">
                                     <i class="bi bi-tag me-2"></i>Subject *
                                 </label>
-                                <select class="form-select form-select-lg" id="subject" name="subject" required>
+                                <select class="form-control-bakery" id="subject" name="subject" required>
                                     <option value="">Select Subject</option>
                                     <option value="general">General Inquiry</option>
                                     <option value="reservation">Reservation Help</option>
@@ -154,10 +157,10 @@
                             </div>
 
                             <div class="col-12">
-                                <label for="message" class="form-label fw-semibold">
+                                <label for="message" class="form-label-bakery">
                                     <i class="bi bi-pencil-square me-2"></i>Message *
                                 </label>
-                                <textarea class="form-control" id="message" name="message"
+                                <textarea class="form-control-bakery" id="message" name="message"
                                           rows="6" placeholder="Tell us how we can help you..." required></textarea>
                                 <div class="invalid-feedback">
                                     Please provide your message.
@@ -166,16 +169,16 @@
 
                             <!-- Contact Preferences -->
                             <div class="col-12 mt-4">
-                                <h5 class="text-coffee mb-3">
+                                <h5 class="text-bakery-brown mb-3">
                                     <i class="bi bi-sliders me-2"></i>Contact Preferences
                                 </h5>
                             </div>
 
                             <div class="col-md-6">
-                                <label for="contactMethod" class="form-label fw-semibold">
+                                <label for="contactMethod" class="form-label-bakery">
                                     <i class="bi bi-chat-dots me-2"></i>Preferred Contact Method *
                                 </label>
-                                <select class="form-select form-select-lg" id="contactMethod" name="contactMethod" required>
+                                <select class="form-control-bakery" id="contactMethod" name="contactMethod" required>
                                     <option value="">Select Method</option>
                                     <option value="email">Email</option>
                                     <option value="phone">Phone Call</option>
@@ -187,10 +190,10 @@
                             </div>
 
                             <div class="col-md-6">
-                                <label for="bestTime" class="form-label fw-semibold">
+                                <label for="bestTime" class="form-label-bakery">
                                     <i class="bi bi-clock me-2"></i>Best Time to Contact
                                 </label>
-                                <select class="form-select form-select-lg" id="bestTime" name="bestTime">
+                                <select class="form-control-bakery" id="bestTime" name="bestTime">
                                     <option value="">No Preference</option>
                                     <option value="morning">Morning (6AM - 12PM)</option>
                                     <option value="afternoon">Afternoon (12PM - 6PM)</option>
@@ -199,10 +202,10 @@
                             </div>
 
                             <div class="col-12">
-                                <label for="urgency" class="form-label fw-semibold">
+                                <label for="urgency" class="form-label-bakery">
                                     <i class="bi bi-exclamation-triangle me-2"></i>Urgency Level *
                                 </label>
-                                <select class="form-select form-select-lg" id="urgency" name="urgency" required>
+                                <select class="form-control-bakery" id="urgency" name="urgency" required>
                                     <option value="">Select Urgency</option>
                                     <option value="normal">Normal - Response within 24 hours</option>
                                     <option value="urgent">Urgent - Response within 4 hours</option>
@@ -227,7 +230,7 @@
                             <!-- Submit Button -->
                             <div class="col-12 mt-4">
                                 <div class="d-grid">
-                                  <button type="submit" class="btn btn-bakery btn-lg">
+                                  <button type="submit" class="btn-bakery btn-bakery-lg">
                                         <i class="bi bi-send me-2"></i>
                                         <span class="btn-text">Send Message</span>
                                         <span class="btn-loading d-none">
@@ -246,25 +249,25 @@
 </section>
 
 <!-- Contact Information Section -->
-<section id="contact-info" class="py-5 bg-light">
+<section id="contact-info" class="py-5 section-beige">
     <div class="container">
         <div class="row text-center mb-5" data-aos="fade-up">
             <div class="col-12">
-                <h2 class="display-5 fw-bold text-coffee mb-3">Visit Our Café</h2>
-                <p class="lead text-muted">Come experience the warmth and aroma of Café Elixir in person</p>
+                <h2 class="display-5 fw-bold text-bakery-brown mb-3">Visit Our Bakery</h2>
+                <p class="lead text-muted">Come experience the warmth and aroma of Sweet Delights in person</p>
             </div>
         </div>
 
         <div class="row g-4">
             <!-- Location Info -->
             <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
-                <div class="contact-info-card">
-                    <div class="contact-icon">
+                <div class="info-card-bakery">
+                    <div class="info-icon-bakery">
                         <i class="bi bi-geo-alt-fill"></i>
                     </div>
                     <h5>Our Location</h5>
                     <p class="mb-3">No.1, Mahamegawaththa Road<br>Maharagama, Sri Lanka</p>
-                    <a href="https://maps.google.com" target="_blank" class="btn btn-outline-coffee btn-sm">
+                    <a href="https://maps.google.com" target="_blank" class="btn-outline-bakery btn-bakery-sm">
                         <i class="bi bi-map me-2"></i>Get Directions
                     </a>
                 </div>
@@ -272,8 +275,8 @@
 
             <!-- Phone Info -->
             <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
-                <div class="contact-info-card">
-                    <div class="contact-icon">
+                <div class="info-card-bakery">
+                    <div class="info-icon-bakery">
                         <i class="bi bi-telephone-fill"></i>
                     </div>
                     <h5>Phone & WhatsApp</h5>
@@ -295,8 +298,8 @@
 
             <!-- Email Info -->
             <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
-                <div class="contact-info-card">
-                    <div class="contact-icon">
+                <div class="info-card-bakery">
+                    <div class="info-icon-bakery">
                         <i class="bi bi-envelope-fill"></i>
                     </div>
                     <h5>Email Addresses</h5>
@@ -315,11 +318,11 @@
 </section>
 
 <!-- Business Hours Section -->
-<section class="py-5">
+<section class="py-5 section-white">
     <div class="container">
         <div class="row align-items-center">
             <div class="col-lg-6" data-aos="fade-right">
-                <h3 class="text-coffee mb-4">Business Hours</h3>
+                <h3 class="text-bakery-brown mb-4">Business Hours</h3>
                 <div class="hours-table">
                     <div class="hour-row">
                         <span class="day">Monday - Friday</span>
