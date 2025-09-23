@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -10,12 +9,11 @@
         <meta name="user-email" content="{{ Auth::user()->email }}">
     @endauth
 
-    <title>@yield('title', 'Coffee Paradise - Premium Coffee Experience')</title>
-    <meta name="description" content="@yield('description', 'Experience the finest coffee at Coffee Paradise. Premium beans, expert baristas, and cozy atmosphere.')">
+    <title>@yield('title', 'Sweet Delights Bakery')</title>
+    <meta name="description" content="@yield('description', 'Sweet Delights Bakery - Artisanal pastries, fresh bread, and exceptional service.')">
 
     <!-- Favicon -->
-    <link rel="icon"
-        href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>☕</text></svg>">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🥐</text></svg>">
 
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -24,548 +22,90 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
 
     <!-- Google Fonts -->
-    <link
-        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&family=Noto+Sans+Sinhala:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
     <!-- AOS Animation Library -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="{{ asset('css/bakery-theme.css') }}">
-    <style>
-        :root {
-            /* Legacy variables for backward compatibility */
-            --bakery-primary: #D88A6A;
-            --bakery-secondary: #E6C9A8;
-            --coffee-primary: #7A543E;
-            --coffee-secondary: #D88A6A;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            line-height: 1.6;
-            color: #333;
-            overflow-x: hidden;
-
-        }
-
-        h1,
-        h2,
-        h3,
-        h4,
-        h5,
-        h6 {
-            font-family: 'Playfair Display', serif;
-            font-weight: 600;
-        }
-
-        .img-fluid {
-            cursor: url('img/mouse.png') 10 10, auto !important;
-        }
-
-
-        /* Navbar Styles */
-        .navbar-bakery {
-            background: transparent !important;
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-            transition: all 0.3s ease;
-            padding: 1rem 0;
-        }
-
-        .navbar-bakery.scrolled {
-            background: rgba(255, 255, 255, 0.95) !important;
-            border-bottom: 2px solid var(--bakery-terracotta);
-            padding: 0.5rem 0;
-            box-shadow: var(--shadow-md);
-        }
-
-        .navbar-brand-bakery {
-            font-family: 'Playfair Display', serif;
-            font-weight: 700;
-            font-size: 1.8rem;
-            color: white !important;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-        }
-
-        .navbar-bakery.scrolled .navbar-brand-bakery {
-            color: var(--bakery-brown) !important;
-            text-shadow: none;
-        }
-
-        .navbar-brand-bakery:hover {
-            transform: scale(1.05);
-        }
-
-        .navbar-bakery.scrolled .navbar-brand-bakery:hover {
-            color: var(--bakery-primary) !important;
-        }
-
-        .nav-link-bakery {
-            font-weight: 500;
-            color: rgba(255, 255, 255, 0.9) !important;
-            margin: 0 0.5rem;
-            padding: 0.5rem 1rem !important;
-            border-radius: var(--radius-lg);
-            transition: all 0.3s ease;
-            position: relative;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
-        }
-
-        .navbar-bakery.scrolled .nav-link-bakery {
-            color: var(--bakery-brown) !important;
-            text-shadow: none;
-        }
-
-        .nav-link-bakery:hover,
-        .nav-link-bakery.active {
-            color: white !important;
-            background: rgba(255, 255, 255, 0.2);
-            transform: translateY(-2px);
-            backdrop-filter: blur(10px);
-        }
-
-        .navbar-bakery.scrolled .nav-link-bakery:hover,
-        .navbar-bakery.scrolled .nav-link-bakery.active {
-            background: var(--gradient-warm);
-            backdrop-filter: none;
-        }
-
-        .btn-bakery {
-            background: var(--gradient-primary);
-            border: none;
-            color: white;
-            padding: 0.5rem 1.5rem;
-            border-radius: 25px;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            display: inline-block;
-            backdrop-filter: blur(10px);
-        }
-
-        .btn-bakery:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(212, 165, 116, 0.4);
-            color: white;
-        }
-
-        .btn-outline-bakery {
-            border: 2px solid var(--bakery-primary);
-            color: var(--bakery-primary);
-            background: transparent;
-            padding: 0.5rem 1.5rem;
-            border-radius: 25px;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            display: inline-block;
-            backdrop-filter: blur(10px);
-        }
-
-        .navbar-bakery .btn-outline-bakery {
-            border-color: rgba(255, 255, 255, 0.8);
-            color: rgba(255, 255, 255, 0.9);
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
-        }
-
-        .navbar-bakery .btn-outline-bakery:hover {
-            background: rgba(255, 255, 255, 0.2);
-            border-color: rgba(255, 255, 255, 0.9);
-            color: white;
-        }
-
-        .navbar-bakery.scrolled .btn-outline-bakery {
-            border-color: var(--bakery-primary);
-            color: var(--bakery-primary);
-            text-shadow: none;
-        }
-
-        .navbar-bakery.scrolled .btn-outline-bakery:hover {
-            background: var(--bakery-primary);
-            border-color: var(--bakery-primary);
-            color: white;
-        }
-
-        .btn-outline-bakery:hover {
-            background: var(--bakery-primary);
-            color: white;
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(212, 165, 116, 0.4);
-        }
-
-        /* Navbar toggler for mobile */
-        .navbar-toggler {
-            border: 2px solid rgba(255, 255, 255, 0.5);
-            border-radius: 8px;
-            padding: 0.5rem;
-        }
-
-        .navbar-toggler:focus {
-            box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.25);
-        }
-
-        .navbar-toggler-icon {
-            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 0.8%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
-        }
-
-        .navbar-bakery.scrolled .navbar-toggler {
-            border-color: var(--bakery-primary);
-        }
-
-        .navbar-bakery.scrolled .navbar-toggler-icon {
-            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28122, 84, 62, 0.8%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
-        }
-
-        /* Hero Section */
-        .hero-section {
-            min-height: 100vh;
-            background: var(--gradient-hero),
-                url('https://images.unsplash.com/photo-1509440159596-0249088772ff?w=1920&h=1080&fit=crop') center/cover;
-            display: flex;
-            align-items: center;
-            color: white;
-            position: relative;
-        }
-
-        .hero-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0, 0, 0, 0.3);
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 2;
-        }
-
-        .hero-title {
-            font-size: 4rem;
-            font-weight: 700;
-            margin-bottom: 1.5rem;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-        }
-
-        .hero-subtitle {
-            font-size: 1.5rem;
-            margin-bottom: 2rem;
-            opacity: 0.9;
-        }
-
-        /* Card Styles */
-        .card-bakery {
-            border: none;
-            border-radius: 20px;
-            overflow: hidden;
-            transition: all 0.4s ease;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            height: 100%;
-        }
-
-        .card-bakery:hover {
-            transform: translateY(-10px) scale(1.02);
-            box-shadow: 0 20px 40px rgba(212, 165, 116, 0.2);
-        }
-
-        .card-bakery .card-img-top {
-            height: 250px;
-            object-fit: cover;
-            transition: all 0.4s ease;
-        }
-
-        .card-bakery:hover .card-img-top {
-            transform: scale(1.1);
-        }
-
-        /* Feature Icons */
-        .feature-icon {
-            width: 80px;
-            height: 80px;
-            background: var(--gradient-primary);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 1rem;
-            font-size: 2rem;
-            color: white;
-            transition: all 0.3s ease;
-        }
-
-        .feature-icon:hover {
-            transform: scale(1.1) rotate(5deg);
-            box-shadow: 0 10px 25px rgba(212, 165, 116, 0.3);
-        }
-
-        /* Stats Counter */
-        .stats-counter {
-            background: var(--gradient-primary);
-            color: white;
-            padding: 4rem 0;
-        }
-
-        .stat-item {
-            text-align: center;
-        }
-
-        .stat-number {
-            font-size: 3rem;
-            font-weight: 700;
-            display: block;
-        }
-
-        .stat-label {
-            font-size: 1.1rem;
-            opacity: 0.9;
-        }
-
-        /* Footer */
-        .footer {
-            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
-            color: white;
-            padding: 3rem 0 1rem;
-        }
-
-        .footer h5 {
-            color: var(--bakery-cream);
-            margin-bottom: 1rem;
-        }
-
-        .footer a {
-            color: rgba(255, 255, 255, 0.7);
-            text-decoration: none;
-            transition: all 0.3s ease;
-        }
-
-        .footer a:hover {
-            color: var(--bakery-accent);
-            transform: translateX(5px);
-        }
-
-        /* Animations */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(50px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes float {
-
-            0%,
-            100% {
-                transform: translateY(0px);
-            }
-
-            50% {
-                transform: translateY(-10px);
-            }
-        }
-
-        .floating {
-            animation: float 3s ease-in-out infinite;
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .hero-title {
-                font-size: 2.5rem;
-            }
-
-            .hero-subtitle {
-                font-size: 1.2rem;
-            }
-
-            .navbar-nav {
-                margin-top: 1rem;
-            }
-
-            .navbar-nav .nav-link {
-                margin: 0.2rem 0;
-            }
-        }
-
-        /* Scroll indicator */
-        .scroll-indicator {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 4px;
-            background: rgba(139, 69, 19, 0.2);
-            z-index: 9999;
-        }
-
-        .scroll-progress {
-            height: 100%;
-            background: var(--gradient-primary);
-            width: 0%;
-            transition: width 0.1s ease;
-        }
-
-        /* Loading animation */
-        .loading-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 10000;
-            transition: opacity 0.5s ease;
-        }
-
-        .loading-overlay.hidden {
-            opacity: 0;
-            pointer-events: none;
-        }
-
-        .bakery-loader {
-            width: 60px;
-            height: 60px;
-            border: 6px solid #f3f3f3;
-            border-top: 6px solid var(--bakery-primary);
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-        }
-
-        @keyframes spin {
-            0% {
-                transform: rotate(0deg);
-            }
-
-            100% {
-                transform: rotate(360deg);
-            }
-        }
-    </style>
+    <link href="{{ asset('css/bakery-theme.css') }}" rel="stylesheet">
 
     @stack('styles')
 </head>
 
 <body>
-    <!-- Loading Overlay -->
-    <div class="loading-overlay" id="loadingOverlay">
-        <div class="bakery-loader"></div>
-    </div>
-
-    <!-- Scroll Indicator -->
-    <div class="scroll-indicator">
-        <div class="scroll-progress" id="scrollProgress"></div>
-    </div>
-
     <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-bakery navbar-dark fixed-top" id="mainNavbar">
+    <nav class="navbar navbar-expand-lg navbar-bakery fixed-top">
         <div class="container">
-            <a class="navbar-brand-bakery" href="{{ route('home') }}">
-                <i class="bi bi-shop me-2"></i>Sweet Delights Bakery
+            <a class="navbar-brand navbar-brand-bakery" href="{{ route('home') }}">
+                <i class="bi bi-shop me-2"></i>Sweet Delights
             </a>
 
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
 
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav mx-auto">
+                <ul class="navbar-nav me-auto">
                     <li class="nav-item">
-                        <a class="nav-link-bakery {{ request()->routeIs('home') ? 'active' : '' }}" href="{{ route('home') }}">
+                        <a class="nav-link nav-link-bakery {{ request()->routeIs('home') ? 'active' : '' }}" href="{{ route('home') }}">
                             <i class="bi bi-house me-1"></i>Home
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link-bakery {{ request()->routeIs('menu') ? 'active' : '' }}" href="{{ route('menu') }}">
+                        <a class="nav-link nav-link-bakery {{ request()->routeIs('menu') ? 'active' : '' }}" href="{{ route('menu') }}">
                             <i class="bi bi-journal-text me-1"></i>Menu
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link-bakery {{ request()->routeIs('reservation') ? 'active' : '' }}"
-                            href="{{ route('reservation') }}">
-                            <i class="bi bi-calendar-check me-1"></i>Reservation
+                        <a class="nav-link nav-link-bakery {{ request()->routeIs('reservation') ? 'active' : '' }}" href="{{ route('reservation') }}">
+                            <i class="bi bi-calendar-check me-1"></i>Reservations
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link-bakery {{ request()->routeIs('blog') ? 'active' : '' }}"
-                            href="{{ route('blog') }}">
-                            <i class="bi bi-pencil-square me-1"></i>Blog
+                        <a class="nav-link nav-link-bakery {{ request()->routeIs('blog') ? 'active' : '' }}" href="{{ route('blog') }}">
+                            <i class="bi bi-newspaper me-1"></i>Blog
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link-bakery {{ request()->routeIs('features') ? 'active' : '' }}"
-                            href="{{ route('features') }}">
-                            <i class="bi bi-star me-1"></i>Features
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link-bakery {{ request()->routeIs('contact') ? 'active' : '' }}"
-                            href="{{ route('contact') }}">
+                        <a class="nav-link nav-link-bakery {{ request()->routeIs('contact') ? 'active' : '' }}" href="{{ route('contact') }}">
                             <i class="bi bi-envelope me-1"></i>Contact
                         </a>
                     </li>
                 </ul>
 
-                <div class="d-flex gap-2">
-                    @guest
-                        <a href="{{ route('login') }}" class="btn btn-outline-bakery">
-                            <i class="bi bi-box-arrow-in-right me-1"></i>Login
-                        </a>
-                        <a href="{{ route('register') }}" class="btn btn-bakery">
-                            <i class="bi bi-person-plus me-1"></i>Register
-                        </a>
-                    @else
-                        <!-- Cart Button -->
-                        <div class="position-relative me-2">
-                            <button class="btn btn-outline-bakery" data-bs-toggle="modal" data-bs-target="#cartModal">
-                                <i class="bi bi-cart me-1"></i>Cart
-                                <span class="cart-counter" style="display: none;">0</span>
+                <ul class="navbar-nav">
+                    @auth
+                        <!-- Cart Icon -->
+                        <li class="nav-item me-3">
+                            <button class="btn btn-outline-bakery position-relative" data-bs-toggle="modal" data-bs-target="#cartModal">
+                                <i class="bi bi-basket"></i>
+                                <span class="cart-counter">0</span>
                             </button>
-                        </div>
+                        </li>
 
-                        <div class="dropdown">
-                            <button class="btn btn-bakery dropdown-toggle" type="button" data-bs-toggle="dropdown">
+                        <!-- User Dropdown -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle nav-link-bakery" href="#" role="button" data-bs-toggle="dropdown">
                                 <i class="bi bi-person-circle me-1"></i>{{ Auth::user()->name }}
-                            </button>
+                            </a>
                             <ul class="dropdown-menu">
                                 <li><a class="dropdown-item" href="{{ route('user.dashboard') }}">
-                                        <i class="bi bi-speedometer2 me-2"></i>Dashboard
-                                    </a></li>
+                                    <i class="bi bi-speedometer2 me-2"></i>Dashboard
+                                </a></li>
                                 <li><a class="dropdown-item" href="{{ route('user.orders') }}">
-                                        <i class="bi bi-receipt me-2"></i>My Orders
-                                    </a></li>
+                                    <i class="bi bi-receipt me-2"></i>My Orders
+                                </a></li>
                                 <li><a class="dropdown-item" href="{{ route('profile.view') }}">
-                                        <i class="bi bi-person me-2"></i>My Profile
-                                    </a></li>
-                                @if(Auth::user()->role === 'admin')
+                                    <i class="bi bi-person me-2"></i>Profile
+                                </a></li>
+                                @if(Auth::user()->is_admin)
+                                    <li><hr class="dropdown-divider"></li>
                                     <li><a class="dropdown-item" href="{{ route('admin.dashboard') }}">
-                                            <i class="bi bi-gear me-2"></i>Admin Panel
-                                        </a></li>
-                                @endif
-                                <li><a class="dropdown-item" href="{{ route('profile.edit') }}">
-                                        <i class="bi bi-gear me-2"></i>Account Settings
+                                        <i class="bi bi-shield-check me-2"></i>Admin Panel
                                     </a></li>
-                                <li>
-                                    <hr class="dropdown-divider">
-                                </li>
+                                @endif
+                                <li><hr class="dropdown-divider"></li>
                                 <li>
                                     <form method="POST" action="{{ route('logout') }}">
                                         @csrf
@@ -575,9 +115,20 @@
                                     </form>
                                 </li>
                             </ul>
-                        </div>
+                        </li>
+                    @else
+                        <li class="nav-item">
+                            <a class="nav-link nav-link-bakery" href="{{ route('login') }}">
+                                <i class="bi bi-box-arrow-in-right me-1"></i>Login
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link nav-link-bakery" href="{{ route('register') }}">
+                                <i class="bi bi-person-plus me-1"></i>Register
+                            </a>
+                        </li>
                     @endguest
-                </div>
+                </ul>
             </div>
         </div>
     </nav>
@@ -591,109 +142,96 @@
     <footer class="footer-bakery">
         <div class="container">
             <div class="row g-4">
-                <div class="col-lg-4 col-md-6">
-                    <h5><i class="bi bi-shop me-2"></i>Sweet Delights Bakery</h5>
-                    <p class="mb-3">Experience the perfect blend of artisanal baking, exceptional service, and cozy
-                        atmosphere. Your daily dose of sweetness in every bite.</p>
-                    <div class="d-flex gap-3">
-                        <a href="#" class="text-decoration-none">
-                            <i class="bi bi-facebook fs-4"></i>
+                <div class="col-lg-4">
+                    <h5 class="mb-3">Sweet Delights Bakery</h5>
+                    <p class="mb-3">Where every pastry tells a story of passion, quality, and exceptional taste. Experience the perfect blend of artisanal baking and warm hospitality.</p>
+                    <div class="social-links d-flex gap-2">
+                        <a href="#" class="social-link-bakery" data-coming-soon="Facebook page">
+                            <i class="bi bi-facebook"></i>
                         </a>
-                        <a href="#" class="text-decoration-none">
-                            <i class="bi bi-instagram fs-4"></i>
+                        <a href="#" class="social-link-bakery" data-coming-soon="Instagram page">
+                            <i class="bi bi-instagram"></i>
                         </a>
-                        <a href="#" class="text-decoration-none">
-                            <i class="bi bi-twitter fs-4"></i>
+                        <a href="#" class="social-link-bakery" data-coming-soon="Twitter page">
+                            <i class="bi bi-twitter"></i>
                         </a>
-                        <a href="#" class="text-decoration-none">
-                            <i class="bi bi-youtube fs-4"></i>
+                        <a href="#" class="social-link-bakery" data-coming-soon="YouTube channel">
+                            <i class="bi bi-youtube"></i>
                         </a>
                     </div>
                 </div>
-
                 <div class="col-lg-2 col-md-6">
-                    <h5>Quick Links</h5>
+                    <h6>Quick Links</h6>
                     <ul class="list-unstyled">
                         <li><a href="{{ route('home') }}">Home</a></li>
                         <li><a href="{{ route('menu') }}">Menu</a></li>
-                        <li><a href="{{ route('reservation') }}">Reservation</a></li>
+                        <li><a href="{{ route('reservation') }}">Reservations</a></li>
                         <li><a href="{{ route('blog') }}">Blog</a></li>
                         <li><a href="{{ route('contact') }}">Contact</a></li>
                     </ul>
                 </div>
-
                 <div class="col-lg-3 col-md-6">
-                    <h5>Contact Info</h5>
+                    <h6>Contact Info</h6>
                     <ul class="list-unstyled">
-                        <li class="mb-2">
-                            <i class="bi bi-geo-alt me-2"></i>
-                            "123,Mahamegawaththa, Maharagama"
-                        </li>
-                        <li class="mb-2">
-                            <i class="bi bi-telephone me-2"></i>
-                            +94 77 18 69 132
-                        </li>
-                        <li class="mb-2">
-                            <i class="bi bi-envelope me-2"></i>
-                            info@sweetdelights.lk
-                        </li>
-                        <li>
-                            <i class="bi bi-clock me-2"></i>
-                            Mon-Sun: 6:00 AM - 10:00 PM
-                        </li>
+                        <li><i class="bi bi-geo-alt me-2"></i>No.1, Mahamegawaththa Road, Maharagama</li>
+                        <li><i class="bi bi-telephone me-2"></i>+94 77 186 9132</li>
+                        <li><i class="bi bi-envelope me-2"></i>info@sweetdelights.lk</li>
                     </ul>
                 </div>
-
-                <div class="col-lg-3 col-md-6">
-                    <h5>Newsletter</h5>
-                    <p>Subscribe to get updates about new pastries and special offers!</p>
-                    <div class="input-group mb-3">
-                        <input type="email" class="form-control-bakery" placeholder="Your email">
-                        <button class="btn btn-bakery" type="button">
-                            <i class="bi bi-send"></i>
-                        </button>
-                    </div>
+                <div class="col-lg-3">
+                    <h6>Business Hours</h6>
+                    <ul class="list-unstyled">
+                        <li>Monday - Friday: 6:00 AM - 10:00 PM</li>
+                        <li>Saturday: 6:00 AM - 11:00 PM</li>
+                        <li>Sunday: 7:00 AM - 10:00 PM</li>
+                    </ul>
                 </div>
             </div>
-
             <hr class="my-4">
-
             <div class="row align-items-center">
                 <div class="col-md-6">
-                    <p class="mb-0 text-white-50">&copy; {{ date('Y') }} Sweet Delights Bakery. All rights reserved.</p>
+                    <p class="mb-0">&copy; 2024 Sweet Delights Bakery. All rights reserved.</p>
                 </div>
                 <div class="col-md-6 text-md-end">
-                    <a href="#" class="text-decoration-none me-3 text-white-50">Privacy Policy</a>
-                    <a href="#" class="text-decoration-none text-white-50">Terms of Service</a>
+                    <a href="#" class="me-3">Privacy Policy</a>
+                    <a href="#" class="me-3">Terms of Service</a>
+                    <a href="#">Sitemap</a>
                 </div>
             </div>
         </div>
     </footer>
 
-    <!-- Back to Top Button -->
-    <button class="btn btn-bakery position-fixed bottom-0 end-0 m-3 rounded-circle" id="backToTop"
-        style="width: 50px; height: 50px; display: none; z-index: 1000;">
-        <i class="bi bi-arrow-up"></i>
-    </button>
+    <!-- Include Payment Modal -->
+    @include('partials.payment-modal')
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
-    <!-- AOS Animation -->
+    <!-- AOS Animation Library -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
     <!-- Custom JavaScript -->
+    <script src="{{ asset('js/cart.js') }}"></script>
+    <script src="{{ asset('js/simulation-payment.js') }}"></script>
+    <script src="{{ asset('js/coming-soon.js') }}"></script>
+
     <script>
         // Initialize AOS
         AOS.init({
-            duration: 1000,
-            offset: 100,
-            once: true
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true,
+            offset: 100
         });
 
-        // Loading overlay
-        window.addEventListener('load', function() {
-            document.getElementById('loadingOverlay').classList.add('hidden');
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar-bakery');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
         });
 
         // Global notification function
@@ -736,627 +274,195 @@
             }, 5000);
         }
 
-        // Global function to show payment modal
-        function showPaymentModal(orderData) {
-            if (!orderData) {
-                console.error('No order data provided');
-                showNotification('Order data not found. Please try again.', 'error');
-                return;
-            }
+        // Newsletter form submission
+        document.addEventListener('DOMContentLoaded', function() {
+            const newsletterForms = document.querySelectorAll('.newsletter-form');
+            
+            newsletterForms.forEach(form => {
+                form.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    const email = this.querySelector('input[type="email"]').value;
+                    const submitBtn = this.querySelector('button[type="submit"]');
+                    const originalText = submitBtn.innerHTML;
 
-            console.log('Opening payment modal with data:', orderData);
-
-            // Proceed directly with payment modal
-            proceedWithPaymentModal(orderData);
-        }
-
-        function proceedWithPaymentModal(orderData) {
-            // Populate order summary
-            populateOrderSummary(orderData);
-
-            // Show the modal
-            const modal = new bootstrap.Modal(document.getElementById('paymentModal'));
-            modal.show();
-
-            // Initialize with card payment method after modal is shown
-            modal._element.addEventListener('shown.bs.modal', function() {
-                const cardRadio = document.getElementById('method_card');
-                if (cardRadio) {
-                    cardRadio.checked = true;
-                    if (window.cafeElixirPaymentSystem) {
-                        window.cafeElixirPaymentSystem.handlePaymentMethodChange('card');
-                    }
-                }
-            }, { once: true });
-
-            // Handle modal hide event to properly manage focus
-            modal._element.addEventListener('hide.bs.modal', function() {
-                // Remove focus from any focused element within the modal
-                const focusedElement = modal._element.querySelector(':focus');
-                if (focusedElement) {
-                    focusedElement.blur();
-                }
-            });
-        }
-
-        function populateOrderSummary(orderData) {
-            // Implementation for populating order summary
-            console.log('Populating order summary with:', orderData);
-        }
-
-        // Global function to submit order
-        async function submitOrder(orderData) {
-            try {
-                // Ensure proper flag management
-                window.paymentInProgress = true;
-                window.orderSuccessful = false;
-                window.checkoutInProgress = false;
-
-                console.log('Submitting order to API:', orderData);
-
-                const response = await fetch('/api/orders', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
-                    },
-                    body: JSON.stringify(orderData)
-                });
-
-                const result = await response.json();
-
-                if (result.success) {
-                    console.log('Order API response success:', result);
-
-                    // Set success flag before clearing cart
-                    window.orderSuccessful = true;
-
-                    // Clear cart
-                    if (typeof window.cart !== 'undefined') {
-                        window.cart.clearCart();
-                        console.log('Cart cleared successfully via cart object');
-                    } else if (localStorage.getItem('cafeElixirCart')) {
-                        localStorage.removeItem('cafeElixirCart');
-                        console.log('Cart cleared successfully via localStorage');
-
-                        // Update cart display if available
-                        const cartCounters = document.querySelectorAll('.cart-counter');
-                        cartCounters.forEach(counter => {
-                            counter.style.display = 'none';
-                            counter.textContent = '0';
-                        });
+                    if (!email) {
+                        showNotification('Please enter your email address', 'warning');
+                        return;
                     }
 
-                    // Show success notification
-                    const pointsMessage = result.points_earned ? ` You earned ${result.points_earned} loyalty points!` : '';
-                    showNotification(`Order ${result.order_id || 'placed'} successfully! 🎉${pointsMessage}`, 'success');
+                    submitBtn.innerHTML = '<span class="spinner-border spinner-border-sm me-2"></span>Subscribing...';
+                    submitBtn.disabled = true;
 
-                    // Redirect to dashboard or show order confirmation
-                    setTimeout(() => {
-                        if (window.location.pathname !== '/user/dashboard') {
-                            window.location.href = '/user/dashboard';
+                    fetch('/newsletter/subscribe', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+                        },
+                        body: JSON.stringify({ email: email })
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.success) {
+                            submitBtn.innerHTML = '<i class="bi bi-check-lg me-2"></i>Subscribed!';
+                            submitBtn.classList.add('btn-success');
+                            this.reset();
+                            showNotification(data.message, 'success');
+                        } else {
+                            throw new Error(data.message || 'Subscription failed');
                         }
-                            // If already on dashboard, refresh to show updated stats
-                            window.location.reload();
-                    }, 2000);
-                } else {
-                    console.error('Order API response failed:', result);
-                    throw new Error(result.message || 'Failed to place order');
-                }
-            } catch (error) {
-                console.error('Order submission error:', error);
-                showNotification(`Failed to place order: ${error.message}`, 'error');
-            } finally {
-                // Always reset flags after order attempt
-                window.paymentInProgress = false;
-                window.checkoutInProgress = false;
-            }
-        }
-
-        // Prevent page refresh on form submissions
-        document.addEventListener('DOMContentLoaded', function() {
-            // Handle all form submissions that should be AJAX
-            document.addEventListener('submit', function(e) {
-                const form = e.target;
-
-                // Skip if form has specific class to allow normal submission
-                if (form.classList.contains('allow-refresh')) {
-                    return;
-                }
-
-                // Handle newsletter forms
-                if (form.id === 'newsletterForm' || form.classList.contains('newsletter-form')) {
-                    e.preventDefault();
-                    handleNewsletterSubmission(form);
-                    return;
-                }
-
-                // Handle contact forms
-                if (form.id === 'contactForm' || form.classList.contains('contact-form')) {
-                    e.preventDefault();
-                    handleContactSubmission(form);
-                    return;
-                }
-
-                // Handle reservation forms
-                if (form.id === 'reservationForm' || form.classList.contains('reservation-form')) {
-                    e.preventDefault();
-                    handleReservationSubmission(form);
-                    return;
-                }
-
-                // Handle payment forms
-                if (form.id === 'paymentForm' || form.classList.contains('payment-form')) {
-                    e.preventDefault();
-                    // Payment form is handled by simulation-payment.js
-                    return;
-                }
-            });
-
-            // Quick Pay functionality
-            window.quickPay = function(itemId, itemName, itemPrice, itemImage) {
-                console.log('Quick pay initiated for:', itemName);
-
-                // Create single item order data
-                const orderData = {
-                    items: [{
-                        id: itemId,
-                        name: itemName,
-                        price: itemPrice,
-                        quantity: 1,
-                        image: itemImage
-                    }],
-                    total: itemPrice,
-                    type: 'quick_pay'
-                };
-
-                // Store order data globally for payment modal
-                window.currentOrderData = orderData;
-
-                console.log('Quick pay order data prepared:', orderData);
-
-                // Show payment modal
-                if (typeof showPaymentModal === 'function') {
-                    showPaymentModal(orderData);
-                } else {
-                    console.error('Payment modal not available');
-                    showNotification('Payment modal is loading. Please try again.', 'warning');
-                }
-            };
-        });
-
-        // Newsletter submission handler
-        function handleNewsletterSubmission(form) {
-            const email = form.querySelector('input[type="email"]').value;
-            const submitBtn = form.querySelector('button[type="submit"]');
-            const originalText = submitBtn.innerHTML;
-
-            if (!email) {
-                showNotification('Please enter your email address', 'warning');
-                return;
-            }
-
-            submitBtn.innerHTML = '<span class="spinner-border spinner-border-sm me-2"></span>Subscribing...';
-            submitBtn.disabled = true;
-
-            // Simulate API call
-            fetch('/newsletter/subscribe', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]')?.getAttribute('content') || ''
-                },
-                body: JSON.stringify({ email: email })
-            })
-            .then(response => response.json())
-            .then(data => {
-                submitBtn.innerHTML = '<i class="bi bi-check-lg me-2"></i>Subscribed!';
-                submitBtn.classList.add('btn-success');
-                form.reset();
-                showNotification('Thank you for subscribing to our newsletter!', 'success');
-            })
-            .catch(error => {
-                console.error('Newsletter subscription error:', error);
-                showNotification('Subscription successful! Thank you for joining us.', 'success');
-                form.reset();
-            })
-            .finally(() => {
-                setTimeout(() => {
-                    submitBtn.innerHTML = originalText;
-                    submitBtn.disabled = false;
-                    submitBtn.classList.remove('btn-success');
-                }, 3000);
-            });
-        }
-
-        // Contact form submission handler
-        function handleContactSubmission(form) {
-            const formData = new FormData(form);
-            const submitBtn = form.querySelector('button[type="submit"]');
-            const originalText = submitBtn.innerHTML;
-
-            submitBtn.innerHTML = '<span class="spinner-border spinner-border-sm me-2"></span>Sending...';
-            submitBtn.disabled = true;
-
-            fetch('/contact', {
-                method: 'POST',
-                body: formData,
-                headers: {
-                    'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]')?.getAttribute('content') || ''
-                }
-            })
-            .then(response => response.json())
-            .then(data => {
-                submitBtn.innerHTML = '<i class="bi bi-check-lg me-2"></i>Sent!';
-                submitBtn.classList.add('btn-success');
-                form.reset();
-                showNotification('Your message has been sent successfully!', 'success');
-            })
-            .catch(error => {
-                console.error('Contact form error:', error);
-                showNotification('Message sent successfully! We will get back to you soon.', 'success');
-                form.reset();
-            })
-            .finally(() => {
-                setTimeout(() => {
-                    submitBtn.innerHTML = originalText;
-                    submitBtn.disabled = false;
-                    submitBtn.classList.remove('btn-success');
-                }, 3000);
-            });
-        }
-
-        // Reservation form submission handler
-        function handleReservationSubmission(form) {
-            const formData = new FormData(form);
-            const submitBtn = form.querySelector('button[type="submit"]');
-            const originalText = submitBtn.innerHTML;
-
-            submitBtn.innerHTML = '<span class="spinner-border spinner-border-sm me-2"></span>Booking...';
-            submitBtn.disabled = true;
-
-            fetch('/reservation', {
-                method: 'POST',
-                body: formData,
-                headers: {
-                    'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]')?.getAttribute('content') || ''
-                }
-            })
-            .then(response => response.json())
-            .then(data => {
-                submitBtn.innerHTML = '<i class="bi bi-check-lg me-2"></i>Confirmed!';
-                submitBtn.classList.add('btn-success');
-                form.reset();
-                showNotification('Your reservation has been confirmed!', 'success');
-            })
-            .catch(error => {
-                console.error('Reservation error:', error);
-                showNotification('Reservation submitted successfully! You will receive confirmation once approved.', 'success');
-                form.reset();
-            })
-            .finally(() => {
-                setTimeout(() => {
-                showNotification('Reservation submitted successfully! You will receive confirmation once approved.', 'success');
-                    submitBtn.disabled = false;
-                    submitBtn.classList.remove('btn-success');
-                }, 3000);
-            });
-        }
-
-        document.addEventListener('DOMContentLoaded', function() {
-            setTimeout(function() {
-                const text = '"කෝපි සුවඳට දුඹුරු පාටට ආස කරන ආත්ම එකතුවෙන නිවහන"';
-                const element = document.getElementById('sinhalaTypewriter');
-                const cursor = document.getElementById('cursor');
-                let index = 0;
-
-                function typeWriter() {
-                    if (index < text.length) {
-                        element.textContent += text.charAt(index);
-                        index++;
-                        setTimeout(typeWriter, 120);
-                    } else {
+                    })
+                    .catch(error => {
+                        console.error('Newsletter subscription error:', error);
+                        showNotification('Failed to subscribe. Please try again.', 'error');
+                    })
+                    .finally(() => {
                         setTimeout(() => {
-                            cursor.style.opacity = '0';
-                        }, 2000);
-                    }
-                }
-
-                typeWriter();
-            }, 1500);
-        });
-
-        document.addEventListener('DOMContentLoaded', function() {
-            setTimeout(function() {
-                const text = '"A home where souls who love the smell of coffee and the color brown gather"';
-                const element = document.getElementById('englishTypewriter');
-                const cursor = document.getElementById('cursor');
-                let index = 0;
-
-                function typeWriter() {
-                    if (index < text.length) {
-                        element.textContent += text.charAt(index);
-                        index++;
-                        setTimeout(typeWriter, 130);
-                    } else {
-                        setTimeout(() => {
-                            cursor.style.opacity = '0';
-                        }, 2000);
-                    }
-                }
-
-                typeWriter();
-            }, 1500);
-        });
-
-        // Navbar scroll effect
-        window.addEventListener('scroll', function() {
-            const navbar = document.getElementById('mainNavbar');
-            const scrollProgress = document.getElementById('scrollProgress');
-            const backToTop = document.getElementById('backToTop');
-
-            // Navbar background
-            if (window.scrollY > 100) {
-                navbar.classList.add('scrolled');
-            } else {
-                navbar.classList.remove('scrolled');
-            }
-
-            // Scroll progress
-            const scrollPercent = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) *
-                100;
-            scrollProgress.style.width = scrollPercent + '%';
-
-            // Back to top button
-            if (window.scrollY > 300) {
-                backToTop.style.display = 'block';
-            } else {
-                backToTop.style.display = 'none';
-            }
-        });
-
-        // Back to top functionality
-        document.getElementById('backToTop').addEventListener('click', function() {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
-        });
-
-        // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
+                            submitBtn.innerHTML = originalText;
+                            submitBtn.disabled = false;
+                            submitBtn.classList.remove('btn-success');
+                        }, 3000);
                     });
-                }
-            });
-        });
-
-        // Add hover effects to cards
-        document.addEventListener('DOMContentLoaded', function() {
-            const cards = document.querySelectorAll('.card-coffee');
-            cards.forEach(card => {
-                card.addEventListener('mouseenter', function() {
-                    this.style.transform = 'translateY(-10px) scale(1.02)';
-                });
-
-                card.addEventListener('mouseleave', function() {
-                    this.style.transform = 'translateY(0) scale(1)';
                 });
             });
-        });
 
-        // Counter animation
-        function animateCounters() {
-            const counters = document.querySelectorAll('.stat-number');
-            counters.forEach(counter => {
-                const target = parseInt(counter.getAttribute('data-target'));
-                const increment = target / 100;
-                let current = 0;
+            // Contact form submission
+            const contactForm = document.getElementById('contactForm');
+            if (contactForm) {
+                contactForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
 
-                const timer = setInterval(() => {
-                    current += increment;
-                    if (current >= target) {
-                        counter.textContent = target;
-                        clearInterval(timer);
-                    } else {
-                        counter.textContent = Math.floor(current);
+                    if (!this.checkValidity()) {
+                        this.classList.add('was-validated');
+                        return;
                     }
-                }, 20);
-            });
-        }
 
-        // Trigger counter animation when stats section is visible
-        (function() {
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        animateCounters();
-                        observer.unobserve(entry.target);
-                    }
+                    const formData = new FormData(this);
+                    const submitBtn = this.querySelector('button[type="submit"]');
+                    const btnText = submitBtn.querySelector('.btn-text');
+                    const btnLoading = submitBtn.querySelector('.btn-loading');
+
+                    btnText.classList.add('d-none');
+                    btnLoading.classList.remove('d-none');
+                    submitBtn.disabled = true;
+
+                    const data = {};
+                    formData.forEach((value, key) => {
+                        data[key] = value;
+                    });
+
+                    fetch('/contact', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+                        },
+                        body: JSON.stringify(data)
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.success) {
+                            showNotification(`Message sent successfully! Reference ID: ${data.message_id}`, 'success');
+                            this.reset();
+                            this.classList.remove('was-validated');
+                        } else {
+                            throw new Error(data.message || 'Failed to send message');
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Contact form error:', error);
+                        showNotification('Failed to send message. Please try again.', 'error');
+                    })
+                    .finally(() => {
+                        btnText.classList.remove('d-none');
+                        btnLoading.classList.add('d-none');
+                        submitBtn.disabled = false;
+                    });
                 });
-            });
-
-            const statsSection = document.querySelector('.stats-counter');
-            if (statsSection) {
-                observer.observe(statsSection);
-            }
-        })();
-
-        // Cart functionality
-        function updateCartDisplay() {
-            const cart = JSON.parse(localStorage.getItem('cafeElixirCart')) || [];
-            const cartCounter = document.getElementById('cartCounter');
-            const cartItems = document.getElementById('cartItems');
-            const cartList = document.getElementById('cartList');
-            const cartFooter = document.getElementById('cartFooter');
-            const cartTotal = document.getElementById('cartTotal');
-            const emptyCart = document.getElementById('emptyCart');
-
-            const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
-            const totalPrice = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
-
-            // Update cart counter
-            if (cartCounter) {
-                if (totalItems > 0) {
-                    cartCounter.textContent = totalItems;
-                    cartCounter.style.display = 'inline-block';
-                } else {
-                    cartCounter.style.display = 'none';
-                }
             }
 
-            // Update cart modal
-            if (cart.length === 0) {
-                if (emptyCart) emptyCart.style.display = 'block';
-                if (cartList) cartList.style.display = 'none';
-                if (cartFooter) cartFooter.style.display = 'none';
-            } else {
-                if (emptyCart) emptyCart.style.display = 'none';
-                if (cartList) cartList.style.display = 'block';
-                if (cartFooter) cartFooter.style.display = 'block';
+            // Reservation form submission
+            const reservationForm = document.getElementById('reservationForm');
+            if (reservationForm) {
+                reservationForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
 
-                // Populate cart items
-                if (cartList) {
-                    cartList.innerHTML = cart.map(item => `
-                <div class="cart-item d-flex justify-content-between align-items-center py-3 border-bottom">
-                    <div class="flex-grow-1">
-                        <h6 class="mb-1">${item.name}</h6>
-                        <small class="text-muted">Rs. ${item.price.toFixed(2)} each</small>
-                    </div>
-                    <div class="d-flex align-items-center gap-2">
-                        <button class="btn btn-sm btn-outline-secondary" onclick="updateQuantity('${item.name}', -1)">
-                            <i class="bi bi-dash"></i>
-                        </button>
-                        <span class="mx-2">${item.quantity}</span>
-                        <button class="btn btn-sm btn-outline-secondary" onclick="updateQuantity('${item.name}', 1)">
-                            <i class="bi bi-plus"></i>
-                        </button>
-                        <button class="btn btn-sm btn-outline-danger ms-2" onclick="removeFromCart('${item.name}')">
-                            <i class="bi bi-trash"></i>
-                        </button>
-                    </div>
-                    <div class="text-end ms-3">
-                        <strong>Rs. ${(item.price * item.quantity).toFixed(2)}</strong>
-                    </div>
-                </div>
-            `).join('');
-                }
-
-                // Update total
-                if (cartTotal) {
-                    cartTotal.textContent = `Rs. ${totalPrice.toFixed(2)}`;
-                }
-            }
-        }
-
-        function updateQuantity(itemName, change) {
-            let cart = JSON.parse(localStorage.getItem('cafeElixirCart')) || [];
-            const itemIndex = cart.findIndex(item => item.name === itemName);
-
-            if (itemIndex !== -1) {
-                cart[itemIndex].quantity += change;
-
-                if (cart[itemIndex].quantity <= 0) {
-                    cart.splice(itemIndex, 1);
-                }
-
-                localStorage.setItem('cafeElixirCart', JSON.stringify(cart));
-                updateCartDisplay();
-
-                // Show notification
-                if (change > 0) {
-                    showNotification(`Increased ${itemName} quantity`, 'info');
-                } else {
-                    showNotification(`Decreased ${itemName} quantity`, 'info');
-                }
-            }
-        }
-
-        function removeFromCart(itemName) {
-            let cart = JSON.parse(localStorage.getItem('cafeElixirCart')) || [];
-            cart = cart.filter(item => item.name !== itemName);
-
-            localStorage.setItem('cafeElixirCart', JSON.stringify(cart));
-            updateCartDisplay();
-
-            showNotification(`${itemName} removed from cart`, 'warning');
-        }
-
-        function clearCart() {
-            // Only show confirmation if not during payment process
-            if (!window.paymentInProgress && !window.checkoutInProgress && confirm('Are you sure you want to clear your cart?')) {
-                localStorage.removeItem('cafeElixirCart');
-                updateCartDisplay();
-                showNotification('Cart cleared successfully', 'info');
-            } else if (window.paymentInProgress || window.checkoutInProgress) {
-                // Don't clear cart during payment/checkout
-                showNotification('Cannot clear cart during payment process', 'warning');
-            }
-        }
-
-        function proceedToCheckout() {
-            const cart = JSON.parse(localStorage.getItem('cafeElixirCart')) || [];
-
-            if (cart.length === 0) {
-                showNotification('Your cart is empty!', 'warning');
-                return;
-            }
-
-            // For now, just show a success message
-            // In a real application, this would redirect to a checkout page
-            showNotification('Checkout functionality coming soon!', 'info');
-
-            // You can redirect to a checkout page here
-            // window.location.href = '/checkout';
-        }
-
-        // Initialize cart display when page loads
-        document.addEventListener('DOMContentLoaded', function() {
-            // Initialize payment state flags
-            window.paymentInProgress = false;
-            window.orderSuccessful = false;
-            window.checkoutInProgress = false;
-
-            updateCartDisplay();
-
-            // Update cart display when cart modal is opened
-            const cartModal = document.getElementById('cartModal');
-            if (cartModal) {
-                cartModal.addEventListener('show.bs.modal', function() {
-                    updateCartDisplay();
-                });
-
-                // Handle cart modal close during payment
-                cartModal.addEventListener('hide.bs.modal', function() {
-                    // Don't allow cart modal to close during active payment
-                    if (window.paymentInProgress && !window.orderSuccessful) {
-                        console.log('Preventing cart modal close during payment');
-                        // Could optionally prevent closing here
+                    if (!this.checkValidity()) {
+                        this.classList.add('was-validated');
+                        return;
                     }
+
+                    const formData = new FormData(this);
+                    const submitBtn = this.querySelector('button[type="submit"]');
+                    const btnText = submitBtn.querySelector('.btn-text');
+                    const btnLoading = submitBtn.querySelector('.btn-loading');
+
+                    btnText.classList.add('d-none');
+                    btnLoading.classList.remove('d-none');
+                    submitBtn.disabled = true;
+
+                    const data = {};
+                    formData.forEach((value, key) => {
+                        data[key] = value;
+                    });
+
+                    fetch('/reservation', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+                        },
+                        body: JSON.stringify(data)
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.success) {
+                            showNotification(`Reservation confirmed! ID: ${data.reservation_id}`, 'success');
+                            this.reset();
+                            this.classList.remove('was-validated');
+                        } else {
+                            throw new Error(data.message || 'Failed to make reservation');
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Reservation form error:', error);
+                        showNotification('Failed to make reservation. Please try again.', 'error');
+                    })
+                    .finally(() => {
+                        btnText.classList.remove('d-none');
+                        btnLoading.classList.add('d-none');
+                        submitBtn.disabled = false;
+                    });
                 });
             }
         });
+
+        // CSS animations
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes slideInRight {
+                from { transform: translateX(100%); opacity: 0; }
+                to { transform: translateX(0); opacity: 1; }
+            }
+            
+            @keyframes slideOutRight {
+                from { transform: translateX(0); opacity: 1; }
+                to { transform: translateX(100%); opacity: 0; }
+            }
+            
+            @keyframes blink {
+                0%, 50% { opacity: 1; }
+                51%, 100% { opacity: 0; }
+            }
+            
+            .notification-toast {
+                backdrop-filter: blur(10px);
+            }
+        `;
+        document.head.appendChild(style);
     </script>
-
-    <!-- Cart JavaScript -->
-    <script src="{{ asset('js/cart.js') }}"></script>
-
-    <!-- Simulation Payment JavaScript -->
-    <script src="{{ asset('js/simulation-payment.js') }}"></script>
-
-    <!-- Coming Soon Features JavaScript -->
-    <script src="{{ asset('js/coming-soon.js') }}"></script>
-
-    <!-- Payment Modal -->
-    @include('partials.payment-modal')
 
     @stack('scripts')
 </body>
-
 </html>
